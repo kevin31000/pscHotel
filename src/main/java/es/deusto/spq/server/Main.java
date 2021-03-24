@@ -1,4 +1,4 @@
-package es.deusto.spq;
+package es.deusto.spq.server;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
