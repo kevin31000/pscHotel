@@ -1,6 +1,9 @@
 package es.deusto.spq.server;
 
 import org.glassfish.grizzly.http.server.HttpServer;
+
+import es.deusto.spq.client.Habitacion;
+
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 
@@ -142,6 +145,25 @@ public class DBManager {
 	public void initializeData() {
 		System.out.println(" * Initializing data base");
 		// Cliente c1 = new client...
+
+		//Habitacion h1 = new Habitacion...
+		Habitacion h1 = new Habitacion("H1", 4, 73, false);
+		Habitacion h2 = new Habitacion("H2", 4, 73, false);
+		Habitacion h3 = new Habitacion("H3", 4, 67, false);
+		Habitacion h4 = new Habitacion("H4", 4, 67, false);
+		Habitacion h5 = new Habitacion("H5", 3, 51, false);
+		Habitacion h6 = new Habitacion("H6", 3, 51, false);
+		Habitacion h7 = new Habitacion("H7", 3, 54, false);
+		Habitacion h8 = new Habitacion("H8", 3, 54, false);
+		Habitacion h9 = new Habitacion("H9", 2, 85, false);
+		Habitacion h10 = new Habitacion("H10", 2, 70, false);
+		Habitacion h11 = new Habitacion("H11", 2, 70, false);
+		Habitacion h12 = new Habitacion("H12", 2, 65, false);
+		Habitacion h13 = new Habitacion("H13", 1, 72, false);
+		Habitacion h14 = new Habitacion("H14", 1, 72, false);
+		Habitacion h15 = new Habitacion("H15", 1, 68, false);
+		Habitacion h16 = new Habitacion("H16", 1, 68, false);
+
 		try {
 			// store(c1);
 		} catch (Exception ex) {
