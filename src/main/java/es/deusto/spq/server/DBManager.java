@@ -35,6 +35,28 @@ public class DBManager {
 
 		return instance;
 	}
+	
+	public void storeObjectInDB(Object object) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+		
+
+		try {
+			tx.begin();
+			pm.makePersistent(object);
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error storing an object: " + ex.getMessage());
+			System.out.println("Object:" + object);
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+	}
 
 	public void store(Cliente client) {
 		DBManager.getInstance().storeObjectInDB(client);
