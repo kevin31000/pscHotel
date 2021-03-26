@@ -1,6 +1,14 @@
 package es.deusto.spq.client;
 
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.InheritanceStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Habitacion {
+	@PrimaryKey
 	private String codigo;
 	private int numCamas;
 	private double precio;
