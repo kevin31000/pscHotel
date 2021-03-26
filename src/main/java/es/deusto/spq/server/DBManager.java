@@ -60,6 +60,27 @@ public class DBManager {
 			pm.close();
 		}
 	}
+	
+	public void deleteObjectFromDB(Object object) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+			tx.begin();
+			
+			pm.deletePersistent(object);
+			
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println(" $ Error deleting an object: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
 
 	public void store(Cliente client) {
 		DBManager.getInstance().storeObjectInDB(client);
