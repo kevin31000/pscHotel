@@ -2,6 +2,7 @@ package es.deusto.spq.server;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 
+import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Habitacion;
 
 import javax.jdo.PersistenceManager;
@@ -60,6 +61,28 @@ public class DBManager {
 			pm.close();
 		}
 	}
+	
+	public void deleteObjectFromDB(Object object) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+			tx.begin();
+			
+			pm.deletePersistent(object);
+			
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println(" $ Error deleting an object: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+		}
 
 	public void store(Cliente client) {
 		DBManager.getInstance().storeObjectInDB(client);
@@ -72,7 +95,7 @@ public class DBManager {
 	public void update(Cliente client) {
 		Cliente user2 = getUsuario(client.getEmail());
 		if (user2 != null) {
-			System.out.println(user2.getNombre() + user2.getApellidos() + user2.getEmail());
+			System.out.println(user2.getNombre() + user2.getApellido() + user2.getEmail());
 			delete(user2);
 			store(client);
 		}
@@ -163,7 +186,8 @@ public class DBManager {
 		}
 
 	}
-
+	
+	
 	public void initializeData() {
 		System.out.println(" * Initializing data base");
 		// Cliente c1 = new client...
