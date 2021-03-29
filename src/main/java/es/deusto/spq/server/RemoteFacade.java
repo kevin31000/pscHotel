@@ -12,7 +12,7 @@ import es.deusto.spq.client.Cliente;
 
 @Path("/server")
 @Produces(MediaType.APPLICATION_JSON)
-public class RemoteFacade {
+public class RemoteFacade implements IRemoteFacade{
 
 	private DBManager dbmanager = null;
 	private Logger logger = Logger.getLogger(RemoteFacade.class.getName());
