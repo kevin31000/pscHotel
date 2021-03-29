@@ -27,6 +27,10 @@ public class Cliente {
 		this.esAdmin = esAdmin;
 	}
 	
+	public Cliente() {
+		super();
+	}
+
 	public String getDNI() {
 		return DNI;
 	}

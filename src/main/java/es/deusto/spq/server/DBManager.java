@@ -1,26 +1,26 @@
 package es.deusto.spq.server;
 
-import org.glassfish.grizzly.http.server.HttpServer;
-
-import es.deusto.spq.client.Cliente;
-import es.deusto.spq.client.Habitacion;
-
-import javax.jdo.PersistenceManager;
-import javax.jdo.PersistenceManagerFactory;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.Extent;
-import javax.jdo.Query;
 import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
+import javax.jdo.Query;
 import javax.jdo.Transaction;
+
+import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.Habitacion;
 
 public class DBManager {
 	private static DBManager instance = null;
 	private PersistenceManagerFactory pmf = null;
 	private static boolean inicializado = false;
-
+	private Connection conn;
+	
 	private DBManager() {
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 	}
@@ -187,29 +187,75 @@ public class DBManager {
 
 	}
 	
+	public void anadirHabitaciones(List<Habitacion> habitaciones) {
+		PreparedStatement preparedStatement = null;
+
+	        try {
+	            
+	        	for (Habitacion h : habitaciones) {
+	        		String query = " INSERT INTO HABITACION (CODIGO, NUMCAMAS, PRECIO, OCUPADA)"
+		                    + " VALUES (?, ?, ?, ?)";
+
+		            preparedStatement = conn.prepareStatement(query);
+
+		            preparedStatement.setString(1, h.getCodigo());
+		            preparedStatement.setInt(2, h.getNumCamas());
+		            preparedStatement.setDouble(3, h.getPrecio());
+		            preparedStatement.setBoolean(4, h.isOcupada());
+		            preparedStatement.execute();
+
+		            System.out.println("OperaciÃ³n existosa");
+				}
+	        	
+
+	        } catch (Exception e) {
+	            System.out.println("A ocurrido un ERROR");
+	            System.out.println(e);
+	        }
+	}
+
 	
 	public void initializeData() {
 		System.out.println(" * Initializing data base");
 		// Cliente c1 = new client...
-
+		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
+		
 		//Habitacion h1 = new Habitacion...
 		Habitacion h1 = new Habitacion("H1", 4, 73, false);
+		habitaciones.add(h1);
 		Habitacion h2 = new Habitacion("H2", 4, 73, false);
+		habitaciones.add(h2);
 		Habitacion h3 = new Habitacion("H3", 4, 67, false);
+		habitaciones.add(h3);
 		Habitacion h4 = new Habitacion("H4", 4, 67, false);
+		habitaciones.add(h4);
 		Habitacion h5 = new Habitacion("H5", 3, 51, false);
+		habitaciones.add(h5);
 		Habitacion h6 = new Habitacion("H6", 3, 51, false);
+		habitaciones.add(h6);
 		Habitacion h7 = new Habitacion("H7", 3, 54, false);
+		habitaciones.add(h7);
 		Habitacion h8 = new Habitacion("H8", 3, 54, false);
+		habitaciones.add(h8);
 		Habitacion h9 = new Habitacion("H9", 2, 85, false);
+		habitaciones.add(h9);
 		Habitacion h10 = new Habitacion("H10", 2, 70, false);
+		habitaciones.add(h10);
 		Habitacion h11 = new Habitacion("H11", 2, 70, false);
+		habitaciones.add(h11);
 		Habitacion h12 = new Habitacion("H12", 2, 65, false);
+		habitaciones.add(h12);
 		Habitacion h13 = new Habitacion("H13", 1, 72, false);
+		habitaciones.add(h13);
 		Habitacion h14 = new Habitacion("H14", 1, 72, false);
+		habitaciones.add(h14);
 		Habitacion h15 = new Habitacion("H15", 1, 68, false);
+		habitaciones.add(h15);
 		Habitacion h16 = new Habitacion("H16", 1, 68, false);
+		habitaciones.add(h16);
 
+		anadirHabitaciones(habitaciones);
+		
 		try {
 			// store(c1);
 		} catch (Exception ex) {
