@@ -85,7 +85,7 @@ public class VentanaRegistro extends JFrame{
 		contentpane.add(labelEmail);
 		labelContrasenya.setFont(new Font("Arial", Font.BOLD, 11));
 
-		labelContrasenya.setText(" Contrasena:");
+		labelContrasenya.setText(" Contrasenya:");
 		labelContrasenya.setBounds(70, 350, 120, 20);
 		//loselabelPass.setBackground(Color.white);
 		labelContrasenya.setOpaque(true);
@@ -97,7 +97,6 @@ public class VentanaRegistro extends JFrame{
 		//loselabelPass.setBackground(Color.white);
 		labelAdmin.setOpaque(true);
 		contentpane.add(labelAdmin);
-		
 		
 
 		buttonAceptar.setForeground(SystemColor.text);
