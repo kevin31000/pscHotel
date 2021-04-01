@@ -18,6 +18,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
+import es.deusto.spq.client.Controller;
+
 public class VentanaRegistro extends JFrame{
 
 	/**
@@ -43,7 +45,7 @@ public class VentanaRegistro extends JFrame{
 	private JButton buttonAceptar = new JButton();
 	private JButton buttonLogin = new JButton();
 
-	public VentanaRegistro() {
+	public VentanaRegistro(final Controller controller) {
 
 		contentpane = new JPanel();
 
@@ -144,7 +146,7 @@ public class VentanaRegistro extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new VentanaInicioSesion();
+				new VentanaInicioSesion(controller);
 				dispose();
 			}
 		});
@@ -154,7 +156,7 @@ public class VentanaRegistro extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new VentanaInicioSesion();
+				new VentanaInicioSesion(controller);
 				dispose();
 
 			}

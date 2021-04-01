@@ -15,13 +15,13 @@ import org.apache.log4j.Logger;
 
 public class ServiceLocator {
 
-	private Client client;
+	private Client cliente;
 	private WebTarget webTarget;
 	private static Logger logger = Logger.getLogger(ServiceLocator.class.getName());
 
 	public ServiceLocator() {
-		client = ClientBuilder.newClient();
-		webTarget = client.target(cogerUrl());
+		cliente = ClientBuilder.newClient();
+		webTarget = cliente.target(cogerUrl());
 	}
 
 	public static String cogerUrl() {

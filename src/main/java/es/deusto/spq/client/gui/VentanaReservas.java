@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
+import es.deusto.spq.client.Controller;
+
 public class VentanaReservas extends JFrame{
     private static final long serialVersionUID = 1L;
 
@@ -25,7 +27,7 @@ public class VentanaReservas extends JFrame{
     private JList disponibilidad = new JList();
     private JButton bReservar = new JButton();
 
-    public VentanaReservas() {
+    public VentanaReservas(Controller controller) {
         contentpane = new JPanel();
 
         contentpane.setBorder(new EmptyBorder(10, 10, 5, 5));
@@ -77,13 +79,5 @@ public class VentanaReservas extends JFrame{
 		this.setTitle("Reservas");
     }
 
-    public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-
-			@Override
-			public void run() {
-				new VentanaReservas();
-			}
-		});
-	}
+   
 }

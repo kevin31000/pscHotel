@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
+import es.deusto.spq.client.Controller;
+
 public class VentanaMenu extends JFrame{
 	
 	/**
@@ -26,7 +28,7 @@ public class VentanaMenu extends JFrame{
 	private JButton buttonReserva = new JButton();
 	private JButton buttonSalir = new JButton();
 	
-	public VentanaMenu() {
+	public VentanaMenu(final Controller controller){
 		contentpane = new JPanel();
 
 		contentpane.setBorder(new EmptyBorder(10, 10, 5, 5));
@@ -61,9 +63,15 @@ public class VentanaMenu extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VentanaReservas reserva = new VentanaReservas();
-				reserva.setVisible(true);
-				VentanaMenu.this.dispose();
+				VentanaReservas reserva;
+				try {
+					reserva = new VentanaReservas(controller);
+					reserva.setVisible(true);
+					VentanaMenu.this.dispose();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+				
 				
 			}
 		});
@@ -82,7 +90,7 @@ public class VentanaMenu extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VentanaInicioSesion inicio = new VentanaInicioSesion();
+				VentanaInicioSesion inicio = new VentanaInicioSesion(controller);
 				inicio.setVisible(true);
 				VentanaMenu.this.dispose();
 				
@@ -94,16 +102,6 @@ public class VentanaMenu extends JFrame{
 		this.setVisible(true);
 		this.setTitle("Menu");
 
-	}
-	
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-
-			@Override
-			public void run() {
-				new VentanaMenu();
-			}
-		});
 	}
 
 }

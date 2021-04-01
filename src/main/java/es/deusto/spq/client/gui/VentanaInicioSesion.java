@@ -6,14 +6,24 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.text.ParseException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+
+import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.Controller;
+import es.deusto.spq.client.GetProperties;
+import es.deusto.spq.client.ServiceLocator;
 
 public class VentanaInicioSesion extends JFrame {
 
@@ -29,8 +39,18 @@ public class VentanaInicioSesion extends JFrame {
 	private JTextField textPass = new JTextField();
 	private JButton buttonAceptar = new JButton();
 	private JButton buttonRegistrar = new JButton();
+	private Client client;
 
-	public VentanaInicioSesion() {
+	public VentanaInicioSesion(final Controller controller){
+		client = ClientBuilder.newClient();
+		GetProperties properties = new GetProperties();
+		String url = "";
+		try {
+			url = properties.getURL();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 
 		contentpane = new JPanel();
 
@@ -45,7 +65,7 @@ public class VentanaInicioSesion extends JFrame {
 		contentpane.add(labelTitle);
 
 		labelUser.setText(" Email:");
-		//labelUser.setBackground(Color.white);
+		// labelUser.setBackground(Color.white);
 		labelUser.setOpaque(true);
 		labelUser.setBounds(70, 134, 120, 20);
 		contentpane.add(labelUser, BorderLayout.SOUTH);
@@ -53,7 +73,7 @@ public class VentanaInicioSesion extends JFrame {
 
 		labelPass.setText(" Contraseña:");
 		labelPass.setBounds(70, 188, 120, 20);
-		//loselabelPass.setBackground(Color.white);
+		// loselabelPass.setBackground(Color.white);
 		labelPass.setOpaque(true);
 		contentpane.add(labelPass);
 
@@ -78,9 +98,26 @@ public class VentanaInicioSesion extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				new VentanaMenu();
-				dispose();
+				int correcto = controller.iniciarSesion(textUser.getText(), textPass.getText());
+				if(correcto == 1) {
+					VentanaMenu menu;
+					try {
+						menu = new VentanaMenu(controller);
+						menu.setVisible(true);
+						VentanaInicioSesion.this.dispose();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+
+
+
+				}else if(correcto == 2) {
+					//Aqui redireccionar a la vemtana Admin
+				}else if(correcto == 0) {
+					JOptionPane.showMessageDialog(null, "Usuario incorrecto");
+				}
 			}
 		});
 
@@ -89,7 +126,7 @@ public class VentanaInicioSesion extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new VentanaRegistro();
+				new VentanaRegistro(controller);
 				dispose();
 
 			}
@@ -100,16 +137,6 @@ public class VentanaInicioSesion extends JFrame {
 		setVisible(true);
 		setTitle("PSC Hotel");
 
-	}
-
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-
-			@Override
-			public void run() {
-				new VentanaInicioSesion();
-			}
-		});
 	}
 
 }
