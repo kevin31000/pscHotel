@@ -80,7 +80,14 @@ public class VentanaMenu extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				VentanaDatosCliente datosCliente;
+				try {
+					datosCliente = new VentanaDatosCliente();
+					datosCliente.setVisible(true);
+					VentanaMenu.this.dispose();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
 				
 			}
 		});
