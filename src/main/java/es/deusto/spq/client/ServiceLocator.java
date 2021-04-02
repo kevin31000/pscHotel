@@ -61,7 +61,7 @@ public class ServiceLocator {
 		WebTarget webTarget2 = webTarget.path("server/obtenerHabitaciones");
 		Invocation.Builder invocationBuilder = webTarget2.request(MediaType.APPLICATION_JSON);
 
-		ArrayList<Habitacion> habitaciones = new ArrayList<Habitacion>();;
+		ArrayList<Habitacion> habitaciones = new ArrayList<Habitacion>();
 		for (int i = 1; i < 51; i++) {
 			Habitacion h = new Habitacion();
 			h.setCodigo("h" + Integer.toString(i));
@@ -80,4 +80,26 @@ public class ServiceLocator {
 		return habitaciones;
 	}
 
+	public ArrayList<Reserva> obtenerReservas() {
+		WebTarget webTarget3 = webTarget.path("server/obtenerReservas");
+		Invocation.Builder invocationBuilder = webTarget3.request(MediaType.APPLICATION_JSON);
+
+		ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+		for (int i = 1; i < 51; i++) {
+			Reserva r = new Reserva();
+			r.setCodigoReserva("r" + Integer.toString(i));
+			
+			Response response = invocationBuilder.post(Entity.entity(r, MediaType.APPLICATION_JSON));
+			try {
+				if (response.getEntity() != null) {
+					r = (Reserva) response.getEntity();
+					reservas.add(r);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return reservas;
+	}
 }

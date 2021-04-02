@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.client.Habitacion;
+import es.deusto.spq.client.Reserva;
 import es.deusto.spq.client.ServiceLocator;
 
 public class VentanaReservas extends JFrame{
@@ -57,7 +58,7 @@ public class VentanaReservas extends JFrame{
         ArrayList<Habitacion> habitaciones = serviceLocator.obtenerHabitaciones();
         for (Habitacion habitacion : habitaciones) {
             if (habitacion != null) {
-                contenidoHabitaciones.addElement(habitacion);
+                contenidoHabitaciones.addElement(habitacion.toString());
             }
         }
         listHabitaciones.setModel(contenidoHabitaciones);
@@ -65,7 +66,13 @@ public class VentanaReservas extends JFrame{
         contentpane.add(listHabitaciones);
         
         DefaultListModel contenidoDisponibilidad = new DefaultListModel();
-        listDisponibilidad.setModel(contenidoDisponibilidad);
+        ArrayList<Reserva> reservas = serviceLocator.obtenerReservas();
+        for (Reserva reserva : reservas) {
+            if (reserva != null) {
+                //crear abajo un metodo para comprobar que una habitacion esta ocupada y que refleje
+                //en el programa (como parte de la tarea mostrar disponibilidad habitaciones)
+            }
+        }
         listDisponibilidad.setBounds(590, 130, 400, 340);
         contentpane.add(listDisponibilidad);
 
@@ -80,6 +87,7 @@ public class VentanaReservas extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 
+
 			}
         });
 
@@ -88,13 +96,4 @@ public class VentanaReservas extends JFrame{
 		this.setVisible(true);
 		this.setTitle("Reservas");
     }
-    
-    /* WORK IN PROGRESS
-    //False == habitacion libre, true == ocupada
-    public static boolean consultaDisponibilidad(Habitacion h) {
-
-
-        return false;
-    }*/
-
 }
