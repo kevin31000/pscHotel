@@ -1,6 +1,7 @@
 package es.deusto.spq.client;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -54,6 +55,29 @@ public class ServiceLocator {
 			return 2;
 		}
 		return 0;
+	}
+
+	public ArrayList<Habitacion> obtenerHabitaciones() {
+		WebTarget webTarget2 = webTarget.path("server/obtenerHabitaciones");
+		Invocation.Builder invocationBuilder = webTarget2.request(MediaType.APPLICATION_JSON);
+
+		ArrayList<Habitacion> habitaciones = new ArrayList<Habitacion>();;
+		for (int i = 1; i < 51; i++) {
+			Habitacion h = new Habitacion();
+			h.setCodigo("h" + Integer.toString(i));
+			
+			Response response = invocationBuilder.post(Entity.entity(h, MediaType.APPLICATION_JSON));
+			try {
+				if (response.getEntity() != null) {
+					h = (Habitacion) response.getEntity();
+					habitaciones.add(h);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return habitaciones;
 	}
 
 }
