@@ -38,6 +38,27 @@ public class ServiceLocator {
 		return url;
 
 	}
+	
+	public boolean anadirCliente(String DNI, String nombre, String apellido, String email, String contrasenya, boolean esAdmin) {
+		WebTarget registerUserWebTarget = webTarget.path("server/registro");
+		Cliente c = new Cliente();
+		c.setDNI(DNI);
+		c.setNombre(nombre);
+		c.setApellido(apellido);
+		c.setEmail(email);
+		c.setContrasenya(contrasenya);
+		c.setEsAdmin(false);
+		
+		Entity<Cliente> entity = Entity.entity(c, MediaType.APPLICATION_JSON);
+		Response response = registerUserWebTarget.request().post(entity);
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			return false;
+		} else {
+			logger.info("User correctly registered");
+			return true;
+		}
+	}
 
 	public int iniciarSesion(String email, String contrasenya) {
 		WebTarget webTarget1 = webTarget.path("server/inicioSesion");

@@ -6,4 +6,5 @@ import es.deusto.spq.client.Cliente;
 
 public interface IRemoteFacade {
 	public Response iniciarSesion(Cliente cliente);
+	public Response registrarCliente(Cliente cliente);
 }

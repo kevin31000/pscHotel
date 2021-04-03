@@ -2,6 +2,7 @@ package es.deusto.spq.client.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -136,7 +137,21 @@ public class VentanaInicioSesion extends JFrame {
 		setSize(441, 355);
 		setVisible(true);
 		setTitle("PSC Hotel");
-
 	}
+	
+//		public static void main(String[] args) {
+//			EventQueue.invokeLater(new Runnable() {
+//				public void run() {
+//					try {
+//						VentanaInicioSesion window = new VentanaInicioSesion(null);
+//						window.setVisible(true);
+//					} catch (Exception e) {
+//						e.printStackTrace();
+//					}
+//				}
+//			});
+//		}
+
+	
 
 }
