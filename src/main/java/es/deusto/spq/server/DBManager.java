@@ -214,6 +214,32 @@ public class DBManager {
 	        }
 	}
 
+	public Habitacion getHabitacion(String codigo) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+		Habitacion h = null;
+
+		try {
+			tx.begin();
+
+			Query<?> query = pm.newQuery("SELECT FROM Habitacion WHERE codigo == '" + codigo + "'");
+			query.setUnique(true);
+			h = (Habitacion) query.execute();
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println(" $ Error cogiendo la habitacion de la BD: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return h;
+	}
 	
 	public void initializeData() {
 		System.out.println(" * Initializing data base");

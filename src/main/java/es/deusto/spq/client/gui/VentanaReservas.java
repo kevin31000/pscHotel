@@ -55,24 +55,24 @@ public class VentanaReservas extends JFrame{
 
         DefaultListModel contenidoHabitaciones = new DefaultListModel();
         ServiceLocator serviceLocator = new ServiceLocator();
-        ArrayList<Habitacion> habitaciones = serviceLocator.obtenerHabitaciones();
+        /*ArrayList<Habitacion> habitaciones = serviceLocator.obtenerHabitaciones();
         for (Habitacion habitacion : habitaciones) {
             if (habitacion != null) {
                 contenidoHabitaciones.addElement(habitacion.toString());
             }
-        }
+        }*/
         listHabitaciones.setModel(contenidoHabitaciones);
         listHabitaciones.setBounds(60, 130, 400, 400);
         contentpane.add(listHabitaciones);
         
         DefaultListModel contenidoDisponibilidad = new DefaultListModel();
-        ArrayList<Reserva> reservas = serviceLocator.obtenerReservas();
+        /*ArrayList<Reserva> reservas = serviceLocator.obtenerReservas();
         for (Reserva reserva : reservas) {
             if (reserva != null) {
                 //crear abajo un metodo para comprobar que una habitacion esta ocupada y que refleje
                 //en el programa (como parte de la tarea mostrar disponibilidad habitaciones)
             }
-        }
+        }*/
         listDisponibilidad.setBounds(590, 130, 400, 340);
         contentpane.add(listDisponibilidad);
 

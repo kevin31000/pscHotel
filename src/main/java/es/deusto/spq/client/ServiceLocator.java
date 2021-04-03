@@ -102,4 +102,17 @@ public class ServiceLocator {
 
 		return reservas;
 	}
+
+    public Habitacion obtenerHabitacion(String codigo) {
+        WebTarget webTarget4 = webTarget.path("server/obtenerHabitacion");
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		Habitacion h = new Habitacion();
+		h.setCodigo(codigo);
+
+		Response response = invocationBuilder.post(Entity.entity(h, MediaType.APPLICATION_JSON));
+		h = (Habitacion) response.getEntity();
+
+		return h;
+    }
 }

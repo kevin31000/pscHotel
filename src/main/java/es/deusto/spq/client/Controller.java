@@ -13,4 +13,8 @@ public class Controller {
 		return serviceLocator.iniciarSesion(email, contrasenya);
 	}
 
+    public Habitacion getHabitacion(String codigo) {
+        return serviceLocator.obtenerHabitacion(codigo);
+    }
+
 }
