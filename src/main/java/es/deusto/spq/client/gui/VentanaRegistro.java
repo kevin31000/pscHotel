@@ -12,12 +12,15 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
+import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
 
 public class VentanaRegistro extends JFrame{
@@ -33,14 +36,16 @@ public class VentanaRegistro extends JFrame{
 	private JLabel labelApellido = new JLabel();
 	private JLabel labelEmail = new JLabel();
 	private JLabel labelContrasenya = new JLabel();
+	private JLabel labelConfirmar = new JLabel();
 	private JLabel labelAdmin = new JLabel();
 	private JTextField textDNI = new JTextField();
 	private JTextField textNombre = new JTextField();
 	private JTextField textApellido = new JTextField();
 	private JTextField textEmail = new JTextField();
-	private JTextField textContrasenya = new JTextField();
-	private JRadioButton adminSi = new JRadioButton();
-	private JRadioButton adminNo = new JRadioButton();
+	private JPasswordField textContrasenya = new JPasswordField();
+	private JPasswordField textConfirmar = new JPasswordField();
+	private JRadioButton adminSi = new JRadioButton("Si", false);
+	private JRadioButton adminNo = new JRadioButton("No",true);
 	private ButtonGroup grupo = new ButtonGroup();
 	private JButton buttonAceptar = new JButton();
 	private JButton buttonLogin = new JButton();
@@ -92,10 +97,17 @@ public class VentanaRegistro extends JFrame{
 		//loselabelPass.setBackground(Color.white);
 		labelContrasenya.setOpaque(true);
 		contentpane.add(labelContrasenya);
+		labelConfirmar.setFont(new Font("Arial", Font.BOLD, 11));
+		
+		labelConfirmar.setText(" Confirmar contrasenya:");
+		labelConfirmar.setBounds(70, 404, 120, 20);
+		//loselabelPass.setBackground(Color.white);
+		labelConfirmar.setOpaque(true);
+		contentpane.add(labelConfirmar);
 		labelAdmin.setFont(new Font("Arial", Font.BOLD, 11));
 
 		labelAdmin.setText(" ¿Es admin?");
-		labelAdmin.setBounds(70, 404, 120, 20);
+		labelAdmin.setBounds(70, 454, 120, 20);
 		//loselabelPass.setBackground(Color.white);
 		labelAdmin.setOpaque(true);
 		contentpane.add(labelAdmin);
@@ -127,14 +139,15 @@ public class VentanaRegistro extends JFrame{
 		textContrasenya.setBounds(214, 350, 143, 20);
 		contentpane.add(textContrasenya);
 		
+		textConfirmar.setBounds(214, 404, 143, 20);
+		contentpane.add(textConfirmar);
+		
 		grupo = new ButtonGroup();
 		
-		adminSi.setBounds(214, 404, 143, 20);
-		adminSi.setText("Si");
+		adminSi.setBounds(214, 454, 143, 20);
 		contentpane.add(adminSi);
 		
-		adminNo.setBounds(214, 430, 143, 20);
-		adminNo.setText("No");
+		adminNo.setBounds(214, 480, 143, 20);
 		contentpane.add(adminNo);
 		
 		grupo.add(adminSi);
@@ -148,6 +161,56 @@ public class VentanaRegistro extends JFrame{
 				// TODO Auto-generated method stub
 				new VentanaInicioSesion(controller);
 				dispose();
+			}
+		});
+		buttonAceptar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean correcto = false;
+				boolean error = false;
+				boolean admin;
+				
+				if (adminSi.isSelected()) {
+					admin = true;	
+				} else {
+					admin = false;
+				}
+				if (textDNI.getText().equals("") || textNombre.getText().equals("") ||textApellido.getText().equals("") ||textEmail.getText().equals("") 
+						||textContrasenya.toString().equals("") ||textConfirmar.toString().equals("") ) {
+					JOptionPane.showMessageDialog(null, "Error. Rellena todos los campos");
+					VentanaRegistro.this.repaint();
+					error = true;
+				}else if(!textEmail.getText().contains("@") && !(textEmail.getText().contains(".es") || textEmail.getText().contains(".com"))){
+					JOptionPane.showMessageDialog(null, "Email no válido");
+					error = true;
+					VentanaRegistro.this.repaint();
+				}else if (!String.valueOf(textContrasenya.getPassword()).equals(String.valueOf(textConfirmar.getPassword()))) {
+					JOptionPane.showMessageDialog(null, "Error. Las contraseñas no coinciden");
+					VentanaRegistro.this.repaint();
+					error = true;
+				}else if (!error){
+					controller.anadirCliente(textDNI.getText(), textNombre.getText(), textApellido.getText(), textEmail.getText(), String.valueOf(textContrasenya.getPassword()), admin);
+					
+					correcto = true;
+				}
+				
+				
+				if ( correcto) {
+					
+					JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
+					
+					
+					VentanaInicioSesion inicio = new VentanaInicioSesion(controller); 
+
+					inicio.setVisible(true);
+					
+					VentanaRegistro.this.dispose();
+					
+				}else if (!error){
+						JOptionPane.showMessageDialog(null, "Ese email ya ha sido registrado");
+						VentanaRegistro.this.repaint();
+				}
 			}
 		});
 

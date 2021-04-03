@@ -61,7 +61,7 @@ public class DBManager {
 			pm.close();
 		}
 	}
-	
+		
 	public void deleteObjectFromDB(Object object) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.getFetchPlan().setMaxFetchDepth(4);
@@ -202,6 +202,35 @@ public class DBManager {
 		            preparedStatement.setInt(2, h.getNumCamas());
 		            preparedStatement.setDouble(3, h.getPrecio());
 		            preparedStatement.setBoolean(4, h.isOcupada());
+		            preparedStatement.execute();
+
+		            System.out.println("OperaciÃ³n existosa");
+				}
+	        	
+
+	        } catch (Exception e) {
+	            System.out.println("A ocurrido un ERROR");
+	            System.out.println(e);
+	        }
+	}
+	
+	public void anadirCliente(List<Cliente> clientes) {
+		PreparedStatement preparedStatement = null;
+
+	        try {
+	            
+	        	for (Cliente c : clientes) {
+	        		String query = " INSERT INTO CLIENTE (DNI, NOMBRE, APELLIDO, EMAIL, CONTRASENYA, ESADMIN)"
+		                    + " VALUES (?, ?, ?, ?)";
+
+		            preparedStatement = conn.prepareStatement(query);
+
+		            preparedStatement.setString(1, c.getDNI());
+		            preparedStatement.setString(2, c.getNombre());
+		            preparedStatement.setString(3, c.getApellido());
+		            preparedStatement.setString(3, c.getEmail());
+		            preparedStatement.setString(3, c.getContrasenya());
+		            preparedStatement.setBoolean(4, c.isEsAdmin());
 		            preparedStatement.execute();
 
 		            System.out.println("OperaciÃ³n existosa");

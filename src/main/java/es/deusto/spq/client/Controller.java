@@ -12,5 +12,9 @@ public class Controller {
 	public int iniciarSesion(String email, String contrasenya){
 		return serviceLocator.iniciarSesion(email, contrasenya);
 	}
+	
+	public boolean anadirCliente(String DNI, String nombre, String apellido, String email, String contrasenya, boolean esAdmin){
+		return serviceLocator.anadirCliente(email, nombre, apellido, email, contrasenya, esAdmin);
+	}
 
 }
