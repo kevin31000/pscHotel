@@ -2,6 +2,7 @@ package es.deusto.spq.server;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class DBManager {
 	private static DBManager instance = null;
 	private PersistenceManagerFactory pmf = null;
 	private static boolean inicializado = false;
-	private Connection conn;
+	private static Connection conn;
 	
 	private DBManager() {
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -185,6 +186,25 @@ public class DBManager {
 			pm.close();
 		}
 
+	}
+	
+	public static void actualizarDatosCliente(String dni, String nombre, String apellido, String password, String correo) {
+		try {
+			PreparedStatement pst = conn.prepareStatement("UPDATE CLIENTE SET NOMBRE=?, APELLIDO=?, EMAIL=? , CONTRASENYA=? WHERE DNI=?;"); 
+			
+			pst.setString(1, nombre);
+			pst.setString(2, apellido);
+			pst.setString(3, password);
+			pst.setString(4, correo);
+			
+			pst.setString(5, dni);
+			pst.executeUpdate();
+						
+						
+			pst.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void anadirHabitaciones(List<Habitacion> habitaciones) {

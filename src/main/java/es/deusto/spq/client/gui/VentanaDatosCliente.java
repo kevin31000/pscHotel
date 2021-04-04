@@ -20,7 +20,7 @@ public class VentanaDatosCliente extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	DBManager dbManager;
 	JLabel ldni;
 	JTextField tdni;
 	JLabel lnombre;
@@ -58,8 +58,7 @@ public class VentanaDatosCliente extends JFrame {
 		crear.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				
+				dbManager.actualizarDatosCliente(tdni.getText(), tnombre.getText(), tapellido.getText(), ppassword.getText(), temail.getText());
 
 			}
 
