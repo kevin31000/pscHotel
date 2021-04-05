@@ -32,6 +32,8 @@ https://github.com/kevin31000/pscHotel.git
 ------------------------------------------------------------------------------------------------------
 
 Una vez obtenida la copia de PSC Hotel debemos importarla al entorno de desarrollo que estemos usando. 
+El primer paso será abrir nuesta herramienta de base de datos como XAMPP o MySQL Workbench y ejecutar el archivo que aparece en la carpeta src/main/sql con un usuario root.
+
 Después, para abrir la ventana principal del proyecto ejecutaremos "Main.java" del paquete 
 "es.deusto.spq.client". 
 
