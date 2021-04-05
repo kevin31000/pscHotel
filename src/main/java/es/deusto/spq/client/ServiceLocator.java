@@ -77,28 +77,6 @@ public class ServiceLocator {
 		}
 		return 0;
 	}
-	
-	public int registrarse(String dni, String nombre, String apellido, String email, String contrasenya , boolean esAdmin) {
-		WebTarget webTarget1 = webTarget.path("server/registrarse");
-		Invocation.Builder invocationBuilder = webTarget1.request(MediaType.APPLICATION_JSON);
-
-		Cliente c = new Cliente();
-		c.setDNI(dni);
-		c.setNombre(nombre);
-		c.setApellido(apellido);
-		c.setEmail(email);
-		c.setContrasenya(contrasenya);
-		c.setEsAdmin(esAdmin);
-
-		Response response = invocationBuilder.post(Entity.entity(c, MediaType.APPLICATION_JSON));
-		if (response.getStatus() == Status.OK.getStatusCode()) {
-			return 1;
-
-		} else if (response.getStatus() == Status.ACCEPTED.getStatusCode()) {
-			return 2;
-		}
-		return 0;
-	}
 
 	public ArrayList<Habitacion> obtenerHabitaciones() {
 		WebTarget webTarget2 = webTarget.path("server/obtenerHabitaciones");
