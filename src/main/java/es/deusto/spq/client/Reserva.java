@@ -63,7 +63,7 @@ public class Reserva {
 		this.mes = mes;
 	}
 
-    public int getaAnyo() {
+    public int getAnyo() {
 		return anyo;
 	}
 

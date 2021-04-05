@@ -1,4 +1,4 @@
-package es.deusto.spq;
+package es.deusto.spq.client;
 
 import static org.junit.Assert.assertEquals;
 
