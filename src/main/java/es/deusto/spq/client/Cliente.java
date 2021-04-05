@@ -21,9 +21,17 @@ public class Cliente {
 	private String contrasenya;
 	private boolean esAdmin;
 	
-	public Cliente(String dNI, String nombre, String apellido, String email, String contrasenya, boolean esAdmin) {
+	/** Constructor del cliente 
+	 * @param DNI Dni del cliente
+	 * @param nombre Nombre del cliente
+	 * @param apellido Apellido del cliente
+	 * @param email Email del cliente
+	 * @param contrasenya Contraseña del cliente
+	 * @param esAdmin Booleano del si es admin o no 
+	 */
+	public Cliente(String DNI, String nombre, String apellido, String email, String contrasenya, boolean esAdmin) {
 		super();
-		DNI = dNI;
+		this.DNI = DNI;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
@@ -40,7 +48,7 @@ public class Cliente {
 	}
 
 	public void setDNI(String dNI) {
-		DNI = dNI;
+		this.DNI = dNI;
 	}
 
 	public String getNombre() {

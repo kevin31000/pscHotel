@@ -2,6 +2,11 @@ package es.deusto.spq.client;
 
 import es.deusto.spq.client.gui.VentanaInicioSesion;
 
+/** La clase principal. 
+ * Lanza la clase de VentanaInicioSesion y crea el serviceLocator y el controller.
+ * @author Sergio
+ *
+ */
 public class Main {
 	
 	public static void main(String[] args) {

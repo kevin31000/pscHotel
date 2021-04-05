@@ -14,6 +14,10 @@ import javax.ws.rs.core.Response.Status;
 
 import org.apache.log4j.Logger;
 
+/**Clase para la conexión entre el Controller y el RemoteFacade del servidor
+ * @author Sergio
+ *
+ */
 public class ServiceLocator {
 
 	private Client cliente;
@@ -39,6 +43,16 @@ public class ServiceLocator {
 
 	}
 	
+	/**Método para registrar usuario.
+	 * Llama al método con el mismo nombre del RemoteFacade a través de la URL establecida.
+	 * @param DNI DNI del usuario a registrar 
+	 * @param nombre Nombre del usuario a registrar 
+	 * @param apellido Apellido del usuario a registrar 
+	 * @param email Email del usuario a registrar 
+	 * @param contrasenya Contraseña del usuario a registrar 
+	 * @param esAdmin Booleano de si es admin o no 
+	 * @return Devuelve un booleano el cual es true si no ha habido ningún error.
+	 */
 	public boolean anadirCliente(String DNI, String nombre, String apellido, String email, String contrasenya, boolean esAdmin) {
 		WebTarget registerUserWebTarget = webTarget.path("server/registro");
 		Cliente c = new Cliente();
@@ -60,6 +74,12 @@ public class ServiceLocator {
 		}
 	}
 
+	/** Método para iniciar sesión.
+	 * Llama al método con el mismo nombre del RemoteFacade a través de la URL establecida.
+	 * @param email Email del usuario con el que iniciar sesión.
+	 * @param contrasenya Contraseña del usuario con el que iniciar sesión.
+	 * @returnUn Devuelve un int que es 0 en caso de que haya habido error o el usuario sea incorrecto, 1 en caso de que no sea un gestor y 2 en caso de que lo sea 
+	 */
 	public int iniciarSesion(String email, String contrasenya) {
 		WebTarget webTarget1 = webTarget.path("server/inicioSesion");
 		Invocation.Builder invocationBuilder = webTarget1.request(MediaType.APPLICATION_JSON);

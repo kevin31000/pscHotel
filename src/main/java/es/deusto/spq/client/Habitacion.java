@@ -5,6 +5,10 @@ import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
 
+/** Clase para la creación de habitaciones
+ * @author Sergio
+ *
+ */
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Habitacion {
@@ -14,6 +18,12 @@ public class Habitacion {
 	private double precio;
 	private boolean ocupada;
 	
+	/** Constructor de la clase habitación
+	 * @param codigo Código de la habitacion
+	 * @param numCamas Número de camas que tiene la habitación	
+	 * @param precio Precio de la habitación
+	 * @param ocupada Booleano de si la habitación está ocupada o no 
+	 */
 	public Habitacion(String codigo, int numCamas, double precio, boolean ocupada) {
 		super();
 		this.codigo = codigo;

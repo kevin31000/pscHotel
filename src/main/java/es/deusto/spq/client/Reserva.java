@@ -5,6 +5,10 @@ import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
 
+/** Clase para la creacion de reservas
+ * @author Sergio
+ *
+ */
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Reserva {
@@ -15,6 +19,13 @@ public class Reserva {
     private int mes;
     private int anyo;
 
+    /** Constructor de la clase reservas
+     * @param codigoReserva
+     * @param codigoHabitacion
+     * @param dia
+     * @param mes
+     * @param anyo
+     */
     public Reserva(String codigoReserva, String codigoHabitacion, int dia, int mes, int anyo) {
 		this.codigoReserva = codigoReserva;
 		this.codigoHabitacion = codigoHabitacion;
