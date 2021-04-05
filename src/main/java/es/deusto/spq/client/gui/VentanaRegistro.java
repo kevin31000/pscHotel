@@ -197,8 +197,8 @@ public class VentanaRegistro extends JFrame {
 					error = true;
 					VentanaRegistro.this.repaint();
 					
-				} else if (!textEmail.getText().contains("@") && (!(textEmail.getText().contains(".es") || 
-						    !textEmail.getText().contains(".com") || !textEmail.getText().contains(".eus")))) {
+				} else if (!textEmail.getText().contains("@") || !(textEmail.getText().contains(".es") || 
+					    textEmail.getText().contains(".com") || textEmail.getText().contains(".eus"))) {
 					
 					JOptionPane.showMessageDialog(null, "Email no válido.");
 					error = true;
