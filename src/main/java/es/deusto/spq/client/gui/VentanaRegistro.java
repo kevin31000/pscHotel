@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,6 +18,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
 
 public class VentanaRegistro extends JFrame {
@@ -37,7 +37,7 @@ public class VentanaRegistro extends JFrame {
 	private JLabel labelConfirmar = new JLabel();
 	private JLabel labelAdmin = new JLabel();
 	private JTextField textDNI = new JTextField();
-	private JFormattedTextField textNombre = new JFormattedTextField();
+	private JTextField textNombre = new JTextField();
 	private JTextField textApellido = new JTextField();
 	private JTextField textEmail = new JTextField();
 	private JPasswordField textContrasenya = new JPasswordField();
@@ -181,26 +181,26 @@ public class VentanaRegistro extends JFrame {
 					
 				} else if (dni.matches("^[a-zA-Z]+$")) {
 					
-					JOptionPane.showMessageDialog(null, "DNI no válido");
+					JOptionPane.showMessageDialog(null, "DNI no válido.");
 					error = true;
 					VentanaRegistro.this.repaint();
 					
 				} else if (nombre.matches("^[0-9]+$")) {
 					
-					JOptionPane.showMessageDialog(null, "Nombre no válido");
+					JOptionPane.showMessageDialog(null, "Nombre no válido.");
 					error = true;
 					VentanaRegistro.this.repaint();
 					
 				} else if (apellido.matches("^[0-9]+$")) {
 					
-					JOptionPane.showMessageDialog(null, "Apellido no válido");
+					JOptionPane.showMessageDialog(null, "Apellido no válido.");
 					error = true;
 					VentanaRegistro.this.repaint();
 					
-				} else if (!textEmail.getText().contains("@") && !(textEmail.getText().contains(".es") || 
+				} else if (!textEmail.getText().contains("@") || !(textEmail.getText().contains(".es") || 
 						    textEmail.getText().contains(".com") || textEmail.getText().contains(".eus"))) {
 					
-					JOptionPane.showMessageDialog(null, "Email no válido");
+					JOptionPane.showMessageDialog(null, "Email no válido.");
 					error = true;
 					VentanaRegistro.this.repaint();
 					
@@ -218,13 +218,13 @@ public class VentanaRegistro extends JFrame {
 				}
 				
 				if (correcto) {
-					JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
+					JOptionPane.showMessageDialog(null, "Usuario registrado correctamente.");
 					VentanaInicioSesion inicio = new VentanaInicioSesion(controller);
 					inicio.setVisible(true);
 					VentanaRegistro.this.dispose();
 					
 				} else if (!error) {
-					JOptionPane.showMessageDialog(null, "El email introducido ya ha sido registrado, pruebe a iniciar sesión");
+					JOptionPane.showMessageDialog(null, "El email introducido ya ha sido registrado, pruebe a iniciar sesión.");
 					VentanaRegistro.this.repaint();
 				}
 			}
