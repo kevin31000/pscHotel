@@ -11,12 +11,12 @@ cuenta de usuario, podrán realizar reservas de las habitaciones en las fechas d
 Para la ejecución de PSC Hotel es necesario tener los siguientes programas correctamente instalados y 
 configurados:
 
-* [Java JDK 8]        (https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
-* [Eclipse]           (https://www.eclipse.org/downloads/) (o cualquier otro entorno de desarrollo)
-* [Apache Maven (bin) (https://maven.apache.org/download.cgi)
-* [XAMPP]             (https://www.apachefriends.org/es/index.html)
+* [Java JDK 8]         (https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
+* [Eclipse]            (https://www.eclipse.org/downloads/) (o cualquier otro entorno de desarrollo)
+* [Apache Maven (bin)] (https://maven.apache.org/download.cgi)
+* [XAMPP]              (https://www.apachefriends.org/es/index.html)
   (Alternativamente también es posible usar):  
-  [MySQL Workbench]   (https://dev.mysql.com/downloads/workbench/)
+  [MySQL Workbench]    (https://dev.mysql.com/downloads/workbench/)
 
 
 🚀 Comenzando 🚀
@@ -32,7 +32,7 @@ https://github.com/kevin31000/pscHotel.git
 ------------------------------------------------------------------------------------------------------
 
 Una vez obtenida la copia de PSC Hotel debemos importarla al entorno de desarrollo que estemos usando. 
-El primer paso será abrir nuesta herramienta de base de datos como XAMPP o MySQL Workbench y ejecutar el archivo que aparece en la carpeta src/main/sql con un usuario root.
+El primer paso será abrir nuesta herramienta de base de datos como "XAMPP" o "MySQL Workbench" y ejecutar el archivo que aparece en la carpeta src/main/sql con un usuario root.
 
 Después, para abrir la ventana principal del proyecto ejecutaremos "Main.java" del paquete 
 "es.deusto.spq.client". 
@@ -48,8 +48,6 @@ Los siguentes deben ejecutarse en instancias diferentes del "cmd":
 * "mvn exec:java -PServer"
 * "mvn exec:java -PClient"
 * "mvn test"
-
-Asimismo es necesario abrir "XAMPP" o "MySQL Workbench" para el correcto funcionamiento del servidor.
 
 
 🛠️ Construido con 🛠️
