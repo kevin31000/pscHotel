@@ -1,5 +1,6 @@
 package es.deusto.spq.server;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -26,7 +27,7 @@ public class RemoteFacade implements IRemoteFacade{
 	
 	@POST
 	@Path("/inicioSesion")
-	//@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response iniciarSesion(Cliente cliente) {
 		Cliente user = dbmanager.getUsuario(cliente.getEmail());
 		if(user!= null && user.getContrasenya().equals(cliente.getContrasenya())) {
@@ -40,7 +41,7 @@ public class RemoteFacade implements IRemoteFacade{
 	
 	@POST
 	@Path("/registro")
-	//@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response registrarCliente(Cliente cliente) {
 		Cliente c = dbmanager.getUsuario(cliente.getEmail());
 		if(c== null) {
