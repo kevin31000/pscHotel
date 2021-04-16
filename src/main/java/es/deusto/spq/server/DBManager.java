@@ -2,6 +2,7 @@ package es.deusto.spq.server;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +38,19 @@ public class DBManager {
 		instance = new DBManager();
 //			System.out.println("Nuevo DBManager");
 //		}
+		if(!inicializado) {
+			inicializado = true;
+			instance.deleteData();
+			instance.initializeData();
+			
+	}
 
 		return instance;
+	}
+	
+	public void deleteData() {
+		deleteClientes();
+		
 	}
 	
 	public void storeObjectInDB(Object object) {
@@ -92,6 +104,14 @@ public class DBManager {
 	public void delete(Cliente client) {
 		DBManager.getInstance().deleteObjectFromDB(client);
 	}
+	
+	public void store(Habitacion h) {
+		DBManager.getInstance().storeObjectInDB(h);
+	}
+
+	public void delete(Habitacion h) {
+		DBManager.getInstance().deleteObjectFromDB(h);
+	}
 
 	public void update(Cliente client) {
 		Cliente user2 = getUsuario(client.getEmail());
@@ -126,8 +146,7 @@ public class DBManager {
 			pm.close();
 		}
 
-		return user;
-	}
+		return user;	}
 
 	public List<Cliente> getClientes() {
 		List<Cliente> usuarios = new ArrayList<Cliente>();
@@ -328,11 +347,14 @@ public class DBManager {
 		habitaciones.add(h15);
 		Habitacion h16 = new Habitacion("H16", 1, 68, false);
 		habitaciones.add(h16);
+		
+		Cliente c1 = new Cliente("79078205", "keff", "ff", "kevin@kevin.es", "123", false);
 
-		anadirHabitaciones(habitaciones);
+		//anadirHabitaciones(habitaciones);
 		
 		try {
-			// store(c1);
+			 store(c1);
+			 store(h1);
 		} catch (Exception ex) {
 			// TODO: handle exception
 			System.out.println(" $ Error initializing data: " + ex.getMessage());

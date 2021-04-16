@@ -45,7 +45,7 @@ public class RemoteFacade implements IRemoteFacade{
 	public Response registrarCliente(Cliente cliente) {
 		Cliente c = dbmanager.getUsuario(cliente.getEmail());
 		if(c== null) {
-			dbmanager.store(c);
+			dbmanager.store(cliente);
 			return Response.status(Response.Status.OK).build();
 		}return Response.status(Response.Status.BAD_REQUEST).build();
 	}
