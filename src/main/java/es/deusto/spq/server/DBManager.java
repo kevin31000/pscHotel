@@ -311,7 +311,6 @@ public class DBManager {
 	
 	public void initializeData() {
 		System.out.println(" * Initializing data base");
-		// Cliente c1 = new client...
 		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
 		
 		//Habitacion h1 = new Habitacion...
@@ -348,13 +347,15 @@ public class DBManager {
 		Habitacion h16 = new Habitacion("H16", 1, 68, false);
 		habitaciones.add(h16);
 		
-		Cliente c1 = new Cliente("79078205", "keff", "ff", "kevin@kevin.es", "123", false);
+		Cliente c1 = new Cliente("123456", "test", "test", "test@test.es", "test", false);
 
 		//anadirHabitaciones(habitaciones);
 		
 		try {
 			 store(c1);
-			 store(h1);
+			for (int i = 0; i < habitaciones.size(); i++) {
+				store(habitaciones.get(i));
+			}
 		} catch (Exception ex) {
 			// TODO: handle exception
 			System.out.println(" $ Error initializing data: " + ex.getMessage());

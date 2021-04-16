@@ -36,7 +36,7 @@ public class Controller {
 	 * @return Devuelve un booleano el cual es true si no ha habido ningún error.
 	 */
 	public boolean anadirCliente(String DNI, String nombre, String apellido, String email, String contrasenya, boolean esAdmin){
-		return serviceLocator.anadirCliente(email, nombre, apellido, email, contrasenya, esAdmin);
+		return serviceLocator.anadirCliente(DNI, nombre, apellido, email, contrasenya, esAdmin);
 	}
 
     /**Método para obtener la habitaciones del hotel 
