@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
@@ -37,7 +38,7 @@ public class VentanaInicioSesion extends JFrame {
 	private JLabel labelUser = new JLabel();
 	private JLabel labelPass = new JLabel();
 	private JTextField textUser = new JTextField();
-	private JTextField textPass = new JTextField();
+	private JPasswordField textPass = new JPasswordField();
 	private JButton buttonAceptar = new JButton();
 	private JButton buttonRegistrar = new JButton();
 	private Client client;

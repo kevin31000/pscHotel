@@ -85,7 +85,6 @@ public class VentanaMenu extends JFrame{
 				try {
 					datosCliente = new VentanaDatosCliente();
 					datosCliente.setVisible(true);
-					VentanaMenu.this.dispose();
 				} catch (Exception e2) {
 					// TODO: handle exception
 				}
