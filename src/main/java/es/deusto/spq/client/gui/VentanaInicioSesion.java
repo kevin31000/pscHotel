@@ -24,8 +24,8 @@ import javax.ws.rs.client.ClientBuilder;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
-import es.deusto.spq.client.GetProperties;
 import es.deusto.spq.client.ServiceLocator;
+import es.deusto.spq.server.GetProperties;
 
 public class VentanaInicioSesion extends JFrame {
 
@@ -115,8 +115,9 @@ public class VentanaInicioSesion extends JFrame {
 
 
 
-				}else if(correcto == 2) {
-					//Aqui redireccionar a la vemtana Admin
+				}
+				if(correcto == 2) {
+					//Aqui redireccionar a la ventana Admin
 					VentanaAdmin admin;
 					try {
 						admin = new VentanaAdmin(controller);

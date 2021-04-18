@@ -35,16 +35,12 @@ public class VentanaRegistro extends JFrame {
 	private JLabel labelEmail = new JLabel();
 	private JLabel labelContrasenya = new JLabel();
 	private JLabel labelConfirmar = new JLabel();
-	private JLabel labelAdmin = new JLabel();
 	private JTextField textDNI = new JTextField();
 	private JTextField textNombre = new JTextField();
 	private JTextField textApellido = new JTextField();
 	private JTextField textEmail = new JTextField();
 	private JPasswordField textContrasenya = new JPasswordField();
 	private JPasswordField textConfirmar = new JPasswordField();
-	private JRadioButton adminSi = new JRadioButton("Si", false);
-	private JRadioButton adminNo = new JRadioButton("No", true);
-	private ButtonGroup grupo = new ButtonGroup();
 	private JButton buttonAceptar = new JButton();
 	private JButton buttonLogin = new JButton();
 
@@ -106,13 +102,6 @@ public class VentanaRegistro extends JFrame {
 		// loselabelPass.setBackground(Color.white);
 		labelConfirmar.setOpaque(true);
 		contentpane.add(labelConfirmar);
-		labelAdmin.setFont(new Font("Arial", Font.BOLD, 11));
-
-		labelAdmin.setText(" ¿Es admin?");
-		labelAdmin.setBounds(70, 454, 120, 20);
-		// loselabelPass.setBackground(Color.white);
-		labelAdmin.setOpaque(true);
-		contentpane.add(labelAdmin);
 
 		buttonAceptar.setForeground(SystemColor.text);
 		buttonAceptar.setBackground(new Color(0, 102, 204));
@@ -143,17 +132,6 @@ public class VentanaRegistro extends JFrame {
 		textConfirmar.setBounds(214, 404, 143, 20);
 		contentpane.add(textConfirmar);
 
-		grupo = new ButtonGroup();
-
-		adminSi.setBounds(214, 454, 143, 20);
-		contentpane.add(adminSi);
-
-		adminNo.setBounds(214, 480, 143, 20);
-		contentpane.add(adminNo);
-
-		grupo.add(adminSi);
-		grupo.add(adminNo);
-
 		buttonAceptar.addActionListener(new ActionListener() {
 
 			@Override
@@ -166,65 +144,62 @@ public class VentanaRegistro extends JFrame {
 				String nombre = textNombre.getText().toString();
 				String apellido = textApellido.getText().toString();
 
-				if (adminSi.isSelected()) {
-					admin = true;
-				} else {
-					admin = false;
-				}
-				
-				if (textDNI.getText().equals("") || textNombre.getText().equals("") || textApellido.getText().equals("") || 
-					textEmail.getText().equals("") || textContrasenya.toString().equals("") || textConfirmar.toString().equals("")) {
-					
+				if (textDNI.getText().equals("") || textNombre.getText().equals("") || textApellido.getText().equals("")
+						|| textEmail.getText().equals("") || textContrasenya.toString().equals("")
+						|| textConfirmar.toString().equals("")) {
+
 					JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos.");
 					VentanaRegistro.this.repaint();
 					error = true;
-					
+
 				} else if (dni.matches("^[a-zA-Z]+$")) {
-					
+
 					JOptionPane.showMessageDialog(null, "DNI no válido.");
 					error = true;
 					VentanaRegistro.this.repaint();
-					
+
 				} else if (nombre.matches("^[0-9]+$")) {
-					
+
 					JOptionPane.showMessageDialog(null, "Nombre no válido.");
 					error = true;
 					VentanaRegistro.this.repaint();
-					
+
 				} else if (apellido.matches("^[0-9]+$")) {
-					
+
 					JOptionPane.showMessageDialog(null, "Apellido no válido.");
 					error = true;
 					VentanaRegistro.this.repaint();
-					
-				} else if (!textEmail.getText().contains("@") || !(textEmail.getText().contains(".es") || 
-					    textEmail.getText().contains(".com") || textEmail.getText().contains(".eus"))) {
-					
+
+				} else if (!textEmail.getText().contains("@") || !(textEmail.getText().contains(".es")
+						|| textEmail.getText().contains(".com") || textEmail.getText().contains(".eus"))) {
+
 					JOptionPane.showMessageDialog(null, "Email no válido.");
 					error = true;
 					VentanaRegistro.this.repaint();
-					
-				} else if (!String.valueOf(textContrasenya.getPassword()).equals(String.valueOf(textConfirmar.getPassword()))) {
-					
+
+				} else if (!String.valueOf(textContrasenya.getPassword())
+						.equals(String.valueOf(textConfirmar.getPassword()))) {
+
 					JOptionPane.showMessageDialog(null, "Error. Las contraseñas no coinciden.");
 					VentanaRegistro.this.repaint();
 					error = true;
-					
+
 				} else if (!error) {
-					
-					controller.anadirCliente(textDNI.getText(), textNombre.getText(), textApellido.getText(), textEmail.getText(), 
-					String.valueOf(textContrasenya.getPassword()), admin);
+
+					controller.anadirCliente(textDNI.getText(), textNombre.getText(), textApellido.getText(),
+							textEmail.getText(), String.valueOf(textContrasenya.getPassword()), false);
 					correcto = true;
 				}
-				
+
 				if (correcto) {
 					JOptionPane.showMessageDialog(null, "Usuario registrado correctamente.");
 					VentanaInicioSesion inicio = new VentanaInicioSesion(controller);
 					inicio.setVisible(true);
 					VentanaRegistro.this.dispose();
-					
+
 				} else if (!error) {
-					JOptionPane.showMessageDialog(null, "El email introducido ya ha sido registrado, pruebe a iniciar sesión.");
+					JOptionPane.showMessageDialog(null,
+							"El email introducido ya ha sido registrado, pruebe a iniciar sesión.");
 					VentanaRegistro.this.repaint();
 				}
 			}

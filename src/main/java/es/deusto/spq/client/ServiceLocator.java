@@ -90,10 +90,10 @@ public class ServiceLocator {
 
 		Response response = invocationBuilder.post(Entity.entity(c, MediaType.APPLICATION_JSON));
 		if (response.getStatus() == Status.OK.getStatusCode()) {
-			return 1;
+			return 2;
 
 		} else if (response.getStatus() == Status.ACCEPTED.getStatusCode()) {
-			return 2;
+			return 1;
 		}
 		return 0;
 	}
