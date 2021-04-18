@@ -31,10 +31,10 @@ public class RemoteFacade implements IRemoteFacade{
 	public Response iniciarSesion(Cliente cliente) {
 		Cliente user = dbmanager.getUsuario(cliente.getEmail());
 		if(user!= null && user.getContrasenya().equals(cliente.getContrasenya())) {
-			if(cliente.isEsAdmin()) {
-				return Response.status(Response.Status.ACCEPTED).build();
-			}else {
+			if(!cliente.isEsAdmin()) {
 				return Response.status(Response.Status.OK).build();
+			}else {
+				return Response.status(Response.Status.ACCEPTED).build();
 			}	
 		}return Response.status(Response.Status.BAD_REQUEST).build();
 	}

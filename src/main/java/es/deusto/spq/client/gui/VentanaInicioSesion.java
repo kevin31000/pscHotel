@@ -117,6 +117,15 @@ public class VentanaInicioSesion extends JFrame {
 
 				}else if(correcto == 2) {
 					//Aqui redireccionar a la vemtana Admin
+					VentanaAdmin admin;
+					try {
+						admin = new VentanaAdmin(controller);
+						admin.setVisible(true);
+						VentanaInicioSesion.this.dispose();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}else if(correcto == 0) {
 					JOptionPane.showMessageDialog(null, "Usuario incorrecto");
 				}

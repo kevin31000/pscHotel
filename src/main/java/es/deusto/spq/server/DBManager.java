@@ -348,11 +348,13 @@ public class DBManager {
 		habitaciones.add(h16);
 		
 		Cliente c1 = new Cliente("123456", "test", "test", "test@test.es", "test", false);
+		Cliente c2 = new Cliente("admin", "admin", "admin", "admin@admin.es", "admin", true);
 
 		//anadirHabitaciones(habitaciones);
 		
 		try {
 			 store(c1);
+			 store(c2);
 			for (int i = 0; i < habitaciones.size(); i++) {
 				store(habitaciones.get(i));
 			}
