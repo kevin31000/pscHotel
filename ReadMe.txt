@@ -23,7 +23,7 @@ configurados:
 ------------------------------------------------------------------------------------------------------
 
 Para obtener una copia local del proyecto en funcionamiento para propósitos de desarrollo y pruebas 
-es necesario ser colaborador del mismo y acceder al siguiente link: 
+es necesario descargarse este repositorio e importarlo a un IDE de programación compatible con los requisitos previamente nombrados.
 
 https://github.com/kevin31000/pscHotel.git
 
@@ -32,21 +32,20 @@ https://github.com/kevin31000/pscHotel.git
 ------------------------------------------------------------------------------------------------------
 
 Una vez obtenida la copia de PSC Hotel debemos importarla al entorno de desarrollo que estemos usando. 
-El primer paso será abrir nuesta herramienta de base de datos como "XAMPP" o "MySQL Workbench" y ejecutar el archivo que aparece en la carpeta src/main/sql con un usuario root.
+El primer paso será abrir nuesta herramienta de base de datos como "XAMPP" o "MySQL Workbench" y ejecutar el archivo que aparece en la carpeta src/main/sql con un usuario root. De esta manera, crearemos el esqueleto de la base de datos del proyecto.
 
-Después, para abrir la ventana principal del proyecto ejecutaremos "Main.java" del paquete 
-"es.deusto.spq.client". 
-
-Además, es necesario abir el "Símbolo del sistema" ("cmd") y ejecutar los siguientes comandos:
+Para la ejecución del proyecto es necesario abrir dos instancias del "cmd"(Símbolo del sistema) y ejecutar los siguientes comandos sin cerrar en ningún momento ambas instancias:
  
+Para ejecutar el servidor:
 * "mvn clean" 
 * "mvn compile"
-* "mvn datanucleus:schema-create"
-
-Los siguentes deben ejecutarse en instancias diferentes del "cmd":
-
+* "mvn datanucleus:schema-create" (Este comando solo es necesario realizarlo la primera vez que se realiza este proceso, sirve para crear la tablas en BD)
 * "mvn exec:java -PServer"
+
+Para ejecutar el cliente, en la otra instancia del cmd:
 * "mvn exec:java -PClient"
+
+En caso de querer comprobar los test del proyecto el comando a utilizar desde la consola será:
 * "mvn test"
 
 
