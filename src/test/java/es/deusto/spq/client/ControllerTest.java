@@ -19,7 +19,7 @@ public class ControllerTest {
 		controller = new Controller(servicelocator);
 	}
 	
-	@Test
+	/*@Test
     public void iniciarSesionTest(){	
 		assertEquals(controller.iniciarSesion("test@test.es", "test"), 1);
 	}
@@ -29,7 +29,7 @@ public class ControllerTest {
 		assertEquals(controller.anadirCliente("a", "a", "a", "a", "a", false), true);
 	}
 	
-	/*@Test
+	@Test
     public void getHabitacionTest(){	
 		assertEquals(controller.getHabitacion("H1").getCodigo(), "H1");
 	}*/
