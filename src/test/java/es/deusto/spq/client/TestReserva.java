@@ -16,24 +16,49 @@ public class TestReserva {
 	}
 	
 	@Test
-	public void testCodigoReserva() {
+	public void testGetCodigoReserva() {
 		assertEquals("reserva1", r.getCodigoReserva());
 	}
 	@Test
-	public void testCodigoHabitacion() {
+	public void testGetCodigoHabitacion() {
 		assertEquals("habitacion1", r.getCodigoHabitacion());
 	}
 	@Test
-	public void testDia() {
+	public void testGetDia() {
 		assertEquals(12, r.getDia());
 	}
 	@Test
-	public void testMes() {
+	public void testGetMes() {
 		assertEquals(6, r.getMes());
 	}
 	@Test
-	public void testAnyo() {
+	public void testGetAnyo() {
 		assertEquals(2019, r.getAnyo());
 	}
 
+	@Test
+	public void testSetCodigoReserva() {
+		r.setCodigoReserva("Reserva2");
+		assertEquals("Reserva2", r.getCodigoReserva());
+	}
+	@Test
+	public void testSetCodigoHabitacion() {
+		r.setCodigoHabitacion("Habitacion2");
+		assertEquals("Habitacion2", r.getCodigoHabitacion());
+	}
+	@Test
+	public void testSetDia() {
+		r.setDia(13);
+		assertEquals(12, r.getDia());
+	}
+	@Test
+	public void testSetMes() {
+		r.setMes(12);
+		assertEquals(12, r.getMes());
+	}
+	@Test
+	public void testSetAnyo() {
+		r.setAnyo(2021);
+		assertEquals(2021, r.getAnyo());
+	}
 }

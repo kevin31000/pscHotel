@@ -17,30 +17,59 @@ public class TestCliente {
 	}
 	
 	@Test
-	public void testDNI() {
+	public void testGetDNI() {
 		assertEquals("71234561D", c.getDNI());
 	}
 	@Test
-	public void testNombre() {
+	public void testGetNombre() {
 		assertEquals("Sergio", c.getNombre());
 	}
 	@Test
-	public void testApellido() {
+	public void testGetApellido() {
 		assertEquals("Lopez", c.getApellido());
 	}
 	@Test
-	public void testEmail() {
+	public void testGetEmail() {
 		assertEquals("sergio@gmail.com", c.getEmail());
 	}
 	@Test
-	public void testContrasenya() {
+	public void testGetContrasenya() {
 		assertEquals("123", c.getContrasenya());
 	}
 	@Test
-	public void testEsAdmin() {
+	public void testGetEsAdmin() {
 		assertEquals(false, c.isEsAdmin());
 	}
-	
+	@Test
+	public void testSetDNI() {
+		c.setDNI("79185279M");
+		assertEquals("79185279M", c.getDNI());
+	}
+	@Test
+	public void testSetNombre() {
+		c.setNombre("Mikel");
+		assertEquals("Mikel", c.getNombre());
+	}
+	@Test
+	public void testSetApellido() {
+		c.setApellido("Gonzalez");
+		assertEquals("Gonzalez", c.getApellido());
+	}
+	@Test
+	public void testSetEmail() {
+		c.setEmail("mikel@gmail.com");
+		assertEquals("mikel@gmail.com", c.getEmail());
+	}
+	@Test
+	public void testSetContrasenya() {
+		c.setContrasenya("1234");
+		assertEquals("1234", c.getContrasenya());
+	}
+	@Test
+	public void testSetEsAdmin() {
+		c.setEsAdmin(true);
+		assertEquals(true, c.isEsAdmin());
+	}
 	
 	
 
