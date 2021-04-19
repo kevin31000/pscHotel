@@ -35,30 +35,5 @@ public class TestHabitacion {
 		assertEquals(true, h.isOcupada());
 	}
 	
-	@Test
-	public void testSetCodigo() {
-		h.setCodigo("302C");
-		assertEquals("302C", h.getCodigo());
-	}
-	
-	@Test
-	public void testSetNumCamas() {
-		h.setNumCamas(2);
-		assertEquals(2, h.getNumCamas());
-	}
-	
-	
-	@Test
-	public void testSetPrecio() {
-		h.setPrecio(23.5);
-		System.out.println(h.getPrecio());
-		//assertEquals(23.5, h.getPrecio());
-	}
-	
-	@Test
-	public void testSetOcupada() {
-		h.setOcupada(false);
-		assertEquals(false, h.isOcupada());
-	}
 
 }

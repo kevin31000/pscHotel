@@ -40,36 +40,7 @@ public class TestCliente {
 	public void testGetEsAdmin() {
 		assertEquals(false, c.isEsAdmin());
 	}
-	@Test
-	public void testSetDNI() {
-		c.setDNI("79185279M");
-		assertEquals("79185279M", c.getDNI());
-	}
-	@Test
-	public void testSetNombre() {
-		c.setNombre("Mikel");
-		assertEquals("Mikel", c.getNombre());
-	}
-	@Test
-	public void testSetApellido() {
-		c.setApellido("Gonzalez");
-		assertEquals("Gonzalez", c.getApellido());
-	}
-	@Test
-	public void testSetEmail() {
-		c.setEmail("mikel@gmail.com");
-		assertEquals("mikel@gmail.com", c.getEmail());
-	}
-	@Test
-	public void testSetContrasenya() {
-		c.setContrasenya("1234");
-		assertEquals("1234", c.getContrasenya());
-	}
-	@Test
-	public void testSetEsAdmin() {
-		c.setEsAdmin(true);
-		assertEquals(true, c.isEsAdmin());
-	}
+
 	
 	
 
