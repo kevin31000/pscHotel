@@ -2,13 +2,17 @@ package es.deusto.spq.client.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
+import java.io.InputStream;
+import java.util.Date;
+import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,14 +21,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
-import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
-import es.deusto.spq.client.ServiceLocator;
 import es.deusto.spq.server.GetProperties;
 
 public class VentanaInicioSesion extends JFrame {
@@ -33,6 +34,11 @@ public class VentanaInicioSesion extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private static String nombreUsuarioAnterior;
+	private static String nombreUsuarioIntroducido;
+	
+	static Properties prop;
 
 	private JPanel contentpane;
 	private JLabel labelUser = new JLabel();
@@ -45,6 +51,7 @@ public class VentanaInicioSesion extends JFrame {
 
 	public VentanaInicioSesion(final Controller controller){
 		client = ClientBuilder.newClient();
+		cargarNombreUsuario();
 		GetProperties properties = new GetProperties();
 		String url = "";
 		try {
@@ -104,6 +111,9 @@ public class VentanaInicioSesion extends JFrame {
 				if(correcto == 1) {
 					VentanaMenu menu;
 					try {
+						String u = textUser.getText();
+						nombreUsuarioIntroducido = u;
+						recordarUsuario();
 						menu = new VentanaMenu(controller);
 						menu.setVisible(true);
 						VentanaInicioSesion.this.dispose();
@@ -112,14 +122,14 @@ public class VentanaInicioSesion extends JFrame {
 						e1.printStackTrace();
 					}
 
-
-
-
 				}
 				if(correcto == 2) {
 					//Aqui redireccionar a la ventana Admin
 					VentanaAdmin admin;
 					try {
+						String u = textUser.getText();
+						nombreUsuarioIntroducido = u;
+						recordarUsuario();
 						admin = new VentanaAdmin(controller);
 						admin.setVisible(true);
 						VentanaInicioSesion.this.dispose();
@@ -148,6 +158,33 @@ public class VentanaInicioSesion extends JFrame {
 		setSize(441, 355);
 		setVisible(true);
 		setTitle("PSC Hotel");
+	}
+	
+	public static String cargarNombreUsuario() {
+		prop = new Properties();
+		try {
+			File f = new File("prop.properties");
+			if(!f.exists()) f.createNewFile();
+			InputStream is = new FileInputStream("prop.properties");
+			prop.load(is);
+			nombreUsuarioAnterior = prop.getProperty("email");
+			if(nombreUsuarioAnterior == null) nombreUsuarioAnterior = "";
+			
+		} catch (IOException e) {
+			// No hacer nada, no se carga el nombre y listo
+			e.printStackTrace();
+		}
+		return nombreUsuarioAnterior;
+	}
+	
+	private void recordarUsuario() {
+		prop.put("email", nombreUsuarioIntroducido);
+		try {
+			prop.store(new FileWriter("prop.properties"), ""+new Date());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		nombreUsuarioAnterior = nombreUsuarioIntroducido;
 	}
 	
 //		public static void main(String[] args) {
