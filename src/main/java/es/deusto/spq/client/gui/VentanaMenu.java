@@ -83,7 +83,7 @@ public class VentanaMenu extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				VentanaDatosCliente datosCliente;
 				try {
-					datosCliente = new VentanaDatosCliente();
+					datosCliente = new VentanaDatosCliente(controller);
 					datosCliente.setVisible(true);
 					VentanaMenu.this.dispose();
 				} catch (Exception e2) {

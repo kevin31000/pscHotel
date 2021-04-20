@@ -146,7 +146,8 @@ public class DBManager {
 			pm.close();
 		}
 
-		return user;	}
+		return user;	
+	}
 
 	public static ArrayList<Cliente> seleccionaUsuarioBD() {
 		ArrayList<Cliente> cl = new ArrayList<Cliente>();

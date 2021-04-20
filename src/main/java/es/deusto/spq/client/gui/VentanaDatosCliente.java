@@ -12,6 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.server.DBManager;
 
 public class VentanaDatosCliente extends JFrame {
@@ -19,6 +20,7 @@ public class VentanaDatosCliente extends JFrame {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
 	DBManager dbManager;
 	JLabel ldni;
@@ -34,7 +36,7 @@ public class VentanaDatosCliente extends JFrame {
 	JButton crear;
 	JButton cancelar;
 
-	public VentanaDatosCliente() {
+	public VentanaDatosCliente(final Controller controller) {
 
 		ldni = new JLabel("DNI");
 		tdni = new JTextField(20);
@@ -54,13 +56,14 @@ public class VentanaDatosCliente extends JFrame {
 		
 		crear = new JButton("Guardar");
 
-//		Cliente u = DBManager.getUsuario(VentanaInicioSesion.cargarEmailUsuario());
-//		System.out.println(u);
-//		tdni.setText(u.getDNI());
-//		tnombre.setText(u.getNombre());
-//		tapellido.setText(u.getApellido());
-//		temail.setText(u.getEmail());
-//		ppassword.setText(u.getContrasenya());	
+		Cliente u = new Cliente("11", "mikel", "castro", "ad","a", true);
+		//Cliente u =DBManager.getUsuario(VentanaInicioSesion.cargarEmailUsuario());
+		System.out.println(u);
+		tdni.setText(u.getDNI());
+		tnombre.setText(u.getNombre());
+		tapellido.setText(u.getApellido());
+		temail.setText(u.getEmail());
+		ppassword.setText(u.getContrasenya());	
 		
 		crear.addActionListener(new ActionListener() {
 			@Override
@@ -76,8 +79,10 @@ public class VentanaDatosCliente extends JFrame {
 		cancelar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				dispose();
+				VentanaMenu menu = new VentanaMenu(controller);
+				menu.setVisible(true);
+				VentanaDatosCliente.this.dispose();
+			
 			}
 		});
 
