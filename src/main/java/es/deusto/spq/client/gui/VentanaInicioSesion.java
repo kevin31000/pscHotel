@@ -35,8 +35,8 @@ public class VentanaInicioSesion extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private static String nombreUsuarioAnterior;
-	private static String nombreUsuarioIntroducido;
+	private static String emailUsuarioAnterior;
+	private static String emailUsuarioIntroducido;
 	
 	static Properties prop;
 
@@ -51,7 +51,7 @@ public class VentanaInicioSesion extends JFrame {
 
 	public VentanaInicioSesion(final Controller controller){
 		client = ClientBuilder.newClient();
-		cargarNombreUsuario();
+		cargarEmailUsuario();
 		GetProperties properties = new GetProperties();
 		String url = "";
 		try {
@@ -112,7 +112,7 @@ public class VentanaInicioSesion extends JFrame {
 					VentanaMenu menu;
 					try {
 						String u = textUser.getText();
-						nombreUsuarioIntroducido = u;
+						emailUsuarioIntroducido = u;
 						recordarUsuario();
 						menu = new VentanaMenu(controller);
 						menu.setVisible(true);
@@ -128,7 +128,7 @@ public class VentanaInicioSesion extends JFrame {
 					VentanaAdmin admin;
 					try {
 						String u = textUser.getText();
-						nombreUsuarioIntroducido = u;
+						emailUsuarioIntroducido = u;
 						recordarUsuario();
 						admin = new VentanaAdmin(controller);
 						admin.setVisible(true);
@@ -160,31 +160,31 @@ public class VentanaInicioSesion extends JFrame {
 		setTitle("PSC Hotel");
 	}
 	
-	public static String cargarNombreUsuario() {
+	public static String cargarEmailUsuario() {
 		prop = new Properties();
 		try {
 			File f = new File("prop.properties");
 			if(!f.exists()) f.createNewFile();
 			InputStream is = new FileInputStream("prop.properties");
 			prop.load(is);
-			nombreUsuarioAnterior = prop.getProperty("email");
-			if(nombreUsuarioAnterior == null) nombreUsuarioAnterior = "";
+			emailUsuarioAnterior = prop.getProperty("email");
+			if(emailUsuarioAnterior == null) emailUsuarioAnterior = "";
 			
 		} catch (IOException e) {
 			// No hacer nada, no se carga el nombre y listo
 			e.printStackTrace();
 		}
-		return nombreUsuarioAnterior;
+		return emailUsuarioAnterior;
 	}
 	
 	private void recordarUsuario() {
-		prop.put("email", nombreUsuarioIntroducido);
+		prop.put("email", emailUsuarioIntroducido);
 		try {
 			prop.store(new FileWriter("prop.properties"), ""+new Date());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		nombreUsuarioAnterior = nombreUsuarioIntroducido;
+		emailUsuarioAnterior = emailUsuarioIntroducido;
 	}
 	
 //		public static void main(String[] args) {

@@ -54,12 +54,18 @@ public class VentanaDatosCliente extends JFrame {
 		
 		crear = new JButton("Guardar");
 
+//		Cliente u = DBManager.getUsuario(VentanaInicioSesion.cargarEmailUsuario());
+//		System.out.println(u);
+//		tdni.setText(u.getDNI());
+//		tnombre.setText(u.getNombre());
+//		tapellido.setText(u.getApellido());
+//		temail.setText(u.getEmail());
+//		ppassword.setText(u.getContrasenya());	
 		
 		crear.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dbManager.actualizarDatosCliente(tdni.getText(), tnombre.getText(), tapellido.getText(), ppassword.getText(), temail.getText());
-
 			}
 
 		});
@@ -70,6 +76,7 @@ public class VentanaDatosCliente extends JFrame {
 		cancelar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				dispose();
 			}
 		});

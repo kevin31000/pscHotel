@@ -19,7 +19,7 @@ import es.deusto.spq.client.Habitacion;
 
 public class DBManager {
 	private static DBManager instance = null;
-	private PersistenceManagerFactory pmf = null;
+	private static PersistenceManagerFactory pmf = null;
 	private static boolean inicializado = false;
 	private static Connection conn;
 	
@@ -122,7 +122,7 @@ public class DBManager {
 		}
 	}
 
-	public Cliente getUsuario(String email) {
+	public static Cliente getUsuario(String email) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.getFetchPlan().setMaxFetchDepth(4);
 		Transaction tx = pm.currentTransaction();
@@ -148,6 +148,42 @@ public class DBManager {
 
 		return user;	}
 
+	public static ArrayList<Cliente> seleccionaUsuarioBD() {
+		ArrayList<Cliente> cl = new ArrayList<Cliente>();
+		
+		try {
+			PreparedStatement pst = conn.prepareStatement("SELECT * FROM CLIENTE"); 
+			ResultSet rs = pst.executeQuery();	
+			String dni;
+			String nombre;
+			String apellido;
+			String email;
+			String contrasenya;
+			boolean esAdmin;	
+			
+			
+			while(rs.next()) {
+				dni = rs.getString("DNI");
+				nombre = rs.getString("NOMBRE");
+				apellido = rs.getString("APELLIDO");
+				email = rs.getString("EMAIL");
+				contrasenya= rs.getString("CONTRASENYA");
+				esAdmin = rs.getBoolean("ESADMIN");
+				Cliente c = new Cliente(dni, nombre, apellido, email, contrasenya, esAdmin);
+				
+				cl.add(c);
+			}
+			rs.close();
+			pst.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return null;
+		}
+
+		return cl;
+	}
+	
 	public List<Cliente> getClientes() {
 		List<Cliente> usuarios = new ArrayList<Cliente>();
 		PersistenceManager pm = pmf.getPersistenceManager();
