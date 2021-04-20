@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import es.deusto.spq.client.Cliente;
 
-public class TestCliente {
+public class ClienteTest {
 	
 	private Cliente c;
 	

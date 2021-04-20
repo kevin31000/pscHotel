@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import es.deusto.spq.client.Reserva;
 
-public class TestReserva {
+public class ReservaTest {
 	private Reserva r;
 	
 	@Before
