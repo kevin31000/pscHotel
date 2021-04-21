@@ -50,6 +50,15 @@ public class RemoteFacade implements IRemoteFacade{
 		}return Response.status(Response.Status.BAD_REQUEST).build();
 	}
 
-	
+	@POST
+	@Path("/getUsuario")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response encontrarCliente(Cliente cliente) {
+		Cliente c = dbmanager.getUsuario(cliente.getEmail());
+		if(c== null) {
+			dbmanager.store(cliente);
+			return Response.status(Response.Status.OK).build();
+		}return Response.status(Response.Status.BAD_REQUEST).build();
+	}
 
 }

@@ -156,4 +156,18 @@ public class ServiceLocator {
 
 		return h;
     }
+
+	public Cliente getUsuario(String email) {
+        WebTarget webTarget4 = webTarget.path("server/getUsuario");
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		Cliente c = new Cliente();
+		c.setEmail(email);
+
+		Response response = invocationBuilder.post(Entity.entity(c, MediaType.APPLICATION_JSON));
+		c = (Cliente) response.getEntity();
+
+		return c;
+    }
+	
 }

@@ -56,8 +56,9 @@ public class VentanaDatosCliente extends JFrame {
 		
 		crear = new JButton("Guardar");
 
-		Cliente u = new Cliente("11", "mikel", "castro", "ad","a", true);
+		//Cliente u = new Cliente("11", "mikel", "castro", "ad","a", true);
 		//Cliente u =DBManager.getUsuario(VentanaInicioSesion.cargarEmailUsuario());
+		Cliente u = controller.getUsuario(VentanaInicioSesion.cargarEmailUsuario());
 		System.out.println(u);
 		tdni.setText(u.getDNI());
 		tnombre.setText(u.getNombre());

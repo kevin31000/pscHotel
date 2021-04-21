@@ -26,6 +26,13 @@ public class Controller {
 		return serviceLocator.iniciarSesion(email, contrasenya);
 	}
 	
+	/**Método para encontrar un usuario por email
+	 
+	 */
+	public Cliente getUsuario(String email){
+		return serviceLocator.getUsuario(email);
+	}
+	
 	/**Método para registrar un usuario nuevo
 	 * @param DNI DNI del usuario a registrar 
 	 * @param nombre Nombre del usuario a registrar 
