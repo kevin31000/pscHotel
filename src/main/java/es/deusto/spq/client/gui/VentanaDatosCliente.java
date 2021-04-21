@@ -69,7 +69,7 @@ public class VentanaDatosCliente extends JFrame {
 		crear.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dbManager.actualizarDatosCliente(tdni.getText(), tnombre.getText(), tapellido.getText(), ppassword.getText(), temail.getText());
+				//dbManager.actualizarDatosCliente(tdni.getText(), tnombre.getText(), tapellido.getText(), ppassword.getText(), temail.getText());
 			}
 
 		});
