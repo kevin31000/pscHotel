@@ -7,5 +7,5 @@ import es.deusto.spq.client.Cliente;
 public interface IRemoteFacade {
 	public Response iniciarSesion(Cliente cliente);
 	public Response registrarCliente(Cliente cliente);
-	public Response encontrarCliente(Cliente cliente);
+	public Cliente encontrarCliente(String email);
 }

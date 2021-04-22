@@ -8,6 +8,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -164,8 +165,8 @@ public class ServiceLocator {
 		Cliente c = new Cliente();
 		c.setEmail(email);
 
-		Response response = invocationBuilder.post(Entity.entity(c, MediaType.APPLICATION_JSON));
-		c = (Cliente) response.getEntity();
+		GenericType<Cliente> genericType = new GenericType<Cliente>() {};
+		c = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
 
 		return c;
     }

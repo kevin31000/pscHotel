@@ -1,9 +1,11 @@
 package es.deusto.spq.server;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -50,14 +52,15 @@ public class RemoteFacade implements IRemoteFacade{
 		}return Response.status(Response.Status.BAD_REQUEST).build();
 	}
 
-	@POST
+	@GET
 	@Path("/getUsuario")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response encontrarCliente(Cliente cliente) {
-		Cliente c = dbmanager.getUsuario(cliente.getEmail());
-		if(c!= null) {
-			return Response.status(Response.Status.OK).build();
-		}return Response.status(Response.Status.BAD_REQUEST).build();
+	public Cliente encontrarCliente(@QueryParam("email") String email) {
+		Cliente c = dbmanager.getUsuario(email);
+		
+		return c;
 	}
+
+
 
 }
