@@ -159,7 +159,7 @@ public class ServiceLocator {
     }
 
 	public Cliente getUsuario(String email) {
-        WebTarget webTarget4 = webTarget.path("server/getUsuario");
+        WebTarget webTarget4 = webTarget.path("server/getUsuario").queryParam("email", email);
 		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
 
 		Cliente c = new Cliente();
