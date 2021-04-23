@@ -12,7 +12,6 @@ Para la ejecución de PSC Hotel es necesario tener los siguientes programas corr
 configurados:
 
 * [Java JDK 8]         (https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
-* [Eclipse]            (https://www.eclipse.org/downloads/) (o cualquier otro entorno de desarrollo)
 * [Apache Maven (bin)] (https://maven.apache.org/download.cgi)
 * [XAMPP]              (https://www.apachefriends.org/es/index.html)
   (Alternativamente también es posible usar):  
@@ -49,7 +48,8 @@ Para ejecutar el cliente, en la otra instancia del cmd:
 ```
 * "mvn exec:java -PClient"
 ```
-
+### 🔧 Test y documentación 🔧
+------------------------------------------------------------------------------------------------------
 En caso de querer comprobar los test del proyecto el comando a utilizar desde la consola será:
 ```
 * "mvn test"
