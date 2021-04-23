@@ -1,5 +1,6 @@
 package es.deusto.spq.client;
 
+import javax.ws.rs.core.Response.Status;
 
 /**Clase que hace de conexion entre el ServiceLocator y las GUI.
  * @author Sergio
@@ -53,5 +54,12 @@ public class Controller {
     public Habitacion getHabitacion(String codigo) {
         return serviceLocator.obtenerHabitacion(codigo);
     }
+    
+    public boolean editarUsuario(Cliente user) {
+		if(serviceLocator.editarUsuario(user).getStatus() == Status.OK.getStatusCode()) {
+			return true;
+		}
+		return false;
+	}
 
 }

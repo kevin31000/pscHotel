@@ -66,10 +66,12 @@ public class VentanaDatosCliente extends JFrame {
 		temail.setText(u.getEmail());
 		ppassword.setText(u.getContrasenya());	
 		
+		Cliente actualizarClient = new Cliente(tdni.getText(), tnombre.getText(), tapellido.getText(), temail.getText(), ppassword.getPassword().toString(), false);
+		
 		crear.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//dbManager.actualizarDatosCliente(tdni.getText(), tnombre.getText(), tapellido.getText(), ppassword.getText(), temail.getText());
+				controller.editarUsuario(actualizarClient);
 			}
 
 		});

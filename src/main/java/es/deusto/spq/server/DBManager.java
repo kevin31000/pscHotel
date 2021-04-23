@@ -98,11 +98,22 @@ public class DBManager {
 		}
 
 	public void store(Cliente client) {
-		DBManager.getInstance().storeObjectInDB(client);
+		try {
+			DBManager.getInstance().storeObjectInDB(client);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 
 	public void delete(Cliente client) {
-		DBManager.getInstance().deleteObjectFromDB(client);
+		try {
+			DBManager.getInstance().deleteObjectFromDB(client);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		
 	}
 	
 	public void store(Habitacion h) {
@@ -244,7 +255,7 @@ public class DBManager {
 
 	}
 	
-	public static void actualizarDatosCliente(String dni, String nombre, String apellido, String password, String correo) {
+	public void actualizarDatosCliente(String dni, String nombre, String apellido, String password, String correo) {
 		try {
 			PreparedStatement pst = conn.prepareStatement("UPDATE CLIENTE SET NOMBRE=?, APELLIDO=?, EMAIL=? , CONTRASENYA=? WHERE DNI=?;"); 
 			

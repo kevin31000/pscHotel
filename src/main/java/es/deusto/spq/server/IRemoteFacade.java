@@ -8,4 +8,5 @@ public interface IRemoteFacade {
 	public Response iniciarSesion(Cliente cliente);
 	public Response registrarCliente(Cliente cliente);
 	public Cliente encontrarCliente(String email);
+	public Response editarUsuario(Cliente user);
 }
