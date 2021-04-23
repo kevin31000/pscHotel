@@ -1,5 +1,6 @@
 package es.deusto.spq.client;
 
+import java.util.List;
 
 /**Clase que hace de conexion entre el ServiceLocator y las GUI.
  * @author Sergio
@@ -33,6 +34,10 @@ public class Controller {
 		return serviceLocator.getUsuario(email);
 	}
 	
+	public List<Cliente> getUsuarios(){
+		return serviceLocator.getUsuarios();
+	}
+	
 	/**Método para registrar un usuario nuevo
 	 * @param DNI DNI del usuario a registrar 
 	 * @param nombre Nombre del usuario a registrar 
@@ -53,5 +58,11 @@ public class Controller {
     public Habitacion getHabitacion(String codigo) {
         return serviceLocator.obtenerHabitacion(codigo);
     }
-
+    
+	/**Método para encontrar un usuario por email
+	 
+	 */
+    public List<Habitacion> obtenerHabitaciones(){
+    	return serviceLocator.obtenerHabitaciones();
+    }
 }

@@ -346,6 +346,36 @@ public class DBManager {
 		return h;
 	}
 	
+	public List<Habitacion> getHabitaciones() {
+		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+
+			tx.begin();
+
+			Extent<Habitacion> extent = pm.getExtent(Habitacion.class, true);
+
+			for (Habitacion habitacion : extent) {
+				habitaciones.add(habitacion);
+			}
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return habitaciones;
+	}
+	
 	public void initializeData() {
 		System.out.println(" * Initializing data base");
 		List<Habitacion> habitaciones = new ArrayList<Habitacion>();

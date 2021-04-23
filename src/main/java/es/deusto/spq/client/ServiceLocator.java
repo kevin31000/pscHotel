@@ -2,6 +2,7 @@ package es.deusto.spq.client;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -99,29 +100,6 @@ public class ServiceLocator {
 		return 0;
 	}
 
-	public ArrayList<Habitacion> obtenerHabitaciones() {
-		WebTarget webTarget2 = webTarget.path("server/obtenerHabitaciones");
-		Invocation.Builder invocationBuilder = webTarget2.request(MediaType.APPLICATION_JSON);
-
-		ArrayList<Habitacion> habitaciones = new ArrayList<Habitacion>();
-		for (int i = 1; i < 51; i++) {
-			Habitacion h = new Habitacion();
-			h.setCodigo("h" + Integer.toString(i));
-			
-			Response response = invocationBuilder.post(Entity.entity(h, MediaType.APPLICATION_JSON));
-			try {
-				if (response.getEntity() != null) {
-					h = (Habitacion) response.getEntity();
-					habitaciones.add(h);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
-		return habitaciones;
-	}
-
 	public ArrayList<Reserva> obtenerReservas() {
 		WebTarget webTarget3 = webTarget.path("server/obtenerReservas");
 		Invocation.Builder invocationBuilder = webTarget3.request(MediaType.APPLICATION_JSON);
@@ -146,16 +124,29 @@ public class ServiceLocator {
 	}
 
     public Habitacion obtenerHabitacion(String codigo) {
-        WebTarget webTarget4 = webTarget.path("server/obtenerHabitacion");
+        WebTarget webTarget4 = webTarget.path("server/obtenerHabitacion").queryParam("codigo", codigo);
 		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
 
 		Habitacion h = new Habitacion();
 		h.setCodigo(codigo);
 
-		Response response = invocationBuilder.post(Entity.entity(h, MediaType.APPLICATION_JSON));
-		h = (Habitacion) response.getEntity();
 
+		GenericType<Habitacion> genericType = new GenericType<Habitacion>() {};
+		h = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
+		
 		return h;
+    }
+    
+	public List<Habitacion> obtenerHabitaciones() {
+        WebTarget webTarget4 = webTarget.path("server/obtenerHabitaciones");
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
+
+		GenericType<List<Habitacion>> genericType = new GenericType<List<Habitacion>>() {};
+		habitaciones = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
+
+		return habitaciones;
     }
 
 	public Cliente getUsuario(String email) {
@@ -169,6 +160,18 @@ public class ServiceLocator {
 		c = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
 
 		return c;
+    }
+	
+	public List<Cliente> getUsuarios() {
+        WebTarget webTarget4 = webTarget.path("server/getUsuarios");
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		List<Cliente> clientes = new ArrayList<Cliente>();
+
+		GenericType<List<Cliente>> genericType = new GenericType<List<Cliente>>() {};
+		clientes = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
+
+		return clientes;
     }
 	
 }

@@ -1,5 +1,8 @@
 package es.deusto.spq.server;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -12,6 +15,7 @@ import javax.ws.rs.core.Response;
 import org.apache.log4j.Logger;
 
 import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.Habitacion;
 
 @Path("/server")
 @Produces(MediaType.APPLICATION_JSON)
@@ -60,7 +64,33 @@ public class RemoteFacade implements IRemoteFacade{
 		
 		return c;
 	}
+	
+	@GET
+	@Path("/getUsuarios")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<Cliente> encontrarClientes() {
+		List<Cliente> clientes = dbmanager.getClientes();
+		 
+		return clientes;
+	}
 
+	@GET
+	@Path("/obtenerHabitacion")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Habitacion encontrarHabitacion(@QueryParam("codigo") String codigo) {
+		Habitacion h = dbmanager.getHabitacion(codigo);
+
+		return h;
+	}
+	
+	@GET
+	@Path("/obtenerHabitaciones")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<Habitacion> encontrarHabitaciones() {
+		List<Habitacion> h = dbmanager.getHabitaciones();
+	
+		return h;
+	}
 
 
 }
