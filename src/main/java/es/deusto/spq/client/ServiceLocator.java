@@ -173,5 +173,12 @@ public class ServiceLocator {
 
 		return clientes;
     }
-	
+
+	public Response editarUsuario(Cliente user) {
+		WebTarget webTarget1 = webTarget.path("server/editarUsuario");	
+		Entity<Cliente> entity = Entity.entity(user, MediaType.APPLICATION_JSON);
+		Response response = webTarget1.request().post(entity);
+		return response;
+	}
+
 }

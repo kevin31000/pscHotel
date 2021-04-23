@@ -12,4 +12,5 @@ public interface IRemoteFacade {
 	public List<Cliente> encontrarClientes();
 	public Habitacion encontrarHabitacion(String codigo); 
 	public List<Habitacion> encontrarHabitaciones();
+	public Response editarUsuario(Cliente user);
 }

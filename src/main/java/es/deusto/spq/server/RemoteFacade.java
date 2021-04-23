@@ -92,5 +92,15 @@ public class RemoteFacade implements IRemoteFacade{
 		return h;
 	}
 
+	@POST
+	@Path("/editarUsuario")
+	//@Consumes(MediaType.APPLICATION_JSON)
+	public Response editarUsuario(Cliente user) {
+			//dbmanager.actualizarDatosCliente(user.getDNI(), user.getNombre(), user.getApellido(), user.getContrasenya(), user.getEmail());
+			dbmanager.update(user);
+			return Response.status(Response.Status.OK).build();
+		
+	}
+
 
 }
