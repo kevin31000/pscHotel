@@ -100,11 +100,11 @@ public class ServiceLocator {
 		return 0;
 	}
 
-	public ArrayList<Reserva> obtenerReservas() {
+	public List<Reserva> obtenerReservas() {
 		WebTarget webTarget3 = webTarget.path("server/obtenerReservas");
 		Invocation.Builder invocationBuilder = webTarget3.request(MediaType.APPLICATION_JSON);
 
-		ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+		List<Reserva> reservas = new ArrayList<Reserva>();
 		for (int i = 1; i < 51; i++) {
 			Reserva r = new Reserva();
 			r.setCodigoReserva("r" + Integer.toString(i));

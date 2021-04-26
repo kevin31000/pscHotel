@@ -69,6 +69,10 @@ public class Controller {
     public List<Habitacion> obtenerHabitaciones(){
     	return serviceLocator.obtenerHabitaciones();
     }
+    
+    public List<Reserva> obtenerReservas(){
+    	return serviceLocator.obtenerReservas();
+    }
 
     public boolean editarUsuario(Cliente user) {
 		if(serviceLocator.editarUsuario(user).getStatus() == Status.OK.getStatusCode()) {
