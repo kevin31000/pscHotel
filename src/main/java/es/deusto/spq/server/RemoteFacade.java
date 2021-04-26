@@ -102,5 +102,19 @@ public class RemoteFacade implements IRemoteFacade{
 		
 	}
 
+	public static RemoteFacade getInstance() {
+		if (instance == null) {
+			try {
+				instance = new RemoteFacade();
+			} catch (Exception ex) {
+				System.err.println("# Error creating RemoteFacade: " + ex);
+			}
+		}
+		
+		return instance;
+	}
+
+	
+
 
 }
