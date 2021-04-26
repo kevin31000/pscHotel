@@ -7,10 +7,14 @@ import javax.swing.border.EmptyBorder;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.client.Habitacion;
+import es.deusto.spq.client.ServiceLocator;
+
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JSplitPane;
 import javax.swing.JList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -40,19 +44,22 @@ public class VentanaAdmin extends JFrame{
 		lTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lTitulo.setBounds(10, 31, 764, 50);
 		
-		
-		
-		
-		
 		contentpane.add(lTitulo);
 		
-		JList list = new JList();
-		list.setBounds(216, 92, 343, 416);
-		contentpane.add(list);
 		
-		ArrayList<Cliente> clientes = new ArrayList();
+		JList listaCliente = new JList();
+		listaCliente.setBounds(216, 92, 343, 416);
+		contentpane.add(listaCliente);
 		
-		
+		DefaultListModel todosLosClientes = new DefaultListModel();
+		ServiceLocator serviceLocator = new ServiceLocator();
+		ArrayList<Cliente> clientes = (ArrayList<Cliente>) controller.obtenerClientes();
+		for (Cliente cliente : clientes) {
+			if (cliente != null) {
+				todosLosClientes.addElement(cliente.toString());
+			}
+		}
+		listaCliente.setModel(todosLosClientes);
 		
 		
 		JButton bDatos = new JButton("VER DATOS");

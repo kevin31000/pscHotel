@@ -1,6 +1,7 @@
 package es.deusto.spq.client;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.Response.Status;
 
@@ -37,9 +38,7 @@ public class Controller {
 		return serviceLocator.getUsuario(email);
 	}
 	
-	public List<Cliente> getUsuarios(){
-		return serviceLocator.getUsuarios();
-	}
+	
 	
 	/**Método para registrar un usuario nuevo
 	 * @param DNI DNI del usuario a registrar 
@@ -68,6 +67,10 @@ public class Controller {
 	 */
     public List<Habitacion> obtenerHabitaciones(){
     	return serviceLocator.obtenerHabitaciones();
+    }
+    
+    public List<Cliente> obtenerClientes(){
+    	return serviceLocator.obtenerClientes();
     }
     
     public List<Reserva> obtenerReservas(){

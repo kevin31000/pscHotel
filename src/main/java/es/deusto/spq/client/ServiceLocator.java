@@ -162,7 +162,7 @@ public class ServiceLocator {
 		return c;
     }
 	
-	public List<Cliente> getUsuarios() {
+	public List<Cliente> obtenerClientes() {
         WebTarget webTarget4 = webTarget.path("server/getUsuarios");
 		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
 

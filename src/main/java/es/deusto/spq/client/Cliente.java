@@ -91,6 +91,12 @@ public class Cliente {
 		this.esAdmin = esAdmin;
 	}
 
+	
+
+	@Override
+	public String toString() {
+		return "Cliente [" + email + "]";
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
