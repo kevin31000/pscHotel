@@ -32,6 +32,7 @@ public class VentanaReservas extends JFrame {
 	private JList listHabitaciones = new JList();
 	private JList listDisponibilidad = new JList();
 	private JButton bReservar = new JButton();
+	private JButton bAtras = new JButton();
 
 	public VentanaReservas(Controller controller) {
 		contentpane = new JPanel();
@@ -77,6 +78,12 @@ public class VentanaReservas extends JFrame {
 		 */
 		listDisponibilidad.setBounds(590, 130, 400, 340);
 		contentpane.add(listDisponibilidad);
+		
+		bAtras.setForeground(SystemColor.text);
+		bAtras.setBackground(new Color(0, 102, 204));
+		bAtras.setBounds(500, 487, 220, 42);
+		bAtras.setText("Atras");
+		contentpane.add(bAtras);
 
 		bReservar.setForeground(SystemColor.text);
 		bReservar.setBackground(new Color(0, 102, 204));
@@ -93,6 +100,17 @@ public class VentanaReservas extends JFrame {
 					System.out.println("Click");
 					int index = listHabitaciones.locationToIndex(evt.getPoint());
 				}
+			}
+		});
+		
+		bAtras.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VentanaMenu menu = new VentanaMenu(controller);
+				menu.setVisible(true);
+				VentanaReservas.this.dispose();
 			}
 		});
 

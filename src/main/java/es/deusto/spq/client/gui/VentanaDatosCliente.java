@@ -82,8 +82,6 @@ public class VentanaDatosCliente extends JFrame {
 		cancelar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaMenu menu = new VentanaMenu(controller);
-				menu.setVisible(true);
 				VentanaDatosCliente.this.dispose();
 			
 			}
