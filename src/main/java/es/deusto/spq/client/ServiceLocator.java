@@ -100,29 +100,6 @@ public class ServiceLocator {
 		return 0;
 	}
 
-	public List<Reserva> obtenerReservas() {
-		WebTarget webTarget3 = webTarget.path("server/obtenerReservas");
-		Invocation.Builder invocationBuilder = webTarget3.request(MediaType.APPLICATION_JSON);
-
-		List<Reserva> reservas = new ArrayList<Reserva>();
-		for (int i = 1; i < 51; i++) {
-			Reserva r = new Reserva();
-			r.setCodigoReserva("r" + Integer.toString(i));
-			
-			Response response = invocationBuilder.post(Entity.entity(r, MediaType.APPLICATION_JSON));
-			try {
-				if (response.getEntity() != null) {
-					r = (Reserva) response.getEntity();
-					reservas.add(r);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
-		return reservas;
-	}
-
     public Habitacion obtenerHabitacion(String codigo) {
         WebTarget webTarget4 = webTarget.path("server/obtenerHabitacion").queryParam("codigo", codigo);
 		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
@@ -172,6 +149,18 @@ public class ServiceLocator {
 		clientes = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
 
 		return clientes;
+    }
+	
+	public List<Reserva> obtenerReservas() {
+        WebTarget webTarget4 = webTarget.path("server/getReservas");
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		List<Reserva> reservas = new ArrayList<Reserva>();
+
+		GenericType<List<Reserva>> genericType = new GenericType<List<Reserva>>() {};
+		reservas = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
+
+		return reservas;
     }
 
 	public Response editarUsuario(Cliente user) {

@@ -72,7 +72,7 @@ public class Controller {
     public List<Cliente> obtenerClientes(){
     	return serviceLocator.obtenerClientes();
     }
-    
+   
     public List<Reserva> obtenerReservas(){
     	return serviceLocator.obtenerReservas();
     }

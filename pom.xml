@@ -280,7 +280,10 @@
     			<artifactId>jacoco-maven-plugin</artifactId>
     			<version>0.8.6</version>
 			</plugin>
+			
 		</plugins>
+		
+		
 	</reporting>
 
 	<properties>

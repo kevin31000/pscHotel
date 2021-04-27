@@ -15,6 +15,7 @@ public class Reserva {
     @PrimaryKey
     private String codigoReserva;
     private String codigoHabitacion;
+    private String emailUsuario;
     private int dia;
     private int mes;
     private int anyo;
@@ -22,13 +23,15 @@ public class Reserva {
     /** Constructor de la clase reservas
      * @param codigoReserva
      * @param codigoHabitacion
+     * @param emailUsuario
      * @param dia
      * @param mes
      * @param anyo
      */
-    public Reserva(String codigoReserva, String codigoHabitacion, int dia, int mes, int anyo) {
+    public Reserva(String codigoReserva, String codigoHabitacion, String emailUsuario,int dia, int mes, int anyo) {
 		this.codigoReserva = codigoReserva;
 		this.codigoHabitacion = codigoHabitacion;
+		this.emailUsuario = emailUsuario;
 		this.dia = dia;
 		this.mes = mes;
         this.anyo = anyo;
@@ -37,6 +40,7 @@ public class Reserva {
     public Reserva() {
 		this.codigoReserva = "";
 		this.codigoHabitacion = "";
+		this.emailUsuario = "";
 		this.dia = 0;
 		this.mes = 0;
         this.anyo = 0;
@@ -57,8 +61,16 @@ public class Reserva {
 	public void setCodigoHabitacion(String codigoHabitacion) {
 		this.codigoHabitacion = codigoHabitacion;
 	}
+	
+    public String getEmailUsuario() {
+		return emailUsuario;
+	}
 
-    public int getDia() {
+	public void setEmailUsuario(String emailUsuario) {
+		this.emailUsuario = emailUsuario;
+	}
+
+	public int getDia() {
 		return dia;
 	}
 

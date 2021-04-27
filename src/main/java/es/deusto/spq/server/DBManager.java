@@ -16,6 +16,7 @@ import javax.jdo.Transaction;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Habitacion;
+import es.deusto.spq.client.Reserva;
 
 public class DBManager {
 	private static DBManager instance = null;
@@ -117,6 +118,15 @@ public class DBManager {
 		
 	}
 	
+	public void update(Cliente client) {
+		Cliente user2 = getUsuario(client.getEmail());
+		if (user2 != null) {
+			System.out.println(user2.getNombre() + user2.getApellido() + user2.getEmail());
+			delete(user2);
+			store(client);
+		}
+	}
+	
 	public void store(Habitacion h) {
 		DBManager.getInstance().storeObjectInDB(h);
 	}
@@ -125,13 +135,12 @@ public class DBManager {
 		DBManager.getInstance().deleteObjectFromDB(h);
 	}
 
-	public void update(Cliente client) {
-		Cliente user2 = getUsuario(client.getEmail());
-		if (user2 != null) {
-			System.out.println(user2.getNombre() + user2.getApellido() + user2.getEmail());
-			delete(user2);
-			store(client);
-		}
+	public void store(Reserva r) {
+		DBManager.getInstance().storeObjectInDB(r);
+	}
+
+	public void delete(Reserva r) {
+		DBManager.getInstance().deleteObjectFromDB(r);
 	}
 
 	public static Cliente getUsuario(String email) {
@@ -227,6 +236,36 @@ public class DBManager {
 		return usuarios;
 	}
 
+	public List<Reserva> getReservas() {
+		List<Reserva> reservas = new ArrayList<Reserva>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+
+			tx.begin();
+
+			Extent<Reserva> extent = pm.getExtent(Reserva.class, true);
+
+			for (Reserva reserva : extent) {
+				reservas.add(reserva);
+			}
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return reservas;
+	}
+	
 	public void deleteClientes() {
 		List<Cliente> usuarios = new ArrayList<Cliente>();
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -457,13 +496,20 @@ public class DBManager {
 		
 		Cliente c1 = new Cliente("123456", "test", "test", "test@test.es", "test", false);
 		Cliente c2 = new Cliente("admin", "admin", "admin", "admin@admin.es", "admin", true);
+		
+		Reserva r1 = new Reserva("R01", "H1", "test@test.es", 01, 01, 2021);
+		Reserva r2 = new Reserva("R02", "H2", "test@test.es", 02, 02, 2021);
 
 		//anadirHabitaciones(habitaciones);
 		
 		try {
 			 store(c1);
 			 store(c2);
-			for (int i = 0; i < habitaciones.size(); i++) {
+			 
+			 store(r1);
+			 store(r2);
+			
+			 for (int i = 0; i < habitaciones.size(); i++) {
 				store(habitaciones.get(i));
 			}
 		} catch (Exception ex) {

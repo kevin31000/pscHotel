@@ -12,7 +12,7 @@ public class ReservaTest {
 	
 	@Before
 	public void setUp() {
-		r = new Reserva("reserva1", "habitacion1", 12, 6, 2019);
+		r = new Reserva("reserva1", "habitacion1", "test@test.es", 12, 6, 2019);
 	}
 	
 	@Test
