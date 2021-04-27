@@ -52,6 +52,7 @@ public class DBManager {
 	public void deleteData() {
 		deleteClientes();
 		deletehabitaciones();
+		deleteReservas();
 		
 	}
 	
@@ -309,6 +310,35 @@ public class DBManager {
 
 			for (Habitacion habitacion : extent) {
 				pm.deletePersistent(habitacion);
+			}
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+	}
+	
+	public void deleteReservas() {
+		List<Reserva> reservas = new ArrayList<Reserva>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+
+			tx.begin();
+
+			Extent<Reserva> extent = pm.getExtent(Reserva.class, true);
+
+			for (Reserva reserva : extent) {
+				pm.deletePersistent(reserva);
 			}
 
 			tx.commit();
