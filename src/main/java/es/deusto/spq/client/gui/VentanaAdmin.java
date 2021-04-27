@@ -34,7 +34,7 @@ public class VentanaAdmin extends JFrame{
 
 		JLabel lTitulo = new JLabel("Menu Administrador");
 		lTitulo.setFont(new Font("Arial", Font.PLAIN, 54));
-		lTitulo.setBounds(430, 50, 309, 42);
+		lTitulo.setBounds(250, 50, 489, 42);
 		contentpane.add(lTitulo);
 
 		buttonReserva.setForeground(SystemColor.text);

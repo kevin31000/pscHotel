@@ -95,6 +95,23 @@ public class VentanaUsuariosAdmin extends JFrame{
 		bBanear.setBounds(608, 475, 142, 33);
 		contentpane.add(bBanear);
 		
+		JButton bAtras = new JButton("ATRAS");
+		bAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaAdmin ventanaAdmin;
+				try {
+					ventanaAdmin = new VentanaAdmin(controller);
+					ventanaAdmin.setVisible(true);
+					VentanaUsuariosAdmin.this.dispose();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+				
+			}
+		});
+		bAtras.setBounds(35, 475, 142, 33);
+		contentpane.add(bAtras);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 600);

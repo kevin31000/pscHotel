@@ -71,7 +71,24 @@ public class VentanaReservasAdmin extends JFrame{
 		});
 		bDatos.setBounds(608, 193, 142, 33);
 		contentpane.add(bDatos);
-			
+		
+		JButton bAtras = new JButton("ATRAS");
+		bAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaAdmin ventanaAdmin;
+				try {
+					ventanaAdmin = new VentanaAdmin(controller);
+					ventanaAdmin.setVisible(true);
+					VentanaReservasAdmin.this.dispose();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+				
+			}
+		});
+		bAtras.setBounds(35, 475, 142, 33);
+		contentpane.add(bAtras);
 			
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 600);
