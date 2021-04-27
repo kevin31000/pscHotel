@@ -47,20 +47,21 @@ public class VentanaUsuariosAdmin extends JFrame{
 		contentpane.add(lTitulo);
 		
 		
-		JList listaCliente = new JList();
+		
+		
+		DefaultListModel todosLosClientes = new DefaultListModel<Cliente>();
+		ServiceLocator serviceLocator = new ServiceLocator();
+		
+		JList listaCliente = new JList(todosLosClientes);
 		listaCliente.setBounds(216, 92, 343, 416);
 		contentpane.add(listaCliente);
 		
-		DefaultListModel todosLosClientes = new DefaultListModel();
-		ServiceLocator serviceLocator = new ServiceLocator();
-		ArrayList<Cliente> clientes = (ArrayList<Cliente>) controller.obtenerClientes();
-		for (Cliente cliente : clientes) {
+		
+		for (Cliente cliente : controller.obtenerClientes()) {
 			if (cliente != null) {
 				todosLosClientes.addElement(cliente.toString());
 			}
-		}
-		listaCliente.setModel(todosLosClientes);
-		
+		}		
 		
 		JButton bDatos = new JButton("VER DATOS");
 		bDatos.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -68,7 +69,11 @@ public class VentanaUsuariosAdmin extends JFrame{
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				
+				VentanaDatosCliente datosCliente;
+				String c =  listaCliente.getSelectedValue().toString();
+				Cliente cl = controller.getUsuario(c);
+				datosCliente = new VentanaDatosCliente(controller, cl);
+				datosCliente.setVisible(true);
 				
 			}
 		});

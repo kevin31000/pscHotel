@@ -93,4 +93,9 @@ public class Reserva {
 	public void setAnyo(int anyo) {
 		this.anyo = anyo;
     }
+
+	@Override
+	public String toString() {
+		return "Reserva [codigoReserva=" + codigoReserva + ", emailUsuario=" + emailUsuario + "]";
+	}
 }

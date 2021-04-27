@@ -95,7 +95,7 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [" + email + "]";
+		return  email;
 	}
 
 	public static void main(String[] args) {

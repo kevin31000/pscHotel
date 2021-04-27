@@ -83,7 +83,7 @@ public class VentanaMenu extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				VentanaDatosCliente datosCliente;
 				try {
-					datosCliente = new VentanaDatosCliente(controller);
+					datosCliente = new VentanaDatosCliente(controller, controller.getUsuario(VentanaInicioSesion.cargarEmailUsuario()));
 					datosCliente.setVisible(true);
 				} catch (Exception e2) {
 					// TODO: handle exception

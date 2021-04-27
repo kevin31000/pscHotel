@@ -36,7 +36,7 @@ public class VentanaDatosCliente extends JFrame {
 	JButton crear;
 	JButton cancelar;
 
-	public VentanaDatosCliente(final Controller controller) {
+	public VentanaDatosCliente(final Controller controller, Cliente u) {
 
 		ldni = new JLabel("DNI");
 		tdni = new JTextField(20);
@@ -58,7 +58,7 @@ public class VentanaDatosCliente extends JFrame {
 
 		//Cliente u = new Cliente("11", "mikel", "castro", "ad","a", true);
 		//Cliente u =DBManager.getUsuario(VentanaInicioSesion.cargarEmailUsuario());
-		Cliente u = controller.getUsuario(VentanaInicioSesion.cargarEmailUsuario());
+		//Cliente u = controller.getUsuario(VentanaInicioSesion.cargarEmailUsuario());
 		System.out.println(u);
 		tdni.setText(u.getDNI());
 		tnombre.setText(u.getNombre());
