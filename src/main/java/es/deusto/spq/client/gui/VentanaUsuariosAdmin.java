@@ -46,9 +46,6 @@ public class VentanaUsuariosAdmin extends JFrame{
 		
 		contentpane.add(lTitulo);
 		
-		
-		
-		
 		DefaultListModel todosLosClientes = new DefaultListModel<Cliente>();
 		ServiceLocator serviceLocator = new ServiceLocator();
 		

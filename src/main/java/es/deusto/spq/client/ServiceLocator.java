@@ -151,6 +151,19 @@ public class ServiceLocator {
 		return clientes;
     }
 	
+	public Reserva obtenerReserva(String codigo) {
+        WebTarget webTarget4 = webTarget.path("server/getReserva").queryParam("codigoReserva", codigo);
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		Reserva r = new Reserva();
+		r.setCodigoReserva(codigo);
+
+		GenericType<Reserva> genericType = new GenericType<Reserva>() {};
+		r = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
+
+		return r;
+    }
+	
 	public List<Reserva> obtenerReservas() {
         WebTarget webTarget4 = webTarget.path("server/getReservas");
 		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);

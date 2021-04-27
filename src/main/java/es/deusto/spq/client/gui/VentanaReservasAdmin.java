@@ -43,30 +43,32 @@ public class VentanaReservasAdmin extends JFrame{
 			
 		contentpane.add(lTitulo);
 			
-			
-		JList listaReservas = new JList();
-		listaReservas.setBounds(216, 92, 343, 416);
-		contentpane.add(listaReservas);
-			
-		DefaultListModel todosLasReservas = new DefaultListModel();
+		DefaultListModel todasLasReservas = new DefaultListModel<Reserva>();
 		ServiceLocator serviceLocator = new ServiceLocator();
-		ArrayList<Reserva> reservas = (ArrayList<Reserva>) controller.obtenerReservas();
-		for (Reserva reserva : reservas) {
+		
+		JList listaReserva = new JList(todasLasReservas);
+		listaReserva.setBounds(216, 92, 343, 416);
+		contentpane.add(listaReserva);
+		
+		
+		for (Reserva reserva : controller.obtenerReservas()) {
 			if (reserva != null) {
-				todosLasReservas.addElement(reserva.toString());
+				todasLasReservas.addElement(reserva.toString());
 			}
-		}
-		listaReservas.setModel(todosLasReservas);
-			
-			
+		}		
+		
 		JButton bDatos = new JButton("VER DATOS");
 		bDatos.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		bDatos.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-					
-					
+				VentanaMostrarReservas datosReserva;
+				String r =  listaReserva.getSelectedValue().toString();
+				Reserva reserva = controller.obtenerReserva(r);
+				datosReserva = new VentanaMostrarReservas(controller, reserva);
+				datosReserva.setVisible(true);
+				
 			}
 		});
 		bDatos.setBounds(608, 193, 142, 33);

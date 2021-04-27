@@ -96,6 +96,6 @@ public class Reserva {
 
 	@Override
 	public String toString() {
-		return "Reserva [codigoReserva=" + codigoReserva + ", emailUsuario=" + emailUsuario + "]";
+		return codigoReserva;
 	}
 }

@@ -61,6 +61,9 @@ public class Controller {
         return serviceLocator.obtenerHabitacion(codigo);
     }
     
+    public Reserva obtenerReserva(String codigo) {
+    	return serviceLocator.obtenerReserva(codigo);
+    }
 
 	/**Método para encontrar un usuario por email
 	 
@@ -72,6 +75,7 @@ public class Controller {
     public List<Cliente> obtenerClientes(){
     	return serviceLocator.obtenerClientes();
     }
+  
    
     public List<Reserva> obtenerReservas(){
     	return serviceLocator.obtenerReservas();

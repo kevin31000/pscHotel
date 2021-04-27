@@ -94,6 +94,15 @@ public class RemoteFacade implements IRemoteFacade{
 	}
 	
 	@GET
+	@Path("/getReserva")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Reserva encontrarReserva(@QueryParam("codigoReserva") String codigo) {
+		Reserva r = dbmanager.getReserva(codigo);
+
+		return r;
+	}
+	
+	@GET
 	@Path("/getReservas")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public List<Reserva> encontrarReservas() {
@@ -125,8 +134,7 @@ public class RemoteFacade implements IRemoteFacade{
 		return instance;
 	}
 
-	
-	
+
 
 
 }
