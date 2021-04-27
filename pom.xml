@@ -55,11 +55,7 @@
 			<artifactId>datanucleus-rdbms</artifactId>
 			<version>[5.1.6, 5.9)</version>
 		</dependency>
-		<dependency>
-			<groupId>org.datanucleus</groupId>
-			<artifactId>javax.jdo</artifactId>
-			<version>[3.2.0-m8, )</version>
-		</dependency>
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -197,6 +193,7 @@
 					<log4jConfiguration>${config.files.dir}/log4j.properties</log4jConfiguration>
 					<verbose>true</verbose>
 					<props>${config.files.dir}/datanucleus.properties</props>
+					<fork>false</fork>
 				</configuration>
 				<executions>
 					<execution>
