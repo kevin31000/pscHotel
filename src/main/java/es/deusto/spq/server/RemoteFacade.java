@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Habitacion;
+import es.deusto.spq.client.Reserva;
 
 @Path("/server")
 @Produces(MediaType.APPLICATION_JSON)
@@ -91,6 +92,16 @@ public class RemoteFacade implements IRemoteFacade{
 	
 		return h;
 	}
+	
+	@GET
+	@Path("/getReservas")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<Reserva> encontrarReservas() {
+		List<Reserva> r = dbmanager.getReservas();
+		
+		return r;
+	}
+
 
 	@POST
 	@Path("/editarUsuario")
@@ -114,6 +125,7 @@ public class RemoteFacade implements IRemoteFacade{
 		return instance;
 	}
 
+	
 	
 
 

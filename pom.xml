@@ -132,7 +132,7 @@
 						</configuration>
 					</plugin>
 				</plugins>
-				
+
 			</build>
 		</profile>
 		<!--mvn exec:java -PServer -->
@@ -215,10 +215,10 @@
 				<version>3.9.1</version>
 			</plugin>
 			<plugin>
-   				<groupId>org.jacoco</groupId>
-    			<artifactId>jacoco-maven-plugin</artifactId>
-    			<version>0.8.6</version>
-    			<executions>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.6</version>
+				<executions>
 					<execution>
 						<goals>
 							<goal>prepare-agent</goal>
@@ -273,14 +273,14 @@
 				<version>3.9.1</version>
 			</plugin>
 			<plugin>
-   				<groupId>org.jacoco</groupId>
-    			<artifactId>jacoco-maven-plugin</artifactId>
-    			<version>0.8.6</version>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.6</version>
 			</plugin>
-			
+
 		</plugins>
-		
-		
+
+
 	</reporting>
 
 	<properties>
