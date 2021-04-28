@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.util.List;
+
 import javax.ws.rs.core.Response.Status;
 
 import org.databene.contiperf.PerfTest;
@@ -14,6 +16,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.Reserva;
 
 public class RemoteFacadeTest {
 	RemoteFacade remote;
@@ -54,4 +57,17 @@ public class RemoteFacadeTest {
 		remote = RemoteFacade.getInstance();
 		assertNull(remote.encontrarHabitacion("H99"));
 	}
+	
+	@Test
+	public void encontrarReservaTest() {
+		remote = RemoteFacade.getInstance();
+		assertNull(remote.encontrarReserva("R25"));
+	}
+	
+	@Test
+	public void encontrarReservasTest() {
+		remote = RemoteFacade.getInstance();
+		assertNotNull(remote.encontrarReservas());
+	}
+	
 }
