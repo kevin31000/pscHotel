@@ -14,19 +14,13 @@ import org.junit.Test;
 
 public class ControllerTest {
 	
-	ServiceLocator servicelocator;
-	Controller controller;
+	ServiceLocator servicelocator = new ServiceLocator();;
+	Controller controller = new Controller(servicelocator);
 	Habitacion habitacion;
 	private static Cliente c = new Cliente("123", "nombre", "apellido", "email", "contrasenya", true);
 	
 	@Rule 
 	public ContiPerfRule i = new ContiPerfRule();
-	
-	@Before
-    public void setUp(){
-		servicelocator = new ServiceLocator();
-		controller = new Controller(servicelocator);
-	}
 	
 	@Test
     public void iniciarSesionTest(){	
