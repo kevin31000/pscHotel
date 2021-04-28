@@ -44,7 +44,7 @@ public class ControllerTest {
 //	}
 	
 	@Test
-	public void obtenerHabitaciones() {
+	public void obtenerHabitacionesTest() {
 		List<Habitacion> habitaciones = controller.obtenerHabitaciones();
 		for (Habitacion habitacion : habitaciones) {
 			Assert.assertNotNull(habitacion);
@@ -54,7 +54,7 @@ public class ControllerTest {
 	
 	
 	@Test
-	public void obtenerClientes() {
+	public void obtenerClientesTest() {
 		List<Cliente> clientes = controller.obtenerClientes();
 		for (Cliente cliente : clientes) {
 			Assert.assertNotNull(cliente);
@@ -63,7 +63,7 @@ public class ControllerTest {
 	}
 	
 	@Test
-	public void obtenerReservas() {
+	public void obtenerReservasTest() {
 		List<Reserva> reservas = controller.obtenerReservas();
 		for (Reserva reserva : reservas) {
 			Assert.assertNotNull(reserva);
