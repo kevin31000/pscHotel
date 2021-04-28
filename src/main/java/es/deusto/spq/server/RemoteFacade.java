@@ -65,6 +65,22 @@ public class RemoteFacade implements IRemoteFacade{
 		
 		return c;
 	}
+
+	@GET
+	@Path("/getReserva")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Reserva encontrarReserva(String codigoReserva) {
+		List<Reserva> reservas = dbmanager.getReservas();
+		Reserva r = new Reserva();
+
+		for (Reserva reserva : reservas) {
+			if (reserva.getCodigoReserva() == codigoReserva) {
+				r = reserva;
+			}
+		}
+
+		return r;
+	}
 	
 	@GET
 	@Path("/getUsuarios")
@@ -91,15 +107,6 @@ public class RemoteFacade implements IRemoteFacade{
 		List<Habitacion> h = dbmanager.getHabitaciones();
 	
 		return h;
-	}
-	
-	@GET
-	@Path("/getReserva")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Reserva encontrarReserva(@QueryParam("codigoReserva") String codigo) {
-		Reserva r = dbmanager.getReserva(codigo);
-
-		return r;
 	}
 	
 	@GET
@@ -134,7 +141,12 @@ public class RemoteFacade implements IRemoteFacade{
 		return instance;
 	}
 
-
-
+	@POST
+	@Path("/registroReserva")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response registrarReserva(Reserva reserva) {
+		dbmanager.store(reserva);
+		return Response.status(Response.Status.OK).build();
+	}
 
 }

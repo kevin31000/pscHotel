@@ -10,10 +10,11 @@ public interface IRemoteFacade {
 	public Response iniciarSesion(Cliente cliente);
 	public Response registrarCliente(Cliente cliente);
 	public Cliente encontrarCliente(String email);
+	public Reserva encontrarReserva(String codigoReserva);
 	public List<Cliente> encontrarClientes();
 	public Habitacion encontrarHabitacion(String codigo); 
 	public List<Habitacion> encontrarHabitaciones();
 	public Response editarUsuario(Cliente user);
 	public List<Reserva> encontrarReservas();
-	public Reserva encontrarReserva(String codigo);
+	public Response registrarReserva(Reserva reserva);
 }

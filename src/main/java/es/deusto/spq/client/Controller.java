@@ -38,6 +38,9 @@ public class Controller {
 		return serviceLocator.getUsuario(email);
 	}
 	
+	public Reserva getReserva(String codigoReserva) {
+		return serviceLocator.getReserva(codigoReserva);
+	}
 	
 	
 	/**Método para registrar un usuario nuevo
@@ -53,6 +56,19 @@ public class Controller {
 		return serviceLocator.anadirCliente(DNI, nombre, apellido, email, contrasenya, esAdmin);
 	}
 
+	/**Método para registrar una nueva reserva
+	 * @param codigoReserva codigo de la reserva a registrar 
+	 * @param codigoHabitacion codigo de la habitacion que sera reservada
+	 * @param emailUsuario email del usuario que reserva
+	 * @param dia dia de la reserva 
+	 * @param mes mes de la reserva 
+	 * @param anyo anyo de la reserva 
+	 * @return Devuelve un booleano el cual es true si no ha habido ningún error.
+	 */
+	public boolean anadirReserva(String codigoReserva, String codigoHabitacion, String emailUsuario, int dia, int mes, int anyo){
+		return serviceLocator.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
+	}
+
     /**Método para obtener la habitaciones del hotel 
      * @param codigo Código de la habitación 
      * @return Devuelve la habitación seleccionada
@@ -61,9 +77,6 @@ public class Controller {
         return serviceLocator.obtenerHabitacion(codigo);
     }
     
-    public Reserva obtenerReserva(String codigo) {
-    	return serviceLocator.obtenerReserva(codigo);
-    }
 
 	/**Método para encontrar un usuario por email
 	 
@@ -75,7 +88,6 @@ public class Controller {
     public List<Cliente> obtenerClientes(){
     	return serviceLocator.obtenerClientes();
     }
-  
    
     public List<Reserva> obtenerReservas(){
     	return serviceLocator.obtenerReservas();

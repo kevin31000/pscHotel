@@ -65,7 +65,7 @@ public class VentanaReservasAdmin extends JFrame{
 			{
 				VentanaMostrarReservas datosReserva;
 				String r =  listaReserva.getSelectedValue().toString();
-				Reserva reserva = controller.obtenerReserva(r);
+				Reserva reserva = controller.getReserva(r);
 				datosReserva = new VentanaMostrarReservas(controller, reserva);
 				datosReserva.setVisible(true);
 				

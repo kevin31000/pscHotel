@@ -170,6 +170,42 @@ public class DBManager {
 
 		return user;	
 	}
+
+	public static ArrayList<Cliente> seleccionaUsuarioBD() {
+		ArrayList<Cliente> cl = new ArrayList<Cliente>();
+		
+		try {
+			PreparedStatement pst = conn.prepareStatement("SELECT * FROM CLIENTE"); 
+			ResultSet rs = pst.executeQuery();	
+			String dni;
+			String nombre;
+			String apellido;
+			String email;
+			String contrasenya;
+			boolean esAdmin;	
+			
+			
+			while(rs.next()) {
+				dni = rs.getString("DNI");
+				nombre = rs.getString("NOMBRE");
+				apellido = rs.getString("APELLIDO");
+				email = rs.getString("EMAIL");
+				contrasenya= rs.getString("CONTRASENYA");
+				esAdmin = rs.getBoolean("ESADMIN");
+				Cliente c = new Cliente(dni, nombre, apellido, email, contrasenya, esAdmin);
+				
+				cl.add(c);
+			}
+			rs.close();
+			pst.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return null;
+		}
+
+		return cl;
+	}
 	
 	public List<Cliente> getClientes() {
 		List<Cliente> usuarios = new ArrayList<Cliente>();
@@ -199,90 +235,6 @@ public class DBManager {
 		}
 
 		return usuarios;
-	}
-	
-	public Habitacion getHabitacion(String codigo) {
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(4);
-		Transaction tx = pm.currentTransaction();
-		Habitacion h = null;
-
-		try {
-			tx.begin();
-
-			Query<?> query = pm.newQuery("SELECT FROM Habitacion WHERE codigo == '" + codigo + "'");
-			query.setUnique(true);
-			h = (Habitacion) query.execute();
-
-			tx.commit();
-		} catch (Exception ex) {
-			System.out.println(" $ Error cogiendo la habitacion de la BD: " + ex.getMessage());
-		} finally {
-			if (tx != null && tx.isActive()) {
-				tx.rollback();
-			}
-
-			pm.close();
-		}
-
-		return h;
-	}
-	
-	public List<Habitacion> getHabitaciones() {
-		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(4);
-		Transaction tx = pm.currentTransaction();
-
-		try {
-
-			tx.begin();
-
-			Extent<Habitacion> extent = pm.getExtent(Habitacion.class, true);
-
-			for (Habitacion habitacion : extent) {
-				habitaciones.add(habitacion);
-			}
-
-			tx.commit();
-		} catch (Exception ex) {
-			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
-		} finally {
-			if (tx != null && tx.isActive()) {
-				tx.rollback();
-			}
-
-			pm.close();
-		}
-
-		return habitaciones;
-	}
-	
-	public static Reserva getReserva(String codigo) {
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(4);
-		Transaction tx = pm.currentTransaction();
-		Reserva reserva = null;
-
-		try {
-			tx.begin();
-
-			Query<?> query = pm.newQuery("SELECT FROM " + Reserva.class.getName() + " WHERE codigoReserva == '" + codigo + "'");
-			query.setUnique(true);
-			reserva = (Reserva) query.execute();
-
-			tx.commit();
-		} catch (Exception ex) {
-			System.out.println(" $ Error cogiendo el reserva de la BD: " + ex.getMessage());
-		} finally {
-			if (tx != null && tx.isActive()) {
-				tx.rollback();
-			}
-
-			pm.close();
-		}
-
-		return reserva;	
 	}
 
 	public List<Reserva> getReservas() {
@@ -476,6 +428,63 @@ public class DBManager {
 	            System.out.println(e);
 	        }
 	}
+
+	public Habitacion getHabitacion(String codigo) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+		Habitacion h = null;
+
+		try {
+			tx.begin();
+
+			Query<?> query = pm.newQuery("SELECT FROM Habitacion WHERE codigo == '" + codigo + "'");
+			query.setUnique(true);
+			h = (Habitacion) query.execute();
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println(" $ Error cogiendo la habitacion de la BD: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return h;
+	}
+	
+	public List<Habitacion> getHabitaciones() {
+		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+
+			tx.begin();
+
+			Extent<Habitacion> extent = pm.getExtent(Habitacion.class, true);
+
+			for (Habitacion habitacion : extent) {
+				habitaciones.add(habitacion);
+			}
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return habitaciones;
+	}
 	
 	public void initializeData() {
 		System.out.println(" * Initializing data base");
@@ -520,17 +529,15 @@ public class DBManager {
 		
 		Reserva r1 = new Reserva("R01", "H1", "test@test.es", 01, 01, 2021);
 		Reserva r2 = new Reserva("R02", "H2", "test@test.es", 02, 02, 2021);
-
-		//anadirHabitaciones(habitaciones);
 		
 		try {
-			 store(c1);
-			 store(c2);
+			store(c1);
+			store(c2);
 			 
-			 store(r1);
-			 store(r2);
+			store(r1);
+			store(r2);
 			
-			 for (int i = 0; i < habitaciones.size(); i++) {
+			for (int i = 0; i < habitaciones.size(); i++) {
 				store(habitaciones.get(i));
 			}
 		} catch (Exception ex) {
