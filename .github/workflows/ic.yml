@@ -1,22 +1,30 @@
-name: Java CI
+language: java
 
-on: [push]
+jdk:
+  - openjdk8
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+services: 
+  - mysql
+before_script:
+- mysql -u root -e "DROP SCHEMA IF EXISTS pscHotel;"
+- mysql -u root -e "DROP USER IF EXISTS 'spq'@'localhost';"
+- mysql -u root -e "CREATE SCHEMA pscHotel;"
+- mysql -u root -e "CREATE USER IF NOT EXISTS 'spq'@'localhost' IDENTIFIED BY 'spq';"
+- mysql -u root -e "GRANT ALL ON pscHotel.* TO 'spq'@'localhost';"
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: clean
-        run: mvn clean
-      - name: Compile
-        run: mvn compile
-      - name: Open Server
-        run: mvn exec:java -PServer
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify
+script:
+ - mvn clean compile
+ - mvn datanucleus:schema-create 
+ - mvn test
+ 
+branches:
+  only:
+  - master
+  
+notifications:
+  email:
+    recipients:
+      - kevin.arnaiz@opendeusto.es
+      
+    on_success: never
+    on_failure: always
