@@ -12,11 +12,15 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: BD
+      - name: Drop Schema
         run: mysql -u root -e "DROP SCHEMA IF EXISTS pscHotel;"
+      - name: Drop User
         run: mysql -u root -e "DROP USER IF EXISTS 'spq'@'localhost';"
+      - name: Create Schema
         run: mysql -u root -e "CREATE SCHEMA pscHotel;"
+      - name: Create user
         run: mysql -u root -e "CREATE USER IF NOT EXISTS 'spq'@'localhost' IDENTIFIED BY 'spq';"
+      - name: Grant All
         run: mysql -u root -e "GRANT ALL ON pscHotel.* TO 'spq'@'localhost';"
       - name: clean compile
         run: mvn clean compile
