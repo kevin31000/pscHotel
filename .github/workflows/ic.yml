@@ -5,6 +5,14 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+  env:
+ 	 DB_DATABASE: pscHotel
+ 	 DB_USER: root
+ 	 DB_PASSWORD: root
+
+	steps:
+ 	 
 
     steps:
       - uses: actions/checkout@v2
@@ -12,6 +20,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: Set up MySQL
+  	 	 run: |
+      		 sudo /etc/init.d/mysql start
+        	 mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
       - name: Drop Schema
         run: mysql -u root -e "DROP SCHEMA IF EXISTS pscHotel;"
       - name: Drop User
