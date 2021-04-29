@@ -267,6 +267,33 @@ public class DBManager {
 		return reservas;
 	}
 	
+	public static Reserva getReserva(String codigo) {
+        PersistenceManager pm = pmf.getPersistenceManager();
+        pm.getFetchPlan().setMaxFetchDepth(4);
+        Transaction tx = pm.currentTransaction();
+        Reserva reserva = null;
+
+        try {
+            tx.begin();
+
+            Query<?> query = pm.newQuery("SELECT FROM " + Reserva.class.getName() + " WHERE codigoReserva == '" + codigo + "'");
+            query.setUnique(true);
+            reserva = (Reserva) query.execute();
+
+            tx.commit();
+        } catch (Exception ex) {
+            System.out.println(" $ Error cogiendo el reserva de la BD: " + ex.getMessage());
+        } finally {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+
+            pm.close();
+        }
+
+        return reserva;
+    }
+	
 	public void deleteClientes() {
 		List<Cliente> usuarios = new ArrayList<Cliente>();
 		PersistenceManager pm = pmf.getPersistenceManager();
