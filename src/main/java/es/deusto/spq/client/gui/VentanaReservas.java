@@ -143,11 +143,7 @@ public class VentanaReservas extends JFrame {
 				int mes = 0;
 				int anyo = 0;
 			
-				for (int i = 0; i < reservas.size(); i++) {
-					if (i == reservas.size()-1) {
-						codigoReserva = "R" + reservas.get(i).getCodigoReserva().charAt(1) + reservas.get(i).getCodigoReserva().charAt(2);
-					}
-				}
+				codigoReserva = "R" + reservas.size()+1;
 				codigoHabitacion = "H" + Integer.toString(listHabitaciones.getSelectedIndex());
 				Properties objetoP = new Properties();
 				try {
