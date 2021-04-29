@@ -17,27 +17,27 @@ public class ClienteTest {
 	}
 	
 	@Test
-	public void testGetDNI() {
+	public void getDNITest() {
 		assertEquals("71234561D", c.getDNI());
 	}
 	@Test
-	public void testGetNombre() {
+	public void getNombreTest() {
 		assertEquals("Sergio", c.getNombre());
 	}
 	@Test
-	public void testGetApellido() {
+	public void getApellidoTest() {
 		assertEquals("Lopez", c.getApellido());
 	}
 	@Test
-	public void testGetEmail() {
+	public void getEmailTest() {
 		assertEquals("sergio@gmail.com", c.getEmail());
 	}
 	@Test
-	public void testGetContrasenya() {
+	public void getContrasenyaTest() {
 		assertEquals("123", c.getContrasenya());
 	}
 	@Test
-	public void testGetEsAdmin() {
+	public void getEsAdminTest() {
 		assertEquals(false, c.isEsAdmin());
 	}
 

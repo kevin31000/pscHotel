@@ -16,23 +16,23 @@ public class ReservaTest {
 	}
 	
 	@Test
-	public void testGetCodigoReserva() {
+	public void getCodigoReservaTest() {
 		assertEquals("reserva1", r.getCodigoReserva());
 	}
 	@Test
-	public void testGetCodigoHabitacion() {
+	public void getCodigoHabitacionTest() {
 		assertEquals("habitacion1", r.getCodigoHabitacion());
 	}
 	@Test
-	public void testGetDia() {
+	public void getDiaTest() {
 		assertEquals(12, r.getDia());
 	}
 	@Test
-	public void testGetMes() {
+	public void getMesTest() {
 		assertEquals(6, r.getMes());
 	}
 	@Test
-	public void testGetAnyo() {
+	public void getAnyoTest() {
 		assertEquals(2019, r.getAnyo());
 	}
 

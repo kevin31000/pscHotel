@@ -5,11 +5,6 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-  env:
- 	 DB_DATABASE: pscHotel
- 	 DB_USER: root
- 	 DB_PASSWORD: root
 
     steps:
       - uses: actions/checkout@v2
@@ -17,23 +12,16 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Set up MySQL
-  	 	 run: |
-      		 sudo /etc/init.d/mysql start
-        	 mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
-      - name: Drop Schema
-        run: mysql -u root -e "DROP SCHEMA IF EXISTS pscHotel;"
-      - name: Drop User
-        run: mysql -u root -e "DROP USER IF EXISTS 'spq'@'localhost';"
-      - name: Create Schema
-        run: mysql -u root -e "CREATE SCHEMA pscHotel;"
-      - name: Create user
-        run: mysql -u root -e "CREATE USER IF NOT EXISTS 'spq'@'localhost' IDENTIFIED BY 'spq';"
-      - name: Grant All
-        run: mysql -u root -e "GRANT ALL ON pscHotel.* TO 'spq'@'localhost';"
+          
       - name: clean compile
-        run: mvn clean compile
-      - name: Create Schema
-        run: mvn datanucleus:schema-create 
+        run: mvn --batch-mode --update-snapshots clean compile 
+      - name: Set up MySQL
+        run: | 
+          sudo /etc/init.d/mysql start
+          mysql -uroot -proot < src/main/sql/create-pscHotel.sql
+          mvn --batch-mode --update-snapshots compile 
+          mvn --batch-mode --update-snapshots datanucleus:enhance
+          mvn --batch-mode --update-snapshots datanucleus:schema-create
+          mvn --batch-mode --update-snapshots exec:java -PServer
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
