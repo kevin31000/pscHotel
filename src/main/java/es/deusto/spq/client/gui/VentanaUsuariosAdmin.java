@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.ws.rs.core.Response;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
@@ -14,6 +15,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JSplitPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -85,7 +87,22 @@ public class VentanaUsuariosAdmin extends JFrame{
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				String c = listaCliente.getSelectedValue().toString();
+				System.out.println(c);
+				Cliente cl = controller.getUsuario(c);
+				System.out.println(cl);
+				Response ban = controller.borrarCliente(cl);
 				
+				VentanaAdmin ventanaAdmin;
+				try {
+					ventanaAdmin = new VentanaAdmin(controller);
+					ventanaAdmin.setVisible(true);
+					VentanaUsuariosAdmin.this.dispose();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+				
+				JOptionPane.showMessageDialog(null, "Cliente borrado", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 		});
@@ -113,7 +130,7 @@ public class VentanaUsuariosAdmin extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 600);
 		this.setVisible(true);
-		this.setTitle("AdministraciÃ³n");
+		this.setTitle("Administración");
 	}
 }
 

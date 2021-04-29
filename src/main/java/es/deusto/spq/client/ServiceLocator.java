@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response.Status;
 
 import org.apache.log4j.Logger;
 
+
 /**Clase para la conexión entre el Controller y el RemoteFacade del servidor
  * @author Sergio
  *
@@ -74,6 +75,13 @@ public class ServiceLocator {
 			logger.info("User correctly registered");
 			return true;
 		}
+	}
+	
+	public Response borrarCliente(Cliente cliente) {
+		WebTarget webTarget1 = webTarget.path("server/borrarUsuario");	
+		Entity<Cliente> entity = Entity.entity(cliente, MediaType.APPLICATION_JSON);
+		Response response = webTarget1.request().post(entity);
+		return response;
 	}
 
 	/**Método para registrar una nueva reserva

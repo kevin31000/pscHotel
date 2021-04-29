@@ -170,6 +170,27 @@ public class DBManager {
 
 		return user;	
 	}
+	
+	public void borrarCliente(Cliente cliente) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Query<?> query = pm.newQuery("SELECT FROM " + Cliente.class.getName() + " WHERE email == '" + cliente.getEmail() + "'");
+			System.out.println(" * '" + query.deletePersistentAll() + "' cliente deleted from the DB.");
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println(" $ Error querying a Cliente: " + ex.getMessage());
+			ex.printStackTrace();
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			if (pm != null && !pm.isClosed()) {
+				pm.close();
+			}
+		}
+	}
 
 	public static ArrayList<Cliente> seleccionaUsuarioBD() {
 		ArrayList<Cliente> cl = new ArrayList<Cliente>();

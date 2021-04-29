@@ -3,6 +3,8 @@ package es.deusto.spq.client;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 
@@ -99,6 +101,11 @@ public class Controller {
 		}
 		return false;
 	}
+    
+    public Response borrarCliente(Cliente cliente) {
+		return serviceLocator.borrarCliente(cliente);
+	}
+    
 
 
 }
