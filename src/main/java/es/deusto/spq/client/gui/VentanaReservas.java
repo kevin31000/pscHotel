@@ -36,13 +36,13 @@ public class VentanaReservas extends JFrame {
 
 	private JPanel contentpane;
 	private JLabel lHabitaciones = new JLabel();
-	private JLabel lDisponibilidad = new JLabel();
 	private JList listHabitaciones = new JList();
-	private JList listDisponibilidad = new JList();
-	private JComboBox comboDisponibilidad = new JComboBox();
+	private DefaultListModel contenidoHabitaciones = new DefaultListModel();
+	private JComboBox comboDisponibilidadDia = new JComboBox();
+	private JComboBox comboDisponibilidadMes = new JComboBox();
+	private JComboBox comboDisponibilidadAnyo = new JComboBox();
 	private JButton bReservar = new JButton();
 	private JButton bAtras = new JButton();
-	private int n;
 
 	public VentanaReservas(Controller controller) {
 		contentpane = new JPanel();
@@ -61,12 +61,7 @@ public class VentanaReservas extends JFrame {
 		lHabitaciones.setBounds(100, -40, 300, 300);
 		contentpane.add(lHabitaciones);
 
-		lDisponibilidad.setText("Disponibilidad");
-		lDisponibilidad.setFont(new Font("Arial", Font.BOLD, 20));
-		lDisponibilidad.setBounds(810, -40, 300, 300);
-		contentpane.add(lDisponibilidad);
-
-		DefaultListModel contenidoHabitaciones = new DefaultListModel();
+		contenidoHabitaciones = new DefaultListModel();
 		ServiceLocator serviceLocator = new ServiceLocator();
 		ArrayList<Habitacion> habitaciones = (ArrayList<Habitacion>) controller.obtenerHabitaciones();
 		for (Habitacion habitacion : habitaciones) {
@@ -75,105 +70,19 @@ public class VentanaReservas extends JFrame {
 		listHabitaciones.setModel(contenidoHabitaciones);
 		listHabitaciones.setBounds(60, 130, 400, 400);
 		contentpane.add(listHabitaciones);
-		
-		comboDisponibilidad.setFont(new Font("Arial", Font.BOLD, 16));
-		comboDisponibilidad.setBounds(480, 280, 190, 30);
-		comboDisponibilidad.addItem("ESCOJA EL MES");
-		for (int i = 1; i < 13; i++) {
-			comboDisponibilidad.addItem(Integer.toString(i));
-		}
-		n = 0;
-		comboDisponibilidad.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				n = Integer.parseInt(comboDisponibilidad.getSelectedItem().toString());
-			}
-		});
-		contentpane.add(comboDisponibilidad);
-
-		DefaultListModel contenidoDisponibilidad = new DefaultListModel();
 	
-		ArrayList<Reserva> reservas = (ArrayList<Reserva>) controller.obtenerReservas();
-		//A continuacion, los dias disponibles por pantalla
-		//Hay que meterlo en un thread
-		if (n == 1) {
-			for (int i = 1; i < 32; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 2) {
-			for (int i = 1; i < 29; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 3) {
-			for (int i = 1; i < 32; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 4) {
-			for (int i = 1; i < 31; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 5) {
-			for (int i = 1; i < 32; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 6) {
-			for (int i = 1; i < 31; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 7) {
-			for (int i = 1; i < 32; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 8) {
-			for (int i = 1; i < 32; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 9) {
-			for (int i = 1; i < 31; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 10) {
-			for (int i = 1; i < 32; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 11) {
-			for (int i = 1; i < 31; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		if (n == 12) {
-			for (int i = 1; i < 32; i++) {
-				contenidoDisponibilidad.addElement(Integer.toString(i));
-			}
-		}
-		/*for (Reserva reserva : reservas) {
-			if (reserva != null) {
-				contenidoDisponibilidad.addElement(reserva.toString());
-			}
-		}*/
-		
-		listDisponibilidad.setBounds(690, 130, 300, 340);
-		contentpane.add(listDisponibilidad);
+		//listDisponibilidad.setBounds(690, 130, 300, 340);
+		//contentpane.add(listDisponibilidad);
 		
 		bAtras.setForeground(SystemColor.text);
 		bAtras.setBackground(new Color(0, 102, 204));
-		bAtras.setBounds(690, 487, 95, 42);
+		bAtras.setBounds(540, 440, 90, 42);
 		bAtras.setText("Atras");
 		contentpane.add(bAtras);
 
 		bReservar.setForeground(SystemColor.text);
 		bReservar.setBackground(new Color(0, 102, 204));
-		bReservar.setBounds(800, 487, 190, 42);
+		bReservar.setBounds(770, 220, 190, 125);
 		bReservar.setText("Reservar");
 		contentpane.add(bReservar);
 
@@ -188,19 +97,31 @@ public class VentanaReservas extends JFrame {
 			}
 		});
 
-		listDisponibilidad.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent evt) {
-				listDisponibilidad = (JList) evt.getSource();
-				if (evt.getClickCount() == 1) {
+		comboDisponibilidadDia.setFont(new Font("Arial", Font.BOLD, 16));
+		comboDisponibilidadDia.setBounds(500, 360, 190, 30);
+		comboDisponibilidadDia.addItem("ESCOJA EL DIA");
+		for (int i = 1; i < 32; i++) {
+			comboDisponibilidadDia.addItem(Integer.toString(i));
+		}
+		contentpane.add(comboDisponibilidadDia);
 
-					// Double-click detected
-					System.out.println("Click");
-				}
-			}
-		});
+		comboDisponibilidadMes.setFont(new Font("Arial", Font.BOLD, 16));
+		comboDisponibilidadMes.setBounds(500, 260, 190, 30);
+		comboDisponibilidadMes.addItem("ESCOJA EL MES");
+		for (int i = 1; i < 13; i++) {
+			comboDisponibilidadMes.addItem(Integer.toString(i));
+		}
+		contentpane.add(comboDisponibilidadMes);
+
+		comboDisponibilidadAnyo.setFont(new Font("Arial", Font.BOLD, 16));
+		comboDisponibilidadAnyo.setBounds(500, 160, 190, 30);
+		comboDisponibilidadAnyo.addItem("ESCOJA EL ANYO");
+		for (int i = 2021; i < 2031; i++) {
+			comboDisponibilidadAnyo.addItem(Integer.toString(i));
+		}
+		contentpane.add(comboDisponibilidadAnyo);
 		
 		bAtras.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -215,14 +136,13 @@ public class VentanaReservas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				ArrayList<Reserva> reservas = (ArrayList<Reserva>) controller.obtenerReservas();
-				ArrayList<Habitacion> habitaciones = (ArrayList<Habitacion>) controller.obtenerHabitaciones();
 				String codigoReserva = "";
     			String codigoHabitacion = "";				
 				String emailUsuario = "";
 				int dia = 0;
 				int mes = 0;
 				int anyo = 0;
-
+			
 				for (int i = 0; i < reservas.size(); i++) {
 					if (i == reservas.size()-1) {
 						codigoReserva = "R" + reservas.get(i).getCodigoReserva().charAt(1) + reservas.get(i).getCodigoReserva().charAt(2);
@@ -230,7 +150,6 @@ public class VentanaReservas extends JFrame {
 				}
 				codigoHabitacion = "H" + Integer.toString(listHabitaciones.getSelectedIndex());
 				Properties objetoP = new Properties();
-				
 				try {
 					objetoP.load(new FileInputStream("prop.properties"));
 				} catch (IOException e2) {
@@ -239,17 +158,27 @@ public class VentanaReservas extends JFrame {
 				if (objetoP.getProperty("email") != null) {
 					emailUsuario = objetoP.getProperty("email");
 				}
-
-				dia = Integer.parseInt(listDisponibilidad.getSelectedValue().toString());
-				mes = Integer.parseInt(comboDisponibilidad.getSelectedItem().toString());
-				Calendar calendar = new GregorianCalendar();
-				anyo = calendar.get(Calendar.YEAR);
-
-				if (codigoReserva != "" && codigoHabitacion != "" && emailUsuario != ""
-				&& dia != 0 && mes != 0 && anyo != 0) {
-					controller.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
-					JOptionPane.showMessageDialog(null, "Reserva registrada correctamente.");
+				if (comboDisponibilidadDia.getSelectedItem().toString() != "ESCOJA EL DIA") {
+					dia = Integer.parseInt(comboDisponibilidadDia.getSelectedItem().toString());
 				}
+				if (comboDisponibilidadMes.getSelectedItem().toString() != "ESCOJA EL MES") {
+					mes = Integer.parseInt(comboDisponibilidadMes.getSelectedItem().toString());
+				}
+				if (comboDisponibilidadAnyo.getSelectedItem().toString() != "ESCOJA EL ANYO") {
+					anyo = Integer.parseInt(comboDisponibilidadAnyo.getSelectedItem().toString());
+				}
+				
+				boolean condicion = existeReserva(reservas, codigoReserva);
+				if (condicion == true && codigoHabitacion != "" && emailUsuario != ""
+				&& dia != 0 && mes != 0 && anyo != 0) {
+					condicion = controller.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
+					JOptionPane.showMessageDialog(null, "Reserva registrada correctamente.");
+				} else if (condicion == false) { 
+					JOptionPane.showMessageDialog(null, "Habitacion ocupada.");
+				} else {
+					JOptionPane.showMessageDialog(null, "No se ha podido registrar la reserva.");
+				}
+				
 			}
 		});
 
@@ -259,32 +188,16 @@ public class VentanaReservas extends JFrame {
 		this.setTitle("Reservas");
 	}
 
-	//Se compara si un codigoHabitacion es superior a otro en 1
-	public static boolean compCodigoHabitacion (String c1, String c2) {
-		char cadena1[] = {'0', '0'}, cadena2[] = {'0', '0'};
-		c1.getChars(1, 2, cadena1, 0);
-		c2.getChars(1, 2, cadena2, 0);
-		int n1 = Integer.parseInt(c1);
-		int n2 = Integer.parseInt(c2);
+	public static boolean existeReserva(ArrayList<Reserva> reservas, String codigoReserva) {
+		boolean condicion = true;
 
-		if (n1 - n2 == 1) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	//Devuelve true si esta ocupada, false si esta disponible
-	public static boolean estaOcupada (ArrayList<Reserva> reservas, Habitacion h, int dia, int mes, int anyo) {
 		for (Reserva reserva : reservas) {
-			if (reserva.getCodigoHabitacion() == h.getCodigo() && reserva.getDia() == dia
-			&& reserva.getMes() == mes && reserva.getAnyo() == anyo) {
-				return true;
-			} else {
-				return false;
+			if (codigoReserva == reserva.getCodigoHabitacion()) {
+				condicion = false;
 			}
 		}
-		return false;
+
+		return condicion;
 	}
 
 }
