@@ -50,11 +50,11 @@ Para ejecutar el cliente, en la otra instancia del cmd:
 ```
 ### 🔧 Test y documentación 🔧
 ------------------------------------------------------------------------------------------------------
-En caso de querer comprobar los test del proyecto el comando a utilizar desde la consola será:
+En caso de querer comprobar los test del proyecto, primero habrá que ejecutar el servidor y posteriormente usar el siguiente comando desde la consola:
 ```
 * "mvn test"
 ```
-Por otro lado, en caso de querer obtener la documentación del proyectom ejecutar el comando:
+Por otro lado, en caso de querer obtener la documentación del proyecto ejecutar el siguiente comando despues de ejecutar el servidor:
 ```
 * mvn site
 ```
