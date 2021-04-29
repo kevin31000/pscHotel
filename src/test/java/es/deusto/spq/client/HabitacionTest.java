@@ -14,24 +14,24 @@ public class HabitacionTest {
 	}
 	
 	@Test
-	public void testGetCodigo() {		
+	public void getCodigoTest() {		
 		assertEquals("302D", h.getCodigo());
 	}
 	
 	@Test
-	public void testGetNumCamas() {
+	public void getNumCamasTest() {
 		assertEquals(3, h.getNumCamas());
 	}
 	
 	
 	@Test
-	public void testGetPrecio() {
+	public void getPrecioTest() {
 		System.out.println(h.getPrecio());
 		//assertEquals(30.5, h.getPrecio());
 	}
 	
 	@Test
-	public void testGetOcupada() {
+	public void getOcupadaTest() {
 		assertEquals(true, h.isOcupada());
 	}
 	
