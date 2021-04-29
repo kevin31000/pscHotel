@@ -491,23 +491,23 @@ public class DBManager {
 		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
 		
 		//Habitacion h1 = new Habitacion...
-		Habitacion h1 = new Habitacion("H1", 4, 73, false);
+		Habitacion h1 = new Habitacion("H01", 4, 73, false);
 		habitaciones.add(h1);
-		Habitacion h2 = new Habitacion("H2", 4, 73, false);
+		Habitacion h2 = new Habitacion("H02", 4, 73, false);
 		habitaciones.add(h2);
-		Habitacion h3 = new Habitacion("H3", 4, 67, false);
+		Habitacion h3 = new Habitacion("H03", 4, 67, false);
 		habitaciones.add(h3);
-		Habitacion h4 = new Habitacion("H4", 4, 67, false);
+		Habitacion h4 = new Habitacion("H04", 4, 67, false);
 		habitaciones.add(h4);
-		Habitacion h5 = new Habitacion("H5", 3, 51, false);
+		Habitacion h5 = new Habitacion("H05", 3, 51, false);
 		habitaciones.add(h5);
-		Habitacion h6 = new Habitacion("H6", 3, 51, false);
+		Habitacion h6 = new Habitacion("H06", 3, 51, false);
 		habitaciones.add(h6);
-		Habitacion h7 = new Habitacion("H7", 3, 54, false);
+		Habitacion h7 = new Habitacion("H07", 3, 54, false);
 		habitaciones.add(h7);
-		Habitacion h8 = new Habitacion("H8", 3, 54, false);
+		Habitacion h8 = new Habitacion("H08", 3, 54, false);
 		habitaciones.add(h8);
-		Habitacion h9 = new Habitacion("H9", 2, 85, false);
+		Habitacion h9 = new Habitacion("H09", 2, 85, false);
 		habitaciones.add(h9);
 		Habitacion h10 = new Habitacion("H10", 2, 70, false);
 		habitaciones.add(h10);

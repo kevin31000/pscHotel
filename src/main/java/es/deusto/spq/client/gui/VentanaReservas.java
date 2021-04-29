@@ -7,8 +7,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.GregorianCalendar;
+import java.util.Properties;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -37,6 +42,7 @@ public class VentanaReservas extends JFrame {
 	private JComboBox comboDisponibilidad = new JComboBox();
 	private JButton bReservar = new JButton();
 	private JButton bAtras = new JButton();
+	private int n;
 
 	public VentanaReservas(Controller controller) {
 		contentpane = new JPanel();
@@ -55,10 +61,6 @@ public class VentanaReservas extends JFrame {
 		lHabitaciones.setBounds(100, -40, 300, 300);
 		contentpane.add(lHabitaciones);
 
-		comboDisponibilidad.setFont(new Font("Arial", Font.BOLD, 20));
-		comboDisponibilidad.setBounds(480, 280, 190, 30);
-		contentpane.add(comboDisponibilidad);
-
 		lDisponibilidad.setText("Disponibilidad");
 		lDisponibilidad.setFont(new Font("Arial", Font.BOLD, 20));
 		lDisponibilidad.setBounds(810, -40, 300, 300);
@@ -69,27 +71,96 @@ public class VentanaReservas extends JFrame {
 		ArrayList<Habitacion> habitaciones = (ArrayList<Habitacion>) controller.obtenerHabitaciones();
 		for (Habitacion habitacion : habitaciones) {
 			contenidoHabitaciones.addElement(habitacion);
-			/*for (int i = 0; i < habitaciones.size(); i++) {
-				if (habitaciones.get(i).getCodigo() == "H1") {
-					contenidoHabitaciones.addElement(habitaciones.get(i).toString());
-				}
-				if (compCodigoHabitacion(habitaciones.get(i).getCodigo(), habitacion.getCodigo())) {
-					contenidoHabitaciones.addElement(habitaciones.get(i).toString());
-				}
-			}*/
 		}
 		listHabitaciones.setModel(contenidoHabitaciones);
 		listHabitaciones.setBounds(60, 130, 400, 400);
 		contentpane.add(listHabitaciones);
 		
+		comboDisponibilidad.setFont(new Font("Arial", Font.BOLD, 16));
+		comboDisponibilidad.setBounds(480, 280, 190, 30);
+		comboDisponibilidad.addItem("ESCOJA EL MES");
+		for (int i = 1; i < 13; i++) {
+			comboDisponibilidad.addItem(Integer.toString(i));
+		}
+		n = 0;
+		comboDisponibilidad.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				n = Integer.parseInt(comboDisponibilidad.getSelectedItem().toString());
+			}
+		});
+		contentpane.add(comboDisponibilidad);
+
 		DefaultListModel contenidoDisponibilidad = new DefaultListModel();
 	
 		ArrayList<Reserva> reservas = (ArrayList<Reserva>) controller.obtenerReservas();
-		for (Reserva reserva : reservas) {
+		//A continuacion, los dias disponibles por pantalla
+		//Hay que meterlo en un thread
+		if (n == 1) {
+			for (int i = 1; i < 32; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 2) {
+			for (int i = 1; i < 29; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 3) {
+			for (int i = 1; i < 32; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 4) {
+			for (int i = 1; i < 31; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 5) {
+			for (int i = 1; i < 32; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 6) {
+			for (int i = 1; i < 31; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 7) {
+			for (int i = 1; i < 32; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 8) {
+			for (int i = 1; i < 32; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 9) {
+			for (int i = 1; i < 31; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 10) {
+			for (int i = 1; i < 32; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 11) {
+			for (int i = 1; i < 31; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		if (n == 12) {
+			for (int i = 1; i < 32; i++) {
+				contenidoDisponibilidad.addElement(Integer.toString(i));
+			}
+		}
+		/*for (Reserva reserva : reservas) {
 			if (reserva != null) {
 				contenidoDisponibilidad.addElement(reserva.toString());
 			}
-		}
+		}*/
 		
 		listDisponibilidad.setBounds(690, 130, 300, 340);
 		contentpane.add(listDisponibilidad);
@@ -113,14 +184,6 @@ public class VentanaReservas extends JFrame {
 
 					// Double-click detected
 					System.out.println("Click");
-					String codigoHabitacion = "H" + Integer.toString(listHabitaciones.getSelectedIndex());
-					/*for (Reserva reserva : reservas) {
-						if (reserva != null) {
-							if (reserva.getCodigoHabitacion() != codigoHabitacion) {
-								contenidoDisponibilidad.addElement(reserva.toString());
-							}
-						}
-					}*/
 				}
 			}
 		});
@@ -132,7 +195,6 @@ public class VentanaReservas extends JFrame {
 
 					// Double-click detected
 					System.out.println("Click");
-					int index = listDisponibilidad.locationToIndex(evt.getPoint());
 				}
 			}
 		});
@@ -152,20 +214,42 @@ public class VentanaReservas extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				/*ArrayList<Reserva> reservas = (ArrayList<Reserva>) controller.obtenerReservas();
-				String codigoReserva;
-				for (Habitacion habitacion : habitaciones) {
-					codigoReserva = habitacion.getCodigo() + Integer.toString(1);
+				ArrayList<Reserva> reservas = (ArrayList<Reserva>) controller.obtenerReservas();
+				ArrayList<Habitacion> habitaciones = (ArrayList<Habitacion>) controller.obtenerHabitaciones();
+				String codigoReserva = "";
+    			String codigoHabitacion = "";				
+				String emailUsuario = "";
+				int dia = 0;
+				int mes = 0;
+				int anyo = 0;
+
+				for (int i = 0; i < reservas.size(); i++) {
+					if (i == reservas.size()-1) {
+						codigoReserva = "R" + reservas.get(i).getCodigoReserva().charAt(1) + reservas.get(i).getCodigoReserva().charAt(2);
+					}
+				}
+				codigoHabitacion = "H" + Integer.toString(listHabitaciones.getSelectedIndex());
+				Properties objetoP = new Properties();
+				
+				try {
+					objetoP.load(new FileInputStream("prop.properties"));
+				} catch (IOException e2) {
+					e2.printStackTrace();
+				}
+				if (objetoP.getProperty("email") != null) {
+					emailUsuario = objetoP.getProperty("email");
 				}
 
-    			String codigoHabitacion = ;
-    			String emailUsuario = ;
-    			int dia = ;
-    			int mes = ;
-    			int anyo = ;
+				dia = Integer.parseInt(listDisponibilidad.getSelectedValue().toString());
+				mes = Integer.parseInt(comboDisponibilidad.getSelectedItem().toString());
+				Calendar calendar = new GregorianCalendar();
+				anyo = calendar.get(Calendar.YEAR);
 
-				controller.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
-				JOptionPane.showMessageDialog(null, "Reserva registrada correctamente.");*/
+				if (codigoReserva != "" && codigoHabitacion != "" && emailUsuario != ""
+				&& dia != 0 && mes != 0 && anyo != 0) {
+					controller.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
+					JOptionPane.showMessageDialog(null, "Reserva registrada correctamente.");
+				}
 			}
 		});
 
