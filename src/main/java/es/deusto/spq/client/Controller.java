@@ -1,7 +1,6 @@
 package es.deusto.spq.client;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.Response;
@@ -105,6 +104,11 @@ public class Controller {
     public Response borrarCliente(Cliente cliente) {
 		return serviceLocator.borrarCliente(cliente);
 	}
+    
+    public boolean anadirEvento(String codigo, String nombre, String descripcion, int dia, int mes, int anyo, String hora, int numMaxPersonas){
+		return serviceLocator.anadirEvento(codigo, nombre, descripcion, dia, mes, anyo, hora, numMaxPersonas);
+	}
+    
     
 
 

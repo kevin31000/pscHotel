@@ -15,6 +15,7 @@ import javax.jdo.Query;
 import javax.jdo.Transaction;
 
 import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.Evento;
 import es.deusto.spq.client.Habitacion;
 import es.deusto.spq.client.Reserva;
 
@@ -143,6 +144,16 @@ public class DBManager {
 	public void delete(Reserva r) {
 		DBManager.getInstance().deleteObjectFromDB(r);
 	}
+	
+	public void store(Evento e) {
+		DBManager.getInstance().storeObjectInDB(e);
+	}
+
+	public void delete(Evento e) {
+		DBManager.getInstance().deleteObjectFromDB(e);
+	}
+	
+	
 
 	public static Cliente getUsuario(String email) {
 		PersistenceManager pm = pmf.getPersistenceManager();

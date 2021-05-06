@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 import org.apache.log4j.Logger;
 
 import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.Evento;
 import es.deusto.spq.client.Habitacion;
 import es.deusto.spq.client.Reserva;
 
@@ -151,6 +152,14 @@ public class RemoteFacade implements IRemoteFacade{
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response registrarReserva(Reserva reserva) {
 		dbmanager.store(reserva);
+		return Response.status(Response.Status.OK).build();
+	}
+	
+	@POST
+	@Path("/registroEvento")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response registrarReserva(Evento evento) {
+		dbmanager.store(evento);
 		return Response.status(Response.Status.OK).build();
 	}
 
