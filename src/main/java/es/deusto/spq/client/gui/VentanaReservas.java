@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Properties;
 
@@ -36,6 +37,7 @@ public class VentanaReservas extends JFrame {
 
 	private JPanel contentpane;
 	private JLabel lHabitaciones = new JLabel();
+	private JLabel lRebajas = new JLabel();
 	private JList listHabitaciones = new JList();
 	private DefaultListModel contenidoHabitaciones = new DefaultListModel();
 	private JComboBox comboDisponibilidadDia = new JComboBox();
@@ -64,6 +66,24 @@ public class VentanaReservas extends JFrame {
 		contenidoHabitaciones = new DefaultListModel();
 		ServiceLocator serviceLocator = new ServiceLocator();
 		ArrayList<Habitacion> habitaciones = (ArrayList<Habitacion>) controller.obtenerHabitaciones();
+		//Si hay rebajas, 15% de descuento en todas las habitaciones
+		boolean rebajas = hayRebajas();
+		if (rebajas = true) {
+			for (Habitacion habitacion : habitaciones) {
+				//El if y el else if sirven para redondear decimales demasiado largos
+				if (habitacion.getCodigo() == "H03" || habitacion.getCodigo() == "H04") {
+					habitacion.setPrecio(56.95);
+				} else if (habitacion.getCodigo() == "H13" || habitacion.getCodigo() == "H14") {
+					habitacion.setPrecio(61.2);
+				} else if (habitacion.getCodigo() != "H03" || habitacion.getCodigo() != "H04" || habitacion.getCodigo() != "H13" || habitacion.getCodigo() != "H14") {
+					habitacion.setPrecio(habitacion.getPrecio()*0.85);
+				}
+			}
+			JLabel lRebajas = new JLabel("¡Es mes de rebajas! Todo al 15% de descuento.");
+			lRebajas.setFont(new Font("Arial", Font.BOLD, 15));
+			lRebajas.setBounds(700, 500, 400, 42);
+			contentpane.add(lRebajas);
+		}
 		for (Habitacion habitacion : habitaciones) {
 			contenidoHabitaciones.addElement(habitacion);
 		}
@@ -194,6 +214,16 @@ public class VentanaReservas extends JFrame {
 		}
 
 		return condicion;
+	}
+
+	public static boolean hayRebajas() {
+		boolean bool = false;
+		Date fechaActual = new Date(); 
+		if (fechaActual.getMonth() == 0 || fechaActual.getMonth() == 4 || fechaActual.getMonth() == 6 || fechaActual.getMonth() == 7 || fechaActual.getMonth() == 8) {
+			bool = true;
+		}
+			
+		return bool;
 	}
 
 }
