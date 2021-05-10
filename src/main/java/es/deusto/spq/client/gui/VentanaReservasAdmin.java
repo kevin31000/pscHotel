@@ -68,6 +68,7 @@ public class VentanaReservasAdmin extends JFrame{
 				Reserva reserva = controller.getReserva(r);
 				datosReserva = new VentanaMostrarReservas(controller, reserva);
 				datosReserva.setVisible(true);
+				VentanaReservasAdmin.this.dispose();
 				
 			}
 		});

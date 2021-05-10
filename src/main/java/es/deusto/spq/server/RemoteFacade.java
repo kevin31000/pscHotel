@@ -122,6 +122,17 @@ public class RemoteFacade implements IRemoteFacade{
 			return Response.status(Response.Status.OK).build();
 		}return Response.status(Response.Status.BAD_REQUEST).build();
 	}
+	
+	@POST
+	@Path("/borrarReserva")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response borrarReserva(Reserva reserva) {
+		Reserva r = dbmanager.getReserva(reserva.getCodigoReserva());
+		if(r!= null) {
+			dbmanager.borrarReserva(reserva);
+			return Response.status(Response.Status.OK).build();
+		}return Response.status(Response.Status.BAD_REQUEST).build();
+	}
 
 	@POST
 	@Path("/editarUsuario")

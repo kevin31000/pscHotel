@@ -202,6 +202,27 @@ public class DBManager {
 			}
 		}
 	}
+	
+	public void borrarReserva(Reserva reserva) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Query<?> query = pm.newQuery("SELECT FROM " + Reserva.class.getName() + " WHERE codigoReserva == '" + reserva.getCodigoReserva() + "'");
+			System.out.println(" * '" + query.deletePersistentAll() + "' reserva deleted from the DB.");
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println(" $ Error querying a Reserva: " + ex.getMessage());
+			ex.printStackTrace();
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			if (pm != null && !pm.isClosed()) {
+				pm.close();
+			}
+		}
+	}
 
 	public static ArrayList<Cliente> seleccionaUsuarioBD() {
 		ArrayList<Cliente> cl = new ArrayList<Cliente>();
