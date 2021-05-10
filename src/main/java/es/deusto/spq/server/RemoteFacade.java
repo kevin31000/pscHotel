@@ -66,8 +66,6 @@ public class RemoteFacade implements IRemoteFacade{
 		
 		return c;
 	}
-
-	
 	
 	@GET
     @Path("/getReserva")
