@@ -113,6 +113,17 @@ public class Controller {
 		return serviceLocator.anadirEvento(codigo, nombre, descripcion, dia, mes, anyo, hora, numMaxPersonas);
 	}
     
+    public Response borrarEvento(Evento evento) {
+		return serviceLocator.borrarEvento(evento);
+	}
+    
+    public Evento getEvento(String codigo) {
+        return serviceLocator.obtenerEvento(codigo);
+    }
+    
+    public List<Evento> getEventos(String codigo) {
+        return serviceLocator.obtenerEventos();
+    }
     
 
 

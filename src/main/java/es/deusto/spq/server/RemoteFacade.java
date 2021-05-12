@@ -171,5 +171,33 @@ public class RemoteFacade implements IRemoteFacade{
 		dbmanager.store(evento);
 		return Response.status(Response.Status.OK).build();
 	}
+	
+	@POST
+	@Path("/borrarEvento")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response borrarEvento(Evento evento) {
+		Evento e = dbmanager.getEvento(evento.getCodigo());
+		if(e!= null) {
+			dbmanager.borrarEvento(evento);
+			return Response.status(Response.Status.OK).build();
+		}return Response.status(Response.Status.BAD_REQUEST).build();
+	}
+	
+	@GET
+	@Path("/obtenerEvento")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Evento encontrarEvento(@QueryParam("codigo") String codigo) {
+		Evento e = dbmanager.getEvento(codigo);
+
+		return e;
+	}
+	
+	@GET
+	@Path("/obtenerEventos")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<Evento> encontrarEventos() {
+		List<Evento> e = dbmanager.getEventos();
+		return e;
+	}
 
 }

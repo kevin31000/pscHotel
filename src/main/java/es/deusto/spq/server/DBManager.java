@@ -566,6 +566,84 @@ public class DBManager {
 		return habitaciones;
 	}
 	
+	public Evento getEvento(String codigo) {
+        PersistenceManager pm = pmf.getPersistenceManager();
+        pm.getFetchPlan().setMaxFetchDepth(4);
+        Transaction tx = pm.currentTransaction();
+        Evento evento = null;
+
+        try {
+            tx.begin();
+
+            Query<?> query = pm.newQuery("SELECT FROM " + Evento.class.getName() + " WHERE codigo == '" + codigo + "'");
+            query.setUnique(true);
+            evento = (Evento) query.execute();
+
+            tx.commit();
+        } catch (Exception ex) {
+            System.out.println(" $ Error cogiendo el reserva de la BD: " + ex.getMessage());
+        } finally {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+
+            pm.close();
+        }
+
+        return evento;
+    }
+	
+	public void borrarEvento(Evento evento) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			Query<?> query = pm.newQuery("SELECT FROM " + Reserva.class.getName() + " WHERE codigo == '" + evento.getCodigo() + "'");
+			System.out.println(" * '" + query.deletePersistentAll() + "' reserva deleted from the DB.");
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println(" $ Error querying a Reserva: " + ex.getMessage());
+			ex.printStackTrace();
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			if (pm != null && !pm.isClosed()) {
+				pm.close();
+			}
+		}
+	}
+	
+	public List<Evento> getEventos() {
+		List<Evento> eventos = new ArrayList<Evento>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+
+			tx.begin();
+
+			Extent<Evento> extent = pm.getExtent(Evento.class, true);
+
+			for (Evento habitacion : extent) {
+				eventos.add(habitacion);
+			}
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return eventos;
+	}
+	
 	public void initializeData() {
 		System.out.println(" * Initializing data base");
 		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
