@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.ws.rs.core.Response;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
@@ -66,12 +67,24 @@ public class VentanaDatosCliente extends JFrame {
 		temail.setText(u.getEmail());
 		ppassword.setText(u.getContrasenya());	
 		
-		Cliente actualizarClient = new Cliente(tdni.getText(), tnombre.getText(), tapellido.getText(), temail.getText(), ppassword.getPassword().toString(), false);
+		System.out.println(ppassword.getText());
+		Cliente viejo = controller.getUsuario(temail.getText());
 		
 		crear.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.editarUsuario(actualizarClient);
+
+				Response ban = controller.borrarCliente(viejo);
+				
+				Cliente actualizarClient = new Cliente(tdni.getText(), tnombre.getText(), tapellido.getText(), temail.getText(), ppassword.getText(), false);
+				
+				System.out.println(actualizarClient.getContrasenya());
+				
+				controller.anadirCliente(actualizarClient.getDNI(), actualizarClient.getNombre(), actualizarClient.getApellido(),
+						actualizarClient.getEmail(), actualizarClient.getContrasenya(), false);
+				
+				JOptionPane.showMessageDialog(null, "Cliente actualizado", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+				VentanaDatosCliente.this.dispose();
 			}
 
 		});
