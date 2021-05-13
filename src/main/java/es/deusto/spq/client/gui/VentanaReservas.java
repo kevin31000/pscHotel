@@ -68,13 +68,11 @@ public class VentanaReservas extends JFrame {
 		ArrayList<Habitacion> habitaciones = (ArrayList<Habitacion>) controller.obtenerHabitaciones();
 		//Si hay rebajas, 15% de descuento en todas las habitaciones
 		boolean rebajas = hayRebajas();
-		if (rebajas = true) {
+		if (rebajas == true) {
 			for (Habitacion habitacion : habitaciones) {
 				//El if y el else if sirven para redondear decimales demasiado largos
-				if (habitacion.getCodigo() == "H03" || habitacion.getCodigo() == "H04") {
-					habitacion.setPrecio(56.95);
-				} else if (habitacion.getCodigo() == "H13" || habitacion.getCodigo() == "H14") {
-					habitacion.setPrecio(61.2);
+				if (habitacion.getCodigo() == "H03" || habitacion.getCodigo() == "H04" || habitacion.getCodigo() == "H13" || habitacion.getCodigo() == "H14") {
+					habitacion.setPrecio(Integer.parseInt(String.format("%.2d", (double) habitacion.getPrecio()*0.85)));
 				} else if (habitacion.getCodigo() != "H03" || habitacion.getCodigo() != "H04" || habitacion.getCodigo() != "H13" || habitacion.getCodigo() != "H14") {
 					habitacion.setPrecio(habitacion.getPrecio()*0.85);
 				}
@@ -106,7 +104,7 @@ public class VentanaReservas extends JFrame {
 		bReservar.setText("Reservar");
 		contentpane.add(bReservar);
 
-		listHabitaciones.addMouseListener(new MouseAdapter() {
+		/*listHabitaciones.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent evt) {
 				listHabitaciones = (JList) evt.getSource();
 				if (evt.getClickCount() == 1) {
@@ -115,7 +113,7 @@ public class VentanaReservas extends JFrame {
 					System.out.println("Click");
 				}
 			}
-		});
+		});*/
 
 		comboDisponibilidadDia.setFont(new Font("Arial", Font.BOLD, 16));
 		comboDisponibilidadDia.setBounds(500, 360, 190, 30);
@@ -184,17 +182,17 @@ public class VentanaReservas extends JFrame {
 					anyo = Integer.parseInt(comboDisponibilidadAnyo.getSelectedItem().toString());
 				}
 				
-				boolean condicion = existeReserva(reservas, codigoReserva);
-				if (condicion == true && codigoHabitacion != "" && emailUsuario != ""
+				boolean condicion = false;
+				if (listHabitaciones.isSelectionEmpty() != true && emailUsuario != ""
 				&& dia != 0 && mes != 0 && anyo != 0) {
-					condicion = controller.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
-					JOptionPane.showMessageDialog(null, "Reserva registrada correctamente.");
-				} else if (condicion == false) { 
-					JOptionPane.showMessageDialog(null, "Habitacion ocupada.");
+					condicion = existeReserva(reservas, codigoHabitacion, dia, mes, anyo);
 				} else {
 					JOptionPane.showMessageDialog(null, "No se ha podido registrar la reserva.");
 				}
-				
+				if (condicion == true) {
+					condicion = controller.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
+					JOptionPane.showMessageDialog(null, "Reserva registrada correctamente.");
+				}
 			}
 		});
 
@@ -204,14 +202,18 @@ public class VentanaReservas extends JFrame {
 		this.setTitle("Reservas");
 	}
 
-	public static boolean existeReserva(ArrayList<Reserva> reservas, String codigoReserva) {
+	public static boolean existeReserva(ArrayList<Reserva> reservas, String codigoHabitacion, int dia, int mes, int anyo) {
 		boolean condicion = true;
 
 		for (Reserva reserva : reservas) {
-			if (codigoReserva == reserva.getCodigoHabitacion()) {
+			if (/*codigoHabitacion == reserva.getCodigoHabitacion() && */dia == reserva.getDia() && mes == reserva.getAnyo() && anyo == reserva.getAnyo()) {
 				condicion = false;
 			}
 		}
+		
+		if (condicion == false) {
+			JOptionPane.showMessageDialog(null, "Habitacion ocupada.");
+		}		
 
 		return condicion;
 	}
