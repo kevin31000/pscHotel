@@ -83,6 +83,13 @@ public class ServiceLocator {
 		Response response = webTarget1.request().post(entity);
 		return response;
 	}
+	
+	public Response borrarReserva(Reserva reserva) {
+		WebTarget webTarget1 = webTarget.path("server/borrarReserva");	
+		Entity<Reserva> entity = Entity.entity(reserva, MediaType.APPLICATION_JSON);
+		Response response = webTarget1.request().post(entity);
+		return response;
+	}
 
 	/**Método para registrar una nueva reserva
 	 * Llama al método con el mismo nombre del RemoteFacade a través de la URL establecida.
@@ -244,5 +251,38 @@ public class ServiceLocator {
 			return true;
 		}
 	}
+	
+	public Response borrarEvento(Evento evento) {
+		WebTarget webTarget1 = webTarget.path("server/borrarEvento");	
+		Entity<Evento> entity = Entity.entity(evento, MediaType.APPLICATION_JSON);
+		Response response = webTarget1.request().post(entity);
+		return response;
+	}
+	
+	public Evento obtenerEvento(String codigo) {
+        WebTarget webTarget4 = webTarget.path("server/obtenerEvento").queryParam("codigo", codigo);
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		Evento e = new Evento();
+		e.setCodigo(codigo);
+
+
+		GenericType<Evento> genericType = new GenericType<Evento>() {};
+		e = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
+		
+		return e;
+    }
+	
+	public List<Evento> obtenerEventos() {
+        WebTarget webTarget4 = webTarget.path("server/obtenerEventos");
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		List<Evento> e = new ArrayList<Evento>();
+
+		GenericType<List<Evento>> genericType = new GenericType<List<Evento>>() {};
+		e = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
+
+		return e;
+    }
 
 }

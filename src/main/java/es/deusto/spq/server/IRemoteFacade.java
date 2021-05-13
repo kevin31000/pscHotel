@@ -16,5 +16,6 @@ public interface IRemoteFacade {
 	public List<Habitacion> encontrarHabitaciones();
 	public Response editarUsuario(Cliente user);
 	public List<Reserva> encontrarReservas();
+	public Response borrarReserva(Reserva reserva);
 	public Response registrarReserva(Reserva reserva);
 }

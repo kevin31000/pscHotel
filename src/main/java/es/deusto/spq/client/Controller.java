@@ -105,10 +105,25 @@ public class Controller {
 		return serviceLocator.borrarCliente(cliente);
 	}
     
+    public Response borrarReserva(Reserva reserva) {
+		return serviceLocator.borrarReserva(reserva);
+	}
+    
     public boolean anadirEvento(String codigo, String nombre, String descripcion, int dia, int mes, int anyo, String hora, int numMaxPersonas){
 		return serviceLocator.anadirEvento(codigo, nombre, descripcion, dia, mes, anyo, hora, numMaxPersonas);
 	}
     
+    public Response borrarEvento(Evento evento) {
+		return serviceLocator.borrarEvento(evento);
+	}
+    
+    public Evento getEvento(String codigo) {
+        return serviceLocator.obtenerEvento(codigo);
+    }
+    
+    public List<Evento> getEventos(String codigo) {
+        return serviceLocator.obtenerEventos();
+    }
     
 
 

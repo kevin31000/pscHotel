@@ -9,9 +9,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.ws.rs.core.Response;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
@@ -153,6 +155,30 @@ public class VentanaMostrarReservas extends JFrame{
 					
 				}
 			});
+		
+		bCancelarReserva.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String r = tCodigoReserva.getText();
+				System.out.println(r);
+				Reserva reserva = controller.getReserva(r);
+				System.out.println(r);
+				Response ban = controller.borrarReserva(reserva);
+				
+				VentanaAdmin ventanaAdmin;
+				try {
+					ventanaAdmin = new VentanaAdmin(controller);
+					ventanaAdmin.setVisible(true);
+					VentanaMostrarReservas.this.dispose();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+				
+				JOptionPane.showMessageDialog(null, "Reserva cancelada", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+				
+			}
+		});
 			
 		bGuardarCambios.addActionListener(new ActionListener() {
 			

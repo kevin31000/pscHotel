@@ -81,7 +81,7 @@ public class VentanaUsuariosAdmin extends JFrame{
 		
 		JButton bBanear = new JButton("BANEAR");
 		bBanear.setBackground(new Color(255, 182, 193));
-		bBanear.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		bBanear.setFont(new Font("Tahoma", Font.BOLD, 13));
 		bBanear.setForeground(new Color(255, 0, 0));
 		bBanear.addActionListener(new ActionListener() 
 		{
@@ -130,7 +130,7 @@ public class VentanaUsuariosAdmin extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 600);
 		this.setVisible(true);
-		this.setTitle("Administración");
+		this.setTitle("AdministraciÃ³n");
 	}
 }
 

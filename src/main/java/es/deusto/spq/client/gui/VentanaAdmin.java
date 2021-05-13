@@ -23,6 +23,7 @@ public class VentanaAdmin extends JFrame{
 	private JPanel contentpane;
 	private JButton buttonCliente = new JButton();
 	private JButton buttonReserva = new JButton();
+	private JButton buttonEventos = new JButton();
 	private JButton buttonSalir = new JButton();
 	
 	public VentanaAdmin(final Controller controller){
@@ -39,15 +40,21 @@ public class VentanaAdmin extends JFrame{
 
 		buttonReserva.setForeground(SystemColor.text);
 		buttonReserva.setBackground(new Color(0, 102, 204));
-		buttonReserva.setBounds(400, 400, 200, 42);
+		buttonReserva.setBounds(400, 280, 200, 42);
 		buttonReserva.setText("Reservas");
 		contentpane.add(buttonReserva);
 		
 		buttonCliente.setForeground(SystemColor.text);
 		buttonCliente.setBackground(new Color(0, 102, 204));
-		buttonCliente.setBounds(400, 300, 200, 42);
+		buttonCliente.setBounds(400, 200, 200, 42);
 		buttonCliente.setText("Clientes");
 		contentpane.add(buttonCliente);
+		
+		buttonEventos.setForeground(SystemColor.text);
+		buttonEventos.setBackground(new Color(0, 102, 204));
+		buttonEventos.setBounds(400, 360, 200, 42);
+		buttonEventos.setText("Eventos");
+		contentpane.add(buttonEventos);
 		
 		buttonSalir.setForeground(SystemColor.text);
 		buttonSalir.setBackground(new Color(0, 102, 204));
@@ -89,6 +96,22 @@ public class VentanaAdmin extends JFrame{
 			}
 		});
 		
+		buttonEventos.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaEventos usuarios;
+				try {		
+					usuarios = new VentanaEventos(controller);
+					usuarios.setVisible(true);
+					VentanaAdmin.this.dispose();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+				
+			}
+		});
+				
 		buttonSalir.addActionListener(new ActionListener() {
 			
 			@Override

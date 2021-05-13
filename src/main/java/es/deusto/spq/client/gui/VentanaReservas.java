@@ -154,6 +154,10 @@ public class VentanaReservas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				ArrayList<Reserva> reservas = (ArrayList<Reserva>) controller.obtenerReservas();
+				
+				for (Reserva r : reservas) {
+					r.toString();
+				}
 				String codigoReserva = "";
     			String codigoHabitacion = "";				
 				String emailUsuario = "";
@@ -161,8 +165,12 @@ public class VentanaReservas extends JFrame {
 				int mes = 0;
 				int anyo = 0;
 			
-				codigoReserva = "R" + reservas.size()+1;
-				codigoHabitacion = "H" + Integer.toString(listHabitaciones.getSelectedIndex());
+				int reserva = reservas.size() +1 ;
+				int habitacion = listHabitaciones.getSelectedIndex()+1;
+				
+				codigoReserva = "R" + 0 + reserva;
+				codigoHabitacion = "H" + habitacion;
+				
 				Properties objetoP = new Properties();
 				try {
 					objetoP.load(new FileInputStream("prop.properties"));
