@@ -27,6 +27,7 @@ public class VentanaMenu extends JFrame{
 	private JPanel contentpane;
 	private JButton buttonCliente = new JButton();
 	private JButton buttonReserva = new JButton();
+	private JButton buttonValorar = new JButton();
 	private JButton buttonSalir = new JButton();
 	
 	public VentanaMenu(final Controller controller){
@@ -43,13 +44,13 @@ public class VentanaMenu extends JFrame{
 
 		buttonReserva.setForeground(SystemColor.text);
 		buttonReserva.setBackground(new Color(0, 102, 204));
-		buttonReserva.setBounds(400, 400, 200, 42);
+		buttonReserva.setBounds(400, 290, 200, 42);
 		buttonReserva.setText("Reservar");
 		contentpane.add(buttonReserva);
 		
 		buttonCliente.setForeground(SystemColor.text);
 		buttonCliente.setBackground(new Color(0, 102, 204));
-		buttonCliente.setBounds(400, 300, 200, 42);
+		buttonCliente.setBounds(400, 196, 200, 42);
 		buttonCliente.setText("Mis datos");
 		contentpane.add(buttonCliente);
 		
@@ -58,6 +59,29 @@ public class VentanaMenu extends JFrame{
 		buttonSalir.setBounds(10, 500, 200, 42);
 		buttonSalir.setText("Salir");
 		contentpane.add(buttonSalir);
+		
+		
+		buttonValorar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					VentanaFeedback feedback;
+					try {
+						feedback = new VentanaFeedback(controller);
+						feedback.setVisible(true);
+						VentanaMenu.this.dispose();
+					} catch (Exception e2) {
+						// TODO: handle exception
+					}
+					
+			}
+		});
+		buttonValorar.setText("Valorar App");
+		buttonValorar.setForeground(Color.WHITE);
+		buttonValorar.setBackground(new Color(0, 102, 204));
+		buttonValorar.setBounds(400, 385, 200, 42);
+		contentpane.add(buttonValorar);
 
 		buttonReserva.addActionListener(new ActionListener() {
 			
@@ -110,18 +134,4 @@ public class VentanaMenu extends JFrame{
 		this.setTitle("Menu");
 
 	}
-	
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					VentanaMenu window = new VentanaMenu(null);
-//					window.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
 }
