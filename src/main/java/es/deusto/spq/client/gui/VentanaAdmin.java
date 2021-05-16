@@ -37,7 +37,7 @@ public class VentanaAdmin extends JFrame{
 		lTitulo.setFont(new Font("Arial", Font.PLAIN, 54));
 		lTitulo.setBounds(250, 50, 489, 42);
 		contentpane.add(lTitulo);
-
+		        
 		buttonReserva.setForeground(SystemColor.text);
 		buttonReserva.setBackground(new Color(0, 102, 204));
 		buttonReserva.setBounds(400, 280, 200, 42);

@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.client.Reserva;
 import es.deusto.spq.client.ServiceLocator;
 
 public class VentanaEventos extends JFrame {
@@ -64,7 +65,8 @@ public class VentanaEventos extends JFrame {
 		
 		bCrearEvento.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
-					
+					new VentanaCrearEvento(controller);
+					VentanaEventos.this.dispose();
 			}
 		});
 		
@@ -93,6 +95,6 @@ public class VentanaEventos extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 600);
 		this.setVisible(true);
-		this.setTitle("Administración");
+		this.setTitle("Eventos");
 	}
 }

@@ -197,7 +197,7 @@ public class VentanaMostrarReservas extends JFrame{
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			this.setSize(1066, 600);
 			this.setVisible(true);
-			this.setTitle("Menu Administrador");
+			this.setTitle("Reservas");
 
 	}
 }

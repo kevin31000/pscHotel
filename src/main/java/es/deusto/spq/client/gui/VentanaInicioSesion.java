@@ -70,7 +70,7 @@ public class VentanaInicioSesion extends JFrame {
 
 		JLabel labelTitle = new JLabel("PSC Hotel");
 		labelTitle.setFont(new Font("Arial", Font.PLAIN, 54));
-		labelTitle.setBounds(92, 32, 309, 42);
+		labelTitle.setBounds(92, 32, 309, 50);
 		contentpane.add(labelTitle);
 
 		labelUser.setText(" Email:");
