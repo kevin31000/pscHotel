@@ -115,7 +115,7 @@ public class VentanaDatosCliente extends JFrame {
 		add(cancelar);
 
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setTitle("Editar Datos");
+		setTitle("Editar datos");
 		pack();
 		setLocationRelativeTo(null);
 		// setLocation(700, 300);

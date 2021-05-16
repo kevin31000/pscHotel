@@ -175,7 +175,7 @@ public class VentanaMostrarReservas extends JFrame{
 					// TODO: handle exception
 				}
 				
-				JOptionPane.showMessageDialog(null, "Reserva cancelada", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Reserva cancelada.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 		});

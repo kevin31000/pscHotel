@@ -29,8 +29,8 @@ public class VentanaCrearEvento extends JFrame {
 	private final JTextField tNombreEvento = new JTextField();
 	private final JLabel lDescripciónEvento = new JLabel("Descripción del evento: ");
 	private final JTextArea tDescripciónEvento = new JTextArea(5, 5);
-	private final JLabel lParticipantesMaximos = new JLabel("Participantes maximos: ");
-	private JComboBox<String> cParticipantesMaximos;
+	private final JLabel lPMax = new JLabel("Participantes maximos: ");
+	private JComboBox<String> cPMax;
 	private final JLabel lFechaEventos = new JLabel("Fecha del evento: ");
 	private final JLabel lAnyo = new JLabel("Año ");
 	private JComboBox<String> cAnyo;
@@ -68,85 +68,25 @@ public class VentanaCrearEvento extends JFrame {
 		contentpane.add(lDescripciónEvento);
 		contentpane.add(tDescripciónEvento);
 
-		lParticipantesMaximos.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lParticipantesMaximos.setBounds(218, 217, 158, 26);
+		lPMax.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lPMax.setBounds(218, 217, 158, 26);
 
-		cParticipantesMaximos = new JComboBox<String>();
-		cParticipantesMaximos.setBounds(370, 222, 70, 20);
+		cPMax = new JComboBox<String>();
+		cPMax.setBounds(370, 222, 70, 20);
 
-		cParticipantesMaximos.addItem("1");
-		cParticipantesMaximos.addItem("2");
-		cParticipantesMaximos.addItem("3");
-		cParticipantesMaximos.addItem("4");
-		cParticipantesMaximos.addItem("5");
-		cParticipantesMaximos.addItem("6");
-		cParticipantesMaximos.addItem("7");
-		cParticipantesMaximos.addItem("8");
-		cParticipantesMaximos.addItem("9");
-		cParticipantesMaximos.addItem("10");
-		cParticipantesMaximos.addItem("11");
-		cParticipantesMaximos.addItem("12");
-		cParticipantesMaximos.addItem("13");
-		cParticipantesMaximos.addItem("14");
-		cParticipantesMaximos.addItem("15");
-		cParticipantesMaximos.addItem("16");
-		cParticipantesMaximos.addItem("17");
-		cParticipantesMaximos.addItem("18");
-		cParticipantesMaximos.addItem("19");
-		cParticipantesMaximos.addItem("20");
-		cParticipantesMaximos.addItem("21");
-		cParticipantesMaximos.addItem("22");
-		cParticipantesMaximos.addItem("23");
-		cParticipantesMaximos.addItem("24");
-		cParticipantesMaximos.addItem("25");
-		cParticipantesMaximos.addItem("26");
-		cParticipantesMaximos.addItem("27");
-		cParticipantesMaximos.addItem("28");
-		cParticipantesMaximos.addItem("29");
-		cParticipantesMaximos.addItem("30");
-		cParticipantesMaximos.addItem("31");
-		cParticipantesMaximos.addItem("32");
-		cParticipantesMaximos.addItem("33");
-		cParticipantesMaximos.addItem("34");
-		cParticipantesMaximos.addItem("35");
-		cParticipantesMaximos.addItem("36");
-		cParticipantesMaximos.addItem("37");
-		cParticipantesMaximos.addItem("38");
-		cParticipantesMaximos.addItem("39");
-		cParticipantesMaximos.addItem("40");
-		cParticipantesMaximos.addItem("41");
-		cParticipantesMaximos.addItem("42");
-		cParticipantesMaximos.addItem("43");
-		cParticipantesMaximos.addItem("44");
-		cParticipantesMaximos.addItem("45");
-		cParticipantesMaximos.addItem("46");
-		cParticipantesMaximos.addItem("47");
-		cParticipantesMaximos.addItem("48");
-		cParticipantesMaximos.addItem("49");
-		cParticipantesMaximos.addItem("50");
-		cParticipantesMaximos.addItem("51");
-		cParticipantesMaximos.addItem("52");
-		cParticipantesMaximos.addItem("53");
-		cParticipantesMaximos.addItem("54");
-		cParticipantesMaximos.addItem("55");
-		cParticipantesMaximos.addItem("56");
-		cParticipantesMaximos.addItem("57");
-		cParticipantesMaximos.addItem("58");
-		cParticipantesMaximos.addItem("59");
-		cParticipantesMaximos.addItem("60");
-		cParticipantesMaximos.addItem("61");
-		cParticipantesMaximos.addItem("62");
-		cParticipantesMaximos.addItem("63");
-		cParticipantesMaximos.addItem("64");
-		cParticipantesMaximos.addItem("65");
-		cParticipantesMaximos.addItem("66");
-		cParticipantesMaximos.addItem("67");
-		cParticipantesMaximos.addItem("68");
-		cParticipantesMaximos.addItem("69");
-		cParticipantesMaximos.addItem("70");
+		cPMax.addItem("1");	cPMax.addItem("2");	cPMax.addItem("3");	cPMax.addItem("4");	cPMax.addItem("5");	cPMax.addItem("6");	cPMax.addItem("7");	
+		cPMax.addItem("8");	cPMax.addItem("9");	cPMax.addItem("10"); cPMax.addItem("11"); cPMax.addItem("12"); cPMax.addItem("13"); cPMax.addItem("14"); 
+		cPMax.addItem("15"); cPMax.addItem("16"); cPMax.addItem("17"); cPMax.addItem("18"); cPMax.addItem("19"); cPMax.addItem("20"); cPMax.addItem("21"); 
+		cPMax.addItem("22"); cPMax.addItem("23"); cPMax.addItem("24"); cPMax.addItem("25"); cPMax.addItem("26"); cPMax.addItem("27"); cPMax.addItem("28");
+		cPMax.addItem("29"); cPMax.addItem("30"); cPMax.addItem("31"); cPMax.addItem("32"); cPMax.addItem("33"); cPMax.addItem("34"); cPMax.addItem("35");
+		cPMax.addItem("36"); cPMax.addItem("37"); cPMax.addItem("38"); cPMax.addItem("39"); cPMax.addItem("40"); cPMax.addItem("41"); cPMax.addItem("42"); 
+		cPMax.addItem("43"); cPMax.addItem("44"); cPMax.addItem("45"); cPMax.addItem("46"); cPMax.addItem("47"); cPMax.addItem("48"); cPMax.addItem("49"); 
+		cPMax.addItem("50"); cPMax.addItem("51"); cPMax.addItem("52"); cPMax.addItem("53"); cPMax.addItem("54"); cPMax.addItem("55"); cPMax.addItem("56");
+		cPMax.addItem("57"); cPMax.addItem("58"); cPMax.addItem("59"); cPMax.addItem("60"); cPMax.addItem("61"); cPMax.addItem("62"); cPMax.addItem("63"); 
+		cPMax.addItem("64"); cPMax.addItem("65"); cPMax.addItem("66"); cPMax.addItem("67"); cPMax.addItem("68"); cPMax.addItem("69"); cPMax.addItem("70");
 
-		contentpane.add(lParticipantesMaximos);
-		contentpane.add(cParticipantesMaximos);
+		contentpane.add(lPMax);
+		contentpane.add(cPMax);
 
 		lFechaEventos.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lFechaEventos.setBounds(218, 277, 158, 26);
@@ -157,16 +97,8 @@ public class VentanaCrearEvento extends JFrame {
 		cAnyo = new JComboBox<String>();
 		cAnyo.setBounds(370, 282, 70, 20);
 
-		cAnyo.addItem("2021");
-		cAnyo.addItem("2022");
-		cAnyo.addItem("2023");
-		cAnyo.addItem("2024");
-		cAnyo.addItem("2025");
-		cAnyo.addItem("2026");
-		cAnyo.addItem("2027");
-		cAnyo.addItem("2028");
-		cAnyo.addItem("2029");
-		cAnyo.addItem("2030");
+		cAnyo.addItem("2021"); cAnyo.addItem("2022"); cAnyo.addItem("2023"); cAnyo.addItem("2024"); cAnyo.addItem("2025"); cAnyo.addItem("2026");
+		cAnyo.addItem("2027"); cAnyo.addItem("2028"); cAnyo.addItem("2029");cAnyo.addItem("2030");
 
 		contentpane.add(lFechaEventos);
 
@@ -179,18 +111,8 @@ public class VentanaCrearEvento extends JFrame {
 		cMes = new JComboBox<String>();
 		cMes.setBounds(498, 282, 55, 20);
 
-		cMes.addItem("1");
-		cMes.addItem("2");
-		cMes.addItem("3");
-		cMes.addItem("4");
-		cMes.addItem("5");
-		cMes.addItem("6");
-		cMes.addItem("7");
-		cMes.addItem("8");
-		cMes.addItem("9");
-		cMes.addItem("10");
-		cMes.addItem("11");
-		cMes.addItem("12");
+		cMes.addItem("1"); cMes.addItem("2"); cMes.addItem("3"); cMes.addItem("4"); cMes.addItem("5"); cMes.addItem("6"); cMes.addItem("7");
+		cMes.addItem("8"); cMes.addItem("9"); cMes.addItem("10"); cMes.addItem("11"); cMes.addItem("12");
 
 		contentpane.add(lMes);
 		contentpane.add(cMes);
@@ -201,37 +123,10 @@ public class VentanaCrearEvento extends JFrame {
 		cDia = new JComboBox<String>();
 		cDia.setBounds(611, 282, 55, 20);
 
-		cDia.addItem("1");
-		cDia.addItem("2");
-		cDia.addItem("3");
-		cDia.addItem("4");
-		cDia.addItem("5");
-		cDia.addItem("6");
-		cDia.addItem("7");
-		cDia.addItem("8");
-		cDia.addItem("9");
-		cDia.addItem("10");
-		cDia.addItem("11");
-		cDia.addItem("12");
-		cDia.addItem("13");
-		cDia.addItem("14");
-		cDia.addItem("15");
-		cDia.addItem("16");
-		cDia.addItem("17");
-		cDia.addItem("18");
-		cDia.addItem("19");
-		cDia.addItem("20");
-		cDia.addItem("21");
-		cDia.addItem("22");
-		cDia.addItem("23");
-		cDia.addItem("24");
-		cDia.addItem("25");
-		cDia.addItem("26");
-		cDia.addItem("27");
-		cDia.addItem("28");
-		cDia.addItem("29");
-		cDia.addItem("30");
-		cDia.addItem("31");
+		cDia.addItem("1"); cDia.addItem("2"); cDia.addItem("3"); cDia.addItem("4"); cDia.addItem("5"); cDia.addItem("6"); cDia.addItem("7"); cDia.addItem("8");
+		cDia.addItem("9"); cDia.addItem("10"); cDia.addItem("11"); cDia.addItem("12"); cDia.addItem("13"); cDia.addItem("14"); cDia.addItem("15"); cDia.addItem("16");
+		cDia.addItem("17"); cDia.addItem("18"); cDia.addItem("19"); cDia.addItem("20"); cDia.addItem("21"); cDia.addItem("22"); cDia.addItem("23"); cDia.addItem("24");
+		cDia.addItem("25");	cDia.addItem("26"); cDia.addItem("27"); cDia.addItem("28"); cDia.addItem("29"); cDia.addItem("30"); cDia.addItem("31");
 
 		contentpane.add(lDia);
 		contentpane.add(cDia);
@@ -263,7 +158,7 @@ public class VentanaCrearEvento extends JFrame {
 				ventanaEvento = new VentanaEventos(controller);
 				ventanaEvento.setVisible(true);
 				VentanaCrearEvento.this.dispose();
-				JOptionPane.showMessageDialog(null, "Nuevo evento cancelado.", "Crear evento",
+				JOptionPane.showMessageDialog(null, "Creación de evento cancelada.", "Crear evento",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});

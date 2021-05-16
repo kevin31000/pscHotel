@@ -59,7 +59,7 @@ public class VentanaRegistro extends JFrame {
 
 		JLabel labelTitle = new JLabel("PSC Hotel");
 		labelTitle.setFont(new Font("Arial", Font.PLAIN, 54));
-		labelTitle.setBounds(92, 32, 309, 42);
+		labelTitle.setBounds(92, 32, 309, 50);
 		contentpane.add(labelTitle);
 
 		labelDNI.setText(" DNI:");
@@ -90,15 +90,15 @@ public class VentanaRegistro extends JFrame {
 		contentpane.add(labelEmail);
 		labelContrasenya.setFont(new Font("Arial", Font.BOLD, 11));
 
-		labelContrasenya.setText(" Contrasenya:");
+		labelContrasenya.setText(" Contraseña:");
 		labelContrasenya.setBounds(70, 350, 120, 20);
 		// loselabelPass.setBackground(Color.white);
 		labelContrasenya.setOpaque(true);
 		contentpane.add(labelContrasenya);
 		labelConfirmar.setFont(new Font("Arial", Font.BOLD, 11));
 
-		labelConfirmar.setText(" Confirmar contrasenya:");
-		labelConfirmar.setBounds(70, 404, 120, 20);
+		labelConfirmar.setText(" Confirmar contraseña:");
+		labelConfirmar.setBounds(70, 404, 130, 20);
 		// loselabelPass.setBackground(Color.white);
 		labelConfirmar.setOpaque(true);
 		contentpane.add(labelConfirmar);
@@ -148,39 +148,39 @@ public class VentanaRegistro extends JFrame {
 						|| textEmail.getText().equals("") || textContrasenya.toString().equals("")
 						|| textConfirmar.toString().equals("")) {
 
-					JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos.");
+					JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					VentanaRegistro.this.repaint();
 					error = true;
 
 				} else if (dni.matches("^[a-zA-Z]+$")) {
 
-					JOptionPane.showMessageDialog(null, "DNI no válido.");
+					JOptionPane.showMessageDialog(null, "DNI no válido.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (nombre.matches("^[0-9]+$")) {
 
-					JOptionPane.showMessageDialog(null, "Nombre no válido.");
+					JOptionPane.showMessageDialog(null, "Nombre no válido.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (apellido.matches("^[0-9]+$")) {
 
-					JOptionPane.showMessageDialog(null, "Apellido no válido.");
+					JOptionPane.showMessageDialog(null, "Apellido no válido.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (!textEmail.getText().contains("@") || !(textEmail.getText().contains(".es")
 						|| textEmail.getText().contains(".com") || textEmail.getText().contains(".eus"))) {
 
-					JOptionPane.showMessageDialog(null, "Email no válido.");
+					JOptionPane.showMessageDialog(null, "Email no válido.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (!String.valueOf(textContrasenya.getPassword())
 						.equals(String.valueOf(textConfirmar.getPassword()))) {
 
-					JOptionPane.showMessageDialog(null, "Error. Las contraseñas no coinciden.");
+					JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					VentanaRegistro.this.repaint();
 					error = true;
 
@@ -192,14 +192,14 @@ public class VentanaRegistro extends JFrame {
 				}
 
 				if (correcto) {
-					JOptionPane.showMessageDialog(null, "Usuario registrado correctamente.");
+					JOptionPane.showMessageDialog(null, "Cliente registrado correctamente.", "Nuevo cliente",JOptionPane.INFORMATION_MESSAGE);
 					VentanaInicioSesion inicio = new VentanaInicioSesion(controller);
 					inicio.setVisible(true);
 					VentanaRegistro.this.dispose();
 
 				} else if (!error) {
 					JOptionPane.showMessageDialog(null,
-							"El email introducido ya ha sido registrado, pruebe a iniciar sesión.");
+							"El email introducido ya ha sido registrado, pruebe a iniciar sesión.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					VentanaRegistro.this.repaint();
 				}
 			}
@@ -218,6 +218,6 @@ public class VentanaRegistro extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(441, 600);
 		setVisible(true);
-		setTitle("PSC Hotel");
+		setTitle("Nuevo cliente");
 	}
 }
