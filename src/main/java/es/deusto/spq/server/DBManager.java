@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
@@ -642,6 +643,26 @@ public class DBManager {
 		}
 
 		return eventos;
+	}
+	
+	public static void registrarFeedback(String valoracion_feedback, String recomendacion_feedback){
+		ResultSet rs = null;
+		PreparedStatement preparedstmt1 = null;
+		try {		
+			String sql1 = "insert into feedback(valoracion_feedback, recomendacion_feedback) values(?,?)";
+			preparedstmt1 = conn.prepareStatement(sql1);
+			preparedstmt1.setString(2, valoracion_feedback);
+			preparedstmt1.setString(3, recomendacion_feedback);
+			preparedstmt1.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("  $ Error registrando feedback: " + e.getMessage());
+		} finally {
+			try {
+				preparedstmt1.close();
+			} catch (SQLException e) {
+				System.out.println("  $ Error cerrando registrando feedback: " + e.getMessage());
+			}
+		}
 	}
 	
 	public void initializeData() {

@@ -27,8 +27,8 @@ public class VentanaCrearEvento extends JFrame {
 	private JButton bCancelar = new JButton();
 	private final JLabel lNombreEvento = new JLabel("Nombre del evento: ");
 	private final JTextField tNombreEvento = new JTextField();
-	private final JLabel lDescripciónEvento = new JLabel("Descripción del evento: ");
-	private final JTextArea tDescripciónEvento = new JTextArea(5, 5);
+	private final JLabel lDescripcionEvento = new JLabel("Descripción del evento: ");
+	private final JTextArea tDescripcionEvento = new JTextArea(5, 5);
 	private final JLabel lPMax = new JLabel("Participantes maximos: ");
 	private JComboBox<String> cPMax;
 	private final JLabel lFechaEventos = new JLabel("Fecha del evento: ");
@@ -56,17 +56,17 @@ public class VentanaCrearEvento extends JFrame {
 		contentpane.add(lNombreEvento);
 		contentpane.add(tNombreEvento);
 
-		lDescripciónEvento.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lDescripciónEvento.setBounds(218, 109, 200, 26);
+		lDescripcionEvento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lDescripcionEvento.setBounds(218, 109, 200, 26);
 
-		tDescripciónEvento.setLineWrap(true);
-		tDescripciónEvento.setBounds(370, 115, 550, 90);
+		tDescripcionEvento.setLineWrap(true);
+		tDescripcionEvento.setBounds(370, 115, 550, 90);
 		Border border = BorderFactory.createLineBorder(Color.GRAY);
-		tDescripciónEvento
+		tDescripcionEvento
 				.setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 
-		contentpane.add(lDescripciónEvento);
-		contentpane.add(tDescripciónEvento);
+		contentpane.add(tDescripcionEvento);
+		contentpane.add(tDescripcionEvento);
 
 		lPMax.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lPMax.setBounds(218, 217, 158, 26);
