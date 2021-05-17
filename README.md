@@ -1,6 +1,6 @@
 # 🏨 PSC Hotel 🏨
 
-![java ci workflow](https://github.com/kevin31000/pscHotel/blob/main/.github/workflows/java-ci.yml/badge.svg) [![codecov](https://codecov.io/gh/kevin31000/pscHotel/branch/main/graph/badge.svg?token=VWV6C72V4T)](https://codecov.io/gh/kevin31000/pscHotel)
+![java ci workflow](https://github.com/kevin31000/pscHotel/blob/main/.github/workflows/java-ci.yml/badge.svg) [![codecov](https://codecov.io/gh/kevin31000/pscHotel/branch/main/graph/badge.svg?token=VI1939UJ2S)](https://codecov.io/gh/kevin31000/pscHotel)
 
 PSC Hotel es una aplicación de reservas de hotel mediante la cual los clientes, haciendo uso de su 
 cuenta de usuario, podrán realizar reservas de las habitaciones en las fechas deseadas.
