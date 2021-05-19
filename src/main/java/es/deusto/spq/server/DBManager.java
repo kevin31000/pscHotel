@@ -652,35 +652,7 @@ public class DBManager {
 		return eventos;
 	}
 	
-	public static void registrarFeedback(String email, String valoracion_feedback, String recomendacion_feedback){
-		ResultSet rs = null;
-		PreparedStatement preparedstmt1 = null;
-		PreparedStatement preparedstmt2 = null;
-		try {		
-			String sql1 = "select dni from cliente where email = ?";
-			preparedstmt1 = conn.prepareStatement(sql1);
-			preparedstmt1.setString(1, email);
-			rs = preparedstmt1.executeQuery();
-			rs.next();
-			String id = rs.getString("dni");
-			String sql2 = "insert into feedback(id, valoracion_feedback, recomendacion_feedback) values(?,?,?)";
-			preparedstmt2 = conn.prepareStatement(sql2);
-			preparedstmt2.setString(1, id);
-			preparedstmt2.setString(2, valoracion_feedback);
-			preparedstmt2.setString(3, recomendacion_feedback);
-			preparedstmt2.executeUpdate();
-			System.out.println("bien dbmanager");
-		} catch (SQLException e) {
-			System.out.println("  $ Error registrando feedback: " + e.getMessage());
-		} finally {
-			try {
-				preparedstmt1.close();
-				preparedstmt2.close();
-			} catch (SQLException e) {
-				System.out.println("  $ Error cerrando registrando feedback: " + e.getMessage());
-			}
-		}
-	}
+
 	
 	public void initializeData() {
 		System.out.println(" * Initializing data base");

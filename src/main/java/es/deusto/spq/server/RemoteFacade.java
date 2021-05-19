@@ -59,14 +59,7 @@ public class RemoteFacade implements IRemoteFacade{
 		}return Response.status(Response.Status.BAD_REQUEST).build();
 	}
 	
-	@POST
-	@Path("/feedback")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response registrarFeedback(Feedback feedback) {
-		
-		dbmanager.store(feedback);
-		return Response.status(Response.Status.BAD_REQUEST).build();
-	}
+
 
 	@GET
 	@Path("/getUsuario")

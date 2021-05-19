@@ -125,23 +125,7 @@ public class ServiceLocator {
 		}
 	}
 	
-	public boolean anadirFeedback(String email, String valoracion_feedback, Recomendacion recomendacion_feedback) {
-		WebTarget registerUserWebTarget = webTarget.path("server/feedback");
-		Feedback f = new Feedback();
-		f.setEmail(email);
-		f.setValoracion(valoracion_feedback);
-		f.setRecomendacion(recomendacion_feedback);
-		
-		Entity<Feedback> entity = Entity.entity(f, MediaType.APPLICATION_JSON);
-		Response response = registerUserWebTarget.request().post(entity);
-		if (response.getStatus() != Status.OK.getStatusCode()) {
-			logger.error("Error connecting with the server. Code: " + response.getStatus());
-			return false;
-		} else {
-			logger.info("Reservation correctly registered");
-			return true;
-		}
-	}
+
 
 	/** Método para iniciar sesión.
 	 * Llama al método con el mismo nombre del RemoteFacade a través de la URL establecida.

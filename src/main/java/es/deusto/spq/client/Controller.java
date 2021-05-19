@@ -73,9 +73,7 @@ public class Controller {
 		return serviceLocator.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
 	}
 	
-	public boolean anadirFeedback(String email, String valoracion_feedback, Recomendacion recomendacion_feedback ) {
-		return serviceLocator.anadirFeedback(email, valoracion_feedback, recomendacion_feedback);
-	}
+
 
     /**Método para obtener la habitaciones del hotel 
      * @param codigo Código de la habitación 

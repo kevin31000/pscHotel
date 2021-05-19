@@ -7,15 +7,12 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-@PersistenceCapable
-@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Feedback {
 	
 	public enum Recomendacion {
 		si, no
 	}
-	
-	@PrimaryKey
+
 	private String email;
 	
 	private String valoracion;

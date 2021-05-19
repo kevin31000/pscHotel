@@ -106,14 +106,7 @@ public class VentanaFeedback extends JFrame{
 					es.deusto.spq.server.Main.logFeedback
 							.println("Puntuacion: " + bgEstrellas.getSelection().getActionCommand() + "\n" + "Si/No: "
 									+ bgRecomendacion.getSelection().getActionCommand());
-					try {
-						es.deusto.spq.server.DBManager.registrarFeedback(es.deusto.spq.client.gui.VentanaInicioSesion.cargarEmailUsuario(),
-								bgEstrellas.getSelection().getActionCommand(),
-								bgRecomendacion.getSelection().getActionCommand());
-					} catch (Exception e1) {
-						es.deusto.spq.server.Main.loggerGeneral.log(Level.INFO, e1.toString());
-						e1.printStackTrace();
-					}
+
 					VentanaMenu menu;
 					try {
 						menu = new VentanaMenu(controller);
