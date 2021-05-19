@@ -6,6 +6,9 @@ import java.util.List;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import es.deusto.spq.client.Feedback.Recomendacion;
+
+
 
 /**Clase que hace de conexion entre el ServiceLocator y las GUI.
  * @author Sergio
@@ -68,6 +71,10 @@ public class Controller {
 	 */
 	public boolean anadirReserva(String codigoReserva, String codigoHabitacion, String emailUsuario, int dia, int mes, int anyo){
 		return serviceLocator.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
+	}
+	
+	public boolean anadirFeedback(String email, String valoracion_feedback, Recomendacion recomendacion_feedback ) {
+		return serviceLocator.anadirFeedback(email, valoracion_feedback, recomendacion_feedback);
 	}
 
     /**Método para obtener la habitaciones del hotel 

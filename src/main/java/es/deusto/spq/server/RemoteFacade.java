@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Evento;
+import es.deusto.spq.client.Feedback;
 import es.deusto.spq.client.Habitacion;
 import es.deusto.spq.client.Reserva;
 
@@ -56,6 +57,15 @@ public class RemoteFacade implements IRemoteFacade{
 			dbmanager.store(cliente);
 			return Response.status(Response.Status.OK).build();
 		}return Response.status(Response.Status.BAD_REQUEST).build();
+	}
+	
+	@POST
+	@Path("/feedback")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response registrarFeedback(Feedback feedback) {
+		
+		dbmanager.store(feedback);
+		return Response.status(Response.Status.BAD_REQUEST).build();
 	}
 
 	@GET

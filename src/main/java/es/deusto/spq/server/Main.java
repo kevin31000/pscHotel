@@ -4,8 +4,14 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URI;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Main class.
@@ -44,7 +50,24 @@ public class Main {
 		return url;
 
 	}
+	
+	public static PrintStream logFeedback;
+	public static Logger loggerGeneral = Logger.getLogger(Main.class.getName());
+	
+	/**
+	 * Metodo para poder crear ficheros log, en nuestro caso el de FeedbackLog.log
+	 *
+	 */
+	public static void crearFicheroLog() {
+		try {
+			logFeedback = new PrintStream(new FileOutputStream("FeedbackLog.log", true));
+		} catch (FileNotFoundException e) {
+			es.deusto.spq.server.Main.loggerGeneral.log(Level.INFO, e.toString());
+			e.printStackTrace();
+		}
 
+	}
+	
 	/**
 	 * Main method.
 	 * 

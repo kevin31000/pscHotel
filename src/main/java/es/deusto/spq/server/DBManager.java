@@ -17,6 +17,7 @@ import javax.jdo.Transaction;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Evento;
+import es.deusto.spq.client.Feedback;
 import es.deusto.spq.client.Habitacion;
 import es.deusto.spq.client.Reserva;
 
@@ -154,7 +155,13 @@ public class DBManager {
 		DBManager.getInstance().deleteObjectFromDB(e);
 	}
 	
-	
+	public void store(Feedback f) {
+		DBManager.getInstance().storeObjectInDB(f);
+	}
+
+	public void delete(Feedback f) {
+		DBManager.getInstance().deleteObjectFromDB(f);
+	}
 
 	public static Cliente getUsuario(String email) {
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -645,20 +652,30 @@ public class DBManager {
 		return eventos;
 	}
 	
-	public static void registrarFeedback(String valoracion_feedback, String recomendacion_feedback){
+	public static void registrarFeedback(String email, String valoracion_feedback, String recomendacion_feedback){
 		ResultSet rs = null;
 		PreparedStatement preparedstmt1 = null;
+		PreparedStatement preparedstmt2 = null;
 		try {		
-			String sql1 = "insert into feedback(valoracion_feedback, recomendacion_feedback) values(?,?)";
+			String sql1 = "select dni from cliente where email = ?";
 			preparedstmt1 = conn.prepareStatement(sql1);
-			preparedstmt1.setString(2, valoracion_feedback);
-			preparedstmt1.setString(3, recomendacion_feedback);
-			preparedstmt1.executeUpdate();
+			preparedstmt1.setString(1, email);
+			rs = preparedstmt1.executeQuery();
+			rs.next();
+			String id = rs.getString("dni");
+			String sql2 = "insert into feedback(id, valoracion_feedback, recomendacion_feedback) values(?,?,?)";
+			preparedstmt2 = conn.prepareStatement(sql2);
+			preparedstmt2.setString(1, id);
+			preparedstmt2.setString(2, valoracion_feedback);
+			preparedstmt2.setString(3, recomendacion_feedback);
+			preparedstmt2.executeUpdate();
+			System.out.println("bien dbmanager");
 		} catch (SQLException e) {
 			System.out.println("  $ Error registrando feedback: " + e.getMessage());
 		} finally {
 			try {
 				preparedstmt1.close();
+				preparedstmt2.close();
 			} catch (SQLException e) {
 				System.out.println("  $ Error cerrando registrando feedback: " + e.getMessage());
 			}

@@ -40,19 +40,19 @@ public class VentanaAdmin extends JFrame{
 		        
 		buttonReserva.setForeground(SystemColor.text);
 		buttonReserva.setBackground(new Color(0, 102, 204));
-		buttonReserva.setBounds(400, 280, 200, 42);
+		buttonReserva.setBounds(400, 240, 200, 42);
 		buttonReserva.setText("Reservas");
 		contentpane.add(buttonReserva);
 		
 		buttonCliente.setForeground(SystemColor.text);
 		buttonCliente.setBackground(new Color(0, 102, 204));
-		buttonCliente.setBounds(400, 200, 200, 42);
+		buttonCliente.setBounds(400, 166, 200, 42);
 		buttonCliente.setText("Clientes");
 		contentpane.add(buttonCliente);
 		
 		buttonEventos.setForeground(SystemColor.text);
 		buttonEventos.setBackground(new Color(0, 102, 204));
-		buttonEventos.setBounds(400, 360, 200, 42);
+		buttonEventos.setBounds(400, 318, 200, 42);
 		buttonEventos.setText("Eventos");
 		contentpane.add(buttonEventos);
 		
@@ -61,6 +61,29 @@ public class VentanaAdmin extends JFrame{
 		buttonSalir.setBounds(10, 500, 200, 42);
 		buttonSalir.setText("Salir");
 		contentpane.add(buttonSalir);
+		
+		JButton bEstadisticas = new JButton();
+		bEstadisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+					// TODO Auto-generated method stub
+					VentanaEstadisticas estadisticas;
+					try {		
+						estadisticas = new VentanaEstadisticas(controller);
+						estadisticas.setVisible(true);
+					} catch (Exception e2) {
+						// TODO: handle exception
+					}
+					
+					
+				
+			}
+		});
+		bEstadisticas.setText("Estadisticas");
+		bEstadisticas.setForeground(Color.WHITE);
+		bEstadisticas.setBackground(new Color(0, 102, 204));
+		bEstadisticas.setBounds(400, 393, 200, 42);
+		contentpane.add(bEstadisticas);
 
 		buttonReserva.addActionListener(new ActionListener() {
 			
@@ -130,6 +153,5 @@ public class VentanaAdmin extends JFrame{
 		this.setTitle("Menu Administrador");
 
 	}
-
 }
 
