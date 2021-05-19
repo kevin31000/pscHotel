@@ -88,9 +88,6 @@ public class VentanaReservas extends JFrame {
 		listHabitaciones.setModel(contenidoHabitaciones);
 		listHabitaciones.setBounds(60, 130, 400, 400);
 		contentpane.add(listHabitaciones);
-	
-		//listDisponibilidad.setBounds(690, 130, 300, 340);
-		//contentpane.add(listDisponibilidad);
 		
 		bAtras.setForeground(SystemColor.text);
 		bAtras.setBackground(new Color(0, 102, 204));
@@ -103,17 +100,6 @@ public class VentanaReservas extends JFrame {
 		bReservar.setBounds(770, 220, 190, 125);
 		bReservar.setText("Reservar");
 		contentpane.add(bReservar);
-
-		/*listHabitaciones.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent evt) {
-				listHabitaciones = (JList) evt.getSource();
-				if (evt.getClickCount() == 1) {
-
-					// Double-click detected
-					System.out.println("Click");
-				}
-			}
-		});*/
 
 		comboDisponibilidadDia.setFont(new Font("Arial", Font.BOLD, 16));
 		comboDisponibilidadDia.setBounds(500, 360, 190, 30);
@@ -142,7 +128,6 @@ public class VentanaReservas extends JFrame {
 		bAtras.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				VentanaMenu menu = new VentanaMenu(controller);
 				menu.setVisible(true);
 				VentanaReservas.this.dispose();
@@ -152,12 +137,8 @@ public class VentanaReservas extends JFrame {
 		bReservar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				ArrayList<Reserva> reservas = (ArrayList<Reserva>) controller.obtenerReservas();
-				
-				for (Reserva r : reservas) {
-					r.toString();
-				}
+
 				String codigoReserva = "";
     			String codigoHabitacion = "";				
 				String emailUsuario = "";
@@ -165,11 +146,17 @@ public class VentanaReservas extends JFrame {
 				int mes = 0;
 				int anyo = 0;
 			
-				int reserva = reservas.size() +1 ;
-				int habitacion = listHabitaciones.getSelectedIndex()+1;
-				
-				codigoReserva = "R" + 0 + reserva;
-				codigoHabitacion = "H" + habitacion;
+				int nReserva = reservas.size() + 1;
+				if (nReserva < 10) {
+					codigoReserva = "R0" + Integer.toString(nReserva);
+				} else {
+					codigoReserva = "R" + Integer.toString(nReserva);
+				}
+
+				//CodigoHabitacion sera los caracteres 12 a 14 de la Habitacion seleccionada en listHabitaciones
+				for (int i = 12; i < 15; i++) {
+					codigoHabitacion = codigoHabitacion + listHabitaciones.getSelectedValue().toString().charAt(i);
+				}
 				
 				Properties objetoP = new Properties();
 				try {
@@ -211,19 +198,19 @@ public class VentanaReservas extends JFrame {
 	}
 
 	public static boolean existeReserva(ArrayList<Reserva> reservas, String codigoHabitacion, int dia, int mes, int anyo) {
-		boolean condicion = true;
+		boolean bool = true;
 
 		for (Reserva reserva : reservas) {
-			if (/*codigoHabitacion == reserva.getCodigoHabitacion() && */dia == reserva.getDia() && mes == reserva.getAnyo() && anyo == reserva.getAnyo()) {
-				condicion = false;
+			if (codigoHabitacion == reserva.getCodigoHabitacion() && dia == reserva.getDia() && mes == reserva.getMes() && anyo == reserva.getAnyo()) {
+				bool = false;
 			}
 		}
 		
-		if (condicion == false) {
+		if (bool == false) {
 			JOptionPane.showMessageDialog(null, "Habitacion ocupada.");
-		}		
+		}
 
-		return condicion;
+		return bool;
 	}
 
 	public static boolean hayRebajas() {
