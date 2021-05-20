@@ -94,6 +94,6 @@ https://github.com/kevin31000/pscHotel
 
 ### ℹ️ Versión ℹ️
 
-PSC Hotel© ver. 2.0 - 2021-04-29
+PSC Hotel© ver. 3.0 - 2021-05-20
 
 

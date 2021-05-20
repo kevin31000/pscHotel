@@ -27,6 +27,8 @@ public class VentanaCrearEvento extends JFrame {
 	private JButton bCancelar = new JButton();
 	private final JLabel lNombreEvento = new JLabel("Nombre del evento: ");
 	private final JTextField tNombreEvento = new JTextField();
+	private final JLabel lCodigoEvento = new JLabel("Codigo del evento: ");
+	private final JTextField tCodigoEvento = new JTextField();
 	private final JLabel lDescripcionEvento = new JLabel("Descripción del evento: ");
 	private final JTextArea tDescripcionEvento = new JTextArea(5, 5);
 	private final JLabel lPMax = new JLabel("Participantes maximos: ");
@@ -38,6 +40,8 @@ public class VentanaCrearEvento extends JFrame {
 	private JComboBox<String> cMes;
 	private final JLabel lDia = new JLabel("Día ");
 	private JComboBox<String> cDia;
+	private final JLabel lHoraEvento = new JLabel("Hora del evento: ");
+	private final JTextField tHoraEvento = new JTextField();
 	private final JLabel lEventoNuevo = new JLabel("EVENTO NUEVO");
 
 	public VentanaCrearEvento(Controller controller) {
@@ -51,10 +55,19 @@ public class VentanaCrearEvento extends JFrame {
 		lNombreEvento.setBounds(218, 73, 150, 26);
 
 		tNombreEvento.setColumns(10);
-		tNombreEvento.setBounds(370, 79, 550, 19);
+		tNombreEvento.setBounds(370, 79, 280, 19);
 
 		contentpane.add(lNombreEvento);
 		contentpane.add(tNombreEvento);
+
+		lCodigoEvento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lCodigoEvento.setBounds(685, 73, 140, 26);
+
+		tCodigoEvento.setColumns(10);
+		tCodigoEvento.setBounds(832, 79, 88, 19);
+
+		contentpane.add(lCodigoEvento);
+		contentpane.add(tCodigoEvento);
 
 		lDescripcionEvento.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lDescripcionEvento.setBounds(218, 109, 200, 26);
@@ -62,10 +75,10 @@ public class VentanaCrearEvento extends JFrame {
 		tDescripcionEvento.setLineWrap(true);
 		tDescripcionEvento.setBounds(370, 115, 550, 90);
 		Border border = BorderFactory.createLineBorder(Color.GRAY);
-		tDescripcionEvento
-				.setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		tDescripcionEvento.setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 
-		contentpane.add(tDescripcionEvento);
+
+		contentpane.add(lDescripcionEvento);
 		contentpane.add(tDescripcionEvento);
 
 		lPMax.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -73,6 +86,7 @@ public class VentanaCrearEvento extends JFrame {
 
 		cPMax = new JComboBox<String>();
 		cPMax.setBounds(370, 222, 70, 20);
+		
 		cPMax.addItem("ESCOJA EL NUM");
 		cPMax.addItem("1");	cPMax.addItem("2");	cPMax.addItem("3");	cPMax.addItem("4");	cPMax.addItem("5");	cPMax.addItem("6");	cPMax.addItem("7");	
 		cPMax.addItem("8");	cPMax.addItem("9");	cPMax.addItem("10"); cPMax.addItem("11"); cPMax.addItem("12"); cPMax.addItem("13"); cPMax.addItem("14"); 
@@ -131,17 +145,27 @@ public class VentanaCrearEvento extends JFrame {
 
 		contentpane.add(lDia);
 		contentpane.add(cDia);
+		
+		lHoraEvento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lHoraEvento.setBounds(218, 315, 140, 26);
+
+		tHoraEvento.setColumns(10);
+		tHoraEvento.setBounds(370, 321, 71, 19);
+
+		contentpane.add(lHoraEvento);
+		contentpane.add(tHoraEvento);
+
 
 		bCancelar.setForeground(SystemColor.text);
 		bCancelar.setBackground(new Color(0, 102, 204));
-		bCancelar.setBounds(218, 410, 142, 33);
+		bCancelar.setBounds(218, 450, 142, 33);
 		bCancelar.setText("CANCELAR");
 		contentpane.add(bCancelar);
 
 		bCrearEvento.setForeground(SystemColor.text);
 		bCrearEvento.setBackground(new Color(0, 102, 204));
 		bCrearEvento.setFont(new Font("Tahoma", Font.BOLD, 13));
-		bCrearEvento.setBounds(218, 349, 142, 33);
+		bCrearEvento.setBounds(218, 389, 142, 33);
 		bCrearEvento.setText("CREAR EVENTO");
 		contentpane.add(bCrearEvento);
 
@@ -165,9 +189,8 @@ public class VentanaCrearEvento extends JFrame {
 		});
 		bAtras.setText("ATRAS");
 		bAtras.setForeground(Color.WHITE);
-		bAtras.setFont(new Font("Tahoma", Font.BOLD, 13));
 		bAtras.setBackground(new Color(0, 102, 204));
-		bAtras.setBounds(778, 349, 142, 33);
+		bAtras.setBounds(778, 389, 142, 33);
 		contentpane.add(bAtras);
 
 		bCancelar.addActionListener(new ActionListener() {
@@ -210,7 +233,7 @@ public class VentanaCrearEvento extends JFrame {
 					dia = Integer.parseInt(cDia.getSelectedItem().toString());
 				}
 				
-				if(tNombreEvento.getText().equals("") || tDescripcionEvento.getText().equals("") 
+				if(tNombreEvento.getText().equals("") || tCodigoEvento.getText().equals("") || tDescripcionEvento.getText().equals("") 
 						|| cPMax.getSelectedItem().toString().isEmpty() || cAnyo.getSelectedItem().toString().isEmpty() || 
 						cMes.getSelectedItem().toString().isEmpty() || cDia.getSelectedItem().toString().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos.", "Error",JOptionPane.INFORMATION_MESSAGE);
