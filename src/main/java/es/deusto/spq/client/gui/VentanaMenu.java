@@ -27,6 +27,7 @@ public class VentanaMenu extends JFrame{
 	private JPanel contentpane;
 	private JButton buttonCliente = new JButton();
 	private JButton buttonReserva = new JButton();
+	private JButton buttonEventos = new JButton();
 	private JButton buttonValorar = new JButton();
 	private JButton buttonSalir = new JButton();
 	
@@ -39,49 +40,38 @@ public class VentanaMenu extends JFrame{
 
 		JLabel lTitulo = new JLabel("Menu");
 		lTitulo.setFont(new Font("Arial", Font.PLAIN, 54));
-		lTitulo.setBounds(430, 32, 309, 42);
+		lTitulo.setBounds(430, 50, 309, 42);
 		contentpane.add(lTitulo);
+	
+		buttonCliente.setForeground(SystemColor.text);
+		buttonCliente.setBackground(new Color(0, 102, 204));
+		buttonCliente.setBounds(400, 166, 200, 42);
+		buttonCliente.setText("Mis datos");
+		contentpane.add(buttonCliente);
 
 		buttonReserva.setForeground(SystemColor.text);
 		buttonReserva.setBackground(new Color(0, 102, 204));
-		buttonReserva.setBounds(400, 290, 200, 42);
+		buttonReserva.setBounds(400, 240, 200, 42);
 		buttonReserva.setText("Reservar");
 		contentpane.add(buttonReserva);
 		
-		buttonCliente.setForeground(SystemColor.text);
-		buttonCliente.setBackground(new Color(0, 102, 204));
-		buttonCliente.setBounds(400, 196, 200, 42);
-		buttonCliente.setText("Mis datos");
-		contentpane.add(buttonCliente);
-		
+		buttonEventos.setForeground(SystemColor.text);
+		buttonEventos.setBackground(new Color(0, 102, 204));
+		buttonEventos.setBounds(400, 318, 200, 42);
+		buttonEventos.setText("Reservar eventos");
+		contentpane.add(buttonEventos);
+
+		buttonValorar.setText("Valorar App");
+		buttonValorar.setForeground(Color.WHITE);
+		buttonValorar.setBackground(new Color(0, 102, 204));
+		buttonValorar.setBounds(400, 393, 200, 42);
+		contentpane.add(buttonValorar);
+
 		buttonSalir.setForeground(SystemColor.text);
 		buttonSalir.setBackground(new Color(0, 102, 204));
 		buttonSalir.setBounds(10, 500, 200, 42);
 		buttonSalir.setText("Salir");
 		contentpane.add(buttonSalir);
-		
-		
-		buttonValorar.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					VentanaFeedback feedback;
-					try {
-						feedback = new VentanaFeedback(controller);
-						feedback.setVisible(true);
-						VentanaMenu.this.dispose();
-					} catch (Exception e2) {
-						// TODO: handle exception
-					}
-					
-			}
-		});
-		buttonValorar.setText("Valorar App");
-		buttonValorar.setForeground(Color.WHITE);
-		buttonValorar.setBackground(new Color(0, 102, 204));
-		buttonValorar.setBounds(400, 385, 200, 42);
-		contentpane.add(buttonValorar);
 
 		buttonReserva.addActionListener(new ActionListener() {
 			
@@ -115,6 +105,38 @@ public class VentanaMenu extends JFrame{
 				
 			}
 		});
+
+		buttonEventos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaReservarEventos evento;
+				try {
+					evento = new VentanaReservarEventos(controller);
+					evento.setVisible(true);
+					VentanaMenu.this.dispose();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+			}
+		});
+			
+		buttonValorar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					VentanaFeedback feedback;
+					try {
+						feedback = new VentanaFeedback(controller);
+						feedback.setVisible(true);
+						VentanaMenu.this.dispose();
+					} catch (Exception e2) {
+						// TODO: handle exception
+					}
+					
+			}
+		});
+		
 		
 		buttonSalir.addActionListener(new ActionListener() {
 			

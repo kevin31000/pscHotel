@@ -19,6 +19,7 @@ import es.deusto.spq.client.Evento;
 import es.deusto.spq.client.Feedback;
 import es.deusto.spq.client.Habitacion;
 import es.deusto.spq.client.Reserva;
+import es.deusto.spq.client.ReservaEvento;
 
 @Path("/server")
 @Produces(MediaType.APPLICATION_JSON)
@@ -166,11 +167,11 @@ public class RemoteFacade implements IRemoteFacade{
 		dbmanager.store(reserva);
 		return Response.status(Response.Status.OK).build();
 	}
-	
+
 	@POST
 	@Path("/registroEvento")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response registrarReserva(Evento evento) {
+	public Response registroEvento(Evento evento) {
 		dbmanager.store(evento);
 		return Response.status(Response.Status.OK).build();
 	}
@@ -200,6 +201,31 @@ public class RemoteFacade implements IRemoteFacade{
 	@Consumes(MediaType.APPLICATION_JSON)
 	public List<Evento> encontrarEventos() {
 		List<Evento> e = dbmanager.getEventos();
+		return e;
+	}
+
+	@POST
+	@Path("/registroReservaEvento")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response registrarReservaEvento(ReservaEvento e) {
+		dbmanager.store(e);
+		return Response.status(Response.Status.OK).build();
+	}
+	
+	@GET
+	@Path("/obtenerReservaEvento")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public ReservaEvento encontrarReservaEvento(String codigo) {
+		ReservaEvento e = dbmanager.getReservaEvento(codigo);
+
+		return e;
+	}
+	
+	@GET
+	@Path("/obtenerReservasEvento")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<ReservaEvento> encontrarReservasEvento() {
+		List<ReservaEvento> e = dbmanager.getReservasEvento();
 		return e;
 	}
 

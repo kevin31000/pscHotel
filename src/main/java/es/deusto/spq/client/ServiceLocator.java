@@ -290,4 +290,45 @@ public class ServiceLocator {
 		return e;
     }
 
+	public boolean anadirReservaEvento(String codigoReservaEvento, String codigoEvento, String emailUsuario,
+	int dia, int mes, int anyo) {
+		WebTarget registerUserWebTarget = webTarget.path("server/registroReservaEvento");
+		ReservaEvento e = new ReservaEvento(codigoReservaEvento, codigoEvento, emailUsuario, dia, mes, anyo);
+		
+		Entity<ReservaEvento> entity = Entity.entity(e, MediaType.APPLICATION_JSON);
+		Response response = registerUserWebTarget.request().post(entity);
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			logger.error("Error connecting with the server. Code: " + response.getStatus());
+			return false;
+		} else {
+			logger.info("ReservaEvento correctly registered");
+			return true;
+		}
+	}
+
+	public ReservaEvento obtenerReservaEvento(String codigo) {
+        WebTarget webTarget4 = webTarget.path("server/obtenerReservaEvento").queryParam("codigo", codigo);
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		ReservaEvento e = new ReservaEvento();
+		e.setCodigoReservaEvento(codigo);
+
+		GenericType<ReservaEvento> genericType = new GenericType<ReservaEvento>() {};
+		e = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
+		
+		return e;
+    }
+	
+	public List<ReservaEvento> obtenerReservasEvento() {
+        WebTarget webTarget4 = webTarget.path("server/obtenerReservasEvento");
+		Invocation.Builder invocationBuilder = webTarget4.request(MediaType.APPLICATION_JSON);
+
+		List<ReservaEvento> e = new ArrayList<ReservaEvento>();
+
+		GenericType<List<ReservaEvento>> genericType = new GenericType<List<ReservaEvento>>() {};
+		e = webTarget4.request(MediaType.APPLICATION_JSON).get(genericType);
+
+		return e;
+    }
+
 }

@@ -20,6 +20,7 @@ import es.deusto.spq.client.Evento;
 import es.deusto.spq.client.Feedback;
 import es.deusto.spq.client.Habitacion;
 import es.deusto.spq.client.Reserva;
+import es.deusto.spq.client.ReservaEvento;
 
 public class DBManager {
 	private static DBManager instance = null;
@@ -152,6 +153,14 @@ public class DBManager {
 	}
 
 	public void delete(Evento e) {
+		DBManager.getInstance().deleteObjectFromDB(e);
+	}
+
+	public void store(ReservaEvento e) {
+		DBManager.getInstance().storeObjectInDB(e);
+	}
+
+	public void delete(ReservaEvento e) {
 		DBManager.getInstance().deleteObjectFromDB(e);
 	}
 	
@@ -589,7 +598,7 @@ public class DBManager {
 
             tx.commit();
         } catch (Exception ex) {
-            System.out.println(" $ Error cogiendo el reserva de la BD: " + ex.getMessage());
+            System.out.println(" $ Error cogiendo el evento de la BD: " + ex.getMessage());
         } finally {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
@@ -652,8 +661,6 @@ public class DBManager {
 		return eventos;
 	}
 	
-
-	
 	public void initializeData() {
 		System.out.println(" * Initializing data base");
 		List<Habitacion> habitaciones = new ArrayList<Habitacion>();
@@ -697,6 +704,12 @@ public class DBManager {
 		
 		Reserva r1 = new Reserva("R01", "H1", "test@test.es", 01, 01, 2021);
 		Reserva r2 = new Reserva("R02", "H2", "test@test.es", 02, 02, 2021);
+
+		Evento e1 = new Evento("E01", "Bingo", "", 1, 1, 2021, "7:30", 30);
+		Evento e2 = new Evento("E02", "Discoteca", "", 1, 2, 2023, "9:00", 60);
+
+		ReservaEvento re1 = new ReservaEvento("RE01", "E01", "test@test.es", 1, 1, 2021);
+		ReservaEvento re2 = new ReservaEvento("RE02", "E02", "admin@admin.es", 1, 2, 2023);
 		
 		try {
 			store(c1);
@@ -704,6 +717,12 @@ public class DBManager {
 			 
 			store(r1);
 			store(r2);
+
+			store(e1);
+			store(e2);
+
+			store(re1);
+			store(re2);
 			
 			for (int i = 0; i < habitaciones.size(); i++) {
 				store(habitaciones.get(i));
@@ -715,4 +734,60 @@ public class DBManager {
 		}
 	}
 
+	public ReservaEvento getReservaEvento(String codigo) {
+        PersistenceManager pm = pmf.getPersistenceManager();
+        pm.getFetchPlan().setMaxFetchDepth(4);
+        Transaction tx = pm.currentTransaction();
+        ReservaEvento reservaEvento = null;
+
+        try {
+            tx.begin();
+
+            Query<?> query = pm.newQuery("SELECT FROM " + ReservaEvento.class.getName() + " WHERE codigo == '" + codigo + "'");
+            query.setUnique(true);
+            reservaEvento = (ReservaEvento) query.execute();
+
+            tx.commit();
+        } catch (Exception ex) {
+            System.out.println(" $ Error cogiendo la reserva de la BD: " + ex.getMessage());
+        } finally {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+
+            pm.close();
+        }
+
+        return reservaEvento;
+    }
+
+	public List<ReservaEvento> getReservasEvento() {
+		List<ReservaEvento> reservasEvento = new ArrayList<ReservaEvento>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+
+			tx.begin();
+
+			Extent<ReservaEvento> extent = pm.getExtent(ReservaEvento.class, true);
+
+			for (ReservaEvento reservaEvento : extent) {
+				reservasEvento.add(reservaEvento);
+			}
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return reservasEvento;
+	}
 }
