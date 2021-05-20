@@ -156,7 +156,8 @@ public class VentanaReservarEventos extends JFrame {
 				
 				boolean condicion = false;
 				if (listEventos.isSelectionEmpty() != true && dia != 0 && mes != 0 && anyo != 0) {
-					condicion = existeReservaEvento(reservasEvento, eventos, codigoEvento, dia, mes, anyo);
+					condicion = existeReservaEvento(reservasEvento, codigoEvento, dia, mes, anyo);
+					//condicion = sobrepasaAforoMaximo(reservasEvento, eventos, codigoEvento);
 				} else {
 					JOptionPane.showMessageDialog(null, "No se ha podido registrar la reserva.");
 				}
@@ -174,15 +175,39 @@ public class VentanaReservarEventos extends JFrame {
 	}
 
 	public static boolean existeReservaEvento(ArrayList<ReservaEvento> reservasEvento,
-	ArrayList<Evento> eventos, String codigoEvento,int dia, int mes, int anyo) {
+	String codigoEvento,int dia, int mes, int anyo) {
 		for (ReservaEvento reservaEvento : reservasEvento) {
 			if (codigoEvento.equals(reservaEvento.getCodigoEvento()) && dia == reservaEvento.getDia() && mes == reservaEvento.getMes() && anyo == reservaEvento.getAnyo()) {
-					JOptionPane.showMessageDialog(null, "Exceso de aforo o reserva repetida.");
-					return false;			
+					JOptionPane.showMessageDialog(null, "Reserva repetida.");
+					return false;
 			}
 		}
-		//COMPROBACION DE AFORO
 
 		return true;
 	}
+
+	/*public static boolean sobrepasaAforoMaximo(ArrayList<ReservaEvento> reservasEvento,
+	ArrayList<Evento> eventos, String codigoEvento) {
+		Evento e = new Evento();
+
+		for (Evento evento : eventos) {
+			if (codigoEvento.equals(evento.getCodigo())) {
+				e = evento;
+			}
+		}
+
+		int numero = 0;
+		for (ReservaEvento reservaEvento : reservasEvento) {
+			if (codigoEvento.equals(reservaEvento.getCodigoEvento())) {
+				numero++;
+			}
+		}
+
+		if (e.getNumMaxPersonas() <= numero) {
+			JOptionPane.showMessageDialog(null, "Exceso de aforo.");
+			return false;
+		}
+		
+		return true;
+	}*/
 }

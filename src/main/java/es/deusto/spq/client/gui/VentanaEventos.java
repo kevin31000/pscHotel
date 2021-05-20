@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -17,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.client.Evento;
 import es.deusto.spq.client.ServiceLocator;
 
 public class VentanaEventos extends JFrame {
@@ -41,6 +43,10 @@ public class VentanaEventos extends JFrame {
 
 		DefaultListModel todosLosEventos = new DefaultListModel<Cliente>();
 		ServiceLocator serviceLocator = new ServiceLocator();
+		ArrayList<Evento> eventos = (ArrayList<Evento>) controller.getEventos();
+		for (Evento evento : eventos) {
+			todosLosEventos.addElement(evento);
+		}
 
 		JList listaEventos = new JList(todosLosEventos);
 		listaEventos.setBounds(216, 92, 343, 416);
