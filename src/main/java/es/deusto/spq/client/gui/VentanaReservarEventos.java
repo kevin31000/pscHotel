@@ -22,66 +22,51 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.client.Evento;
 import es.deusto.spq.client.Habitacion;
 import es.deusto.spq.client.Reserva;
+import es.deusto.spq.client.ReservaEvento;
 import es.deusto.spq.client.ServiceLocator;
 
-public class VentanaReservas extends JFrame {
-	private static final long serialVersionUID = 1L;
+public class VentanaReservarEventos extends JFrame {
+    private static final long serialVersionUID = 1L;
 
 	private JPanel contentpane;
-	private JLabel lHabitaciones = new JLabel();
-	private JLabel lRebajas = new JLabel();
-	private JList listHabitaciones = new JList();
-	private DefaultListModel contenidoHabitaciones = new DefaultListModel();
+	private JLabel lEventos = new JLabel();
+	private JList listEventos = new JList();
+	private DefaultListModel contenidoEventos = new DefaultListModel();
 	private JComboBox comboDisponibilidadDia = new JComboBox();
 	private JComboBox comboDisponibilidadMes = new JComboBox();
 	private JComboBox comboDisponibilidadAnyo = new JComboBox();
 	private JButton bReservar = new JButton();
 	private JButton bAtras = new JButton();
 
-	public VentanaReservas(Controller controller) {
+	public VentanaReservarEventos(Controller controller) {
 		contentpane = new JPanel();
 
 		contentpane.setBorder(new EmptyBorder(10, 10, 5, 5));
 		this.setContentPane(contentpane);
 		contentpane.setLayout(null);
 
-		JLabel lTitulo = new JLabel("Reservas");
+		JLabel lTitulo = new JLabel("R. de eventos");
 		lTitulo.setFont(new Font("Arial", Font.PLAIN, 54));
-		lTitulo.setBounds(410, 32, 309, 42);
+		lTitulo.setBounds(385, 32, 350, 42);
 		contentpane.add(lTitulo);
 
-		lHabitaciones.setText("Habitaciones");
-		lHabitaciones.setFont(new Font("Arial", Font.BOLD, 20));
-		lHabitaciones.setBounds(100, -40, 300, 300);
-		contentpane.add(lHabitaciones);
+		lEventos.setText("Eventos");
+		lEventos.setFont(new Font("Arial", Font.BOLD, 20));
+		lEventos.setBounds(100, -40, 300, 300);
+		contentpane.add(lEventos);
 
-		contenidoHabitaciones = new DefaultListModel();
+		contenidoEventos = new DefaultListModel();
 		ServiceLocator serviceLocator = new ServiceLocator();
-		ArrayList<Habitacion> habitaciones = (ArrayList<Habitacion>) controller.obtenerHabitaciones();
-		//Si hay rebajas, 15% de descuento en todas las habitaciones
-		boolean rebajas = hayRebajas();
-		if (rebajas == true) {
-			for (Habitacion habitacion : habitaciones) {
-				//El if y el else if sirven para redondear decimales demasiado largos
-				if (habitacion.getCodigo() == "H03" || habitacion.getCodigo() == "H04" || habitacion.getCodigo() == "H13" || habitacion.getCodigo() == "H14") {
-					habitacion.setPrecio(Integer.parseInt(String.format("%.2d", (double) habitacion.getPrecio()*0.85)));
-				} else if (habitacion.getCodigo() != "H03" || habitacion.getCodigo() != "H04" || habitacion.getCodigo() != "H13" || habitacion.getCodigo() != "H14") {
-					habitacion.setPrecio(habitacion.getPrecio()*0.85);
-				}
-			}
-			JLabel lRebajas = new JLabel("¡Es mes de rebajas! Todo al 15% de descuento.");
-			lRebajas.setFont(new Font("Arial", Font.BOLD, 15));
-			lRebajas.setBounds(700, 500, 400, 42);
-			contentpane.add(lRebajas);
+		ArrayList<Evento> eventos = (ArrayList<Evento>) controller.getEventos();
+		for (Evento evento : eventos) {
+			contenidoEventos.addElement(evento);
 		}
-		for (Habitacion habitacion : habitaciones) {
-			contenidoHabitaciones.addElement(habitacion);
-		}
-		listHabitaciones.setModel(contenidoHabitaciones);
-		listHabitaciones.setBounds(60, 130, 400, 400);
-		contentpane.add(listHabitaciones);
+		listEventos.setModel(contenidoEventos);
+		listEventos.setBounds(60, 130, 400, 400);
+		contentpane.add(listEventos);
 		
 		bAtras.setForeground(SystemColor.text);
 		bAtras.setBackground(new Color(0, 102, 204));
@@ -124,32 +109,33 @@ public class VentanaReservas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				VentanaMenu menu = new VentanaMenu(controller);
 				menu.setVisible(true);
-				VentanaReservas.this.dispose();
+				VentanaReservarEventos.this.dispose();
 			}
 		});
 
 		bReservar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<Reserva> reservas = (ArrayList<Reserva>) controller.obtenerReservas();
+				ArrayList<ReservaEvento> reservasEvento = (ArrayList<ReservaEvento>) controller.getReservasEvento();
+				ArrayList<Evento> eventos = (ArrayList<Evento>) controller.getEventos();
 
 				String codigoReserva = "";
-    			String codigoHabitacion = "";				
+    			String codigoEvento = "";				
 				String emailUsuario = "";
 				int dia = 0;
 				int mes = 0;
 				int anyo = 0;
 			
-				int nReserva = reservas.size() + 1;
+				int nReserva = eventos.size() + 1;
 				if (nReserva < 10) {
-					codigoReserva = "R0" + Integer.toString(nReserva);
+					codigoReserva = "RE0" + Integer.toString(nReserva);
 				} else {
-					codigoReserva = "R" + Integer.toString(nReserva);
+					codigoReserva = "RE" + Integer.toString(nReserva);
 				}
 
-				//CodigoHabitacion sera los caracteres 12 a 14 de la Habitacion seleccionada en listHabitaciones
-				for (int i = 11; i < 14; i++) {
-					codigoHabitacion = codigoHabitacion + listHabitaciones.getSelectedValue().toString().charAt(i);
+				//CodigoEvento sera los caracteres 7 a 9 del Evento seleccionado en listEventos
+				for (int i = 7; i < 9; i++) {
+					codigoEvento = codigoEvento + listEventos.getSelectedValue().toString().charAt(i);
 				}
 				
 				Properties objetoP = new Properties();
@@ -172,13 +158,13 @@ public class VentanaReservas extends JFrame {
 				}
 				
 				boolean condicion = false;
-				if (listHabitaciones.isSelectionEmpty() != true && dia != 0 && mes != 0 && anyo != 0) {
-					condicion = existeReserva(reservas, codigoHabitacion, dia, mes, anyo);
+				if (listEventos.isSelectionEmpty() != true && dia != 0 && mes != 0 && anyo != 0) {
+					condicion = existeReservaEvento(reservasEvento, eventos, codigoEvento, dia, mes, anyo);
 				} else {
 					JOptionPane.showMessageDialog(null, "No se ha podido registrar la reserva.");
 				}
 				if (condicion == true) {
-					condicion = controller.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
+					condicion = controller.anadirReserva(codigoReserva, codigoEvento, emailUsuario, dia, mes, anyo);
 					JOptionPane.showMessageDialog(null, "Reserva registrada correctamente.");
 				}
 			}
@@ -187,28 +173,19 @@ public class VentanaReservas extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1066, 600);
 		this.setVisible(true);
-		this.setTitle("Reservas");
+		this.setTitle("Reserva de eventos");
 	}
 
-	public static boolean existeReserva(ArrayList<Reserva> reservas, String codigoHabitacion, int dia, int mes, int anyo) {
-		for (Reserva reserva : reservas) {
-			if (codigoHabitacion.equals(reserva.getCodigoHabitacion()) && dia == reserva.getDia() && mes == reserva.getMes() && anyo == reserva.getAnyo()) {
-				JOptionPane.showMessageDialog(null, "Habitacion ocupada.");
-				return false;				
+	public static boolean existeReservaEvento(ArrayList<ReservaEvento> reservasEvento,
+	ArrayList<Evento> eventos, String codigoEvento,int dia, int mes, int anyo) {
+		for (ReservaEvento reservaEvento : reservasEvento) {
+			if (codigoEvento.equals(reservaEvento.getCodigoEvento()) && dia == reservaEvento.getDia() && mes == reservaEvento.getMes() && anyo == reservaEvento.getAnyo()) {
+					JOptionPane.showMessageDialog(null, "Exceso de aforo o reserva repetida.");
+					return false;			
 			}
 		}
+		//COMPROBACION DE AFORO
 
 		return true;
 	}
-
-	public static boolean hayRebajas() {
-		Date fechaActual = new Date(); 
-
-		if (fechaActual.getMonth() == 0 || fechaActual.getMonth() == 4 || fechaActual.getMonth() == 6 || fechaActual.getMonth() == 7 || fechaActual.getMonth() == 8) {
-			return true;
-		}
-
-		return false;
-	}
-
 }
