@@ -16,15 +16,7 @@ import es.deusto.spq.client.Feedback.Recomendacion;
  */
 public class FeedbackTest {
 
-	private Feedback f;
-
-	/**
-	 * Crea un nuevo feedback
-	 */
-	@Before
-	public void setUp() {
-		f = new Feedback("test@test.es","5", Recomendacion.si);
-	}
+	private Feedback f = new Feedback("test@test.es","5", Recomendacion.si);;
 
 	/**
 	 * Comprueba que getEmail() funciona correctamente devolviendo el usuario del

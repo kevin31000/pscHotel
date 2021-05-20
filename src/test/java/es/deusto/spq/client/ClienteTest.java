@@ -9,12 +9,8 @@ import es.deusto.spq.client.Cliente;
 
 public class ClienteTest {
 	
-	private Cliente c;
+	private Cliente c = new Cliente("71234561D", "Sergio", "Lopez", "sergio@gmail.com", "123", false);;
 	
-	@Before
-	public void setUp() {
-		c = new Cliente("71234561D", "Sergio", "Lopez", "sergio@gmail.com", "123", false);
-	}
 	
 	@Test
 	public void getDNITest() {

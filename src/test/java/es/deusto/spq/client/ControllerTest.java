@@ -5,9 +5,14 @@ import static org.junit.Assert.assertEquals;
 import java.util.List;
 
 import org.databene.contiperf.junit.ContiPerfRule;
+import org.glassfish.grizzly.http.server.HttpServer;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+
+import es.deusto.spq.server.DBManager;
 
 
 public class ControllerTest {
@@ -16,9 +21,19 @@ public class ControllerTest {
 	Controller controller = new Controller(servicelocator);
 	Habitacion habitacion;
 	private static Cliente c = new Cliente("123", "nombre", "apellido", "email", "contrasenya", true);
+	private HttpServer server;
 	
-	@Rule 
-	public ContiPerfRule i = new ContiPerfRule();
+	@Before
+    public void setUp() throws Exception {
+		DBManager.getInstance();
+        // start the server
+        server = es.deusto.spq.server.Main.startServer();
+    }
+	
+	@After
+    public void tearDown() throws Exception {
+        server.stop();
+    }
 	
 	@Test
     public void iniciarSesionTest(){	

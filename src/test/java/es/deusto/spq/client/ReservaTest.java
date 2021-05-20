@@ -8,12 +8,8 @@ import org.junit.Test;
 import es.deusto.spq.client.Reserva;
 
 public class ReservaTest {
-	private Reserva r;
+	private Reserva r = new Reserva("reserva1", "habitacion1", "test@test.es", 12, 6, 2019);;
 	
-	@Before
-	public void setUp() {
-		r = new Reserva("reserva1", "habitacion1", "test@test.es", 12, 6, 2019);
-	}
 	
 	@Test
 	public void getCodigoReservaTest() {

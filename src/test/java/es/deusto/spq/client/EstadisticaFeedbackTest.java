@@ -21,16 +21,6 @@ public class EstadisticaFeedbackTest {
 	static EstadisticaFeedback ef = new EstadisticaFeedback();
 
 	/**
-	 * Crea un nuevo EstadisticaFeedback
-	 *
-	 * @throws Exception En caso de error
-	 */
-	@BeforeClass
-	public static void setUp() throws Exception {
-		ef = new EstadisticaFeedback();
-	}
-
-	/**
 	 * Comprueba el metodo que sirve para realizar una puntuacion media de los
 	 * feedbacks que realizan los usuarios
 	 *

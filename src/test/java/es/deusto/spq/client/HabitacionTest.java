@@ -6,12 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class HabitacionTest {
-	Habitacion h;
+	Habitacion h = new Habitacion("302D", 3, 30.5, true);;
 	
-	@Before
-	public void setUp() {
-		h = new Habitacion("302D", 3, 30.5, true);
-	}
 	
 	@Test
 	public void getCodigoTest() {		
