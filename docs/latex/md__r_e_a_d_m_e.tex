@@ -1,0 +1,79 @@
+ \href{https://codecov.io/gh/kevin31000/pscHotel}{\texttt{ }}
+
+PSC Hotel es una aplicación de reservas de hotel mediante la cual los clientes, haciendo uso de su cuenta de usuario, podrán realizar reservas de las habitaciones en las fechas deseadas.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{📋 Pre-\/requisitos 📋}\label{md__r_e_a_d_m_e_autotoc_md1}
+Para la ejecución de PSC Hotel es necesario tener los siguientes programas correctamente instalados y configurados\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://www.oracle.com/java/technologies/javase-jdk8-downloads.html}{\texttt{ Java JDK 8}}
+\item \href{https://maven.apache.org/download.cgi}{\texttt{ Apache Maven (bin)}}
+\item \href{https://www.apachefriends.org/es/index.html}{\texttt{ XAMPP}} (Alternativamente también es posible usar)\+: ~\newline
+ \href{https://dev.mysql.com/downloads/workbench/}{\texttt{ My\+SQL Workbench}}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{🚀 Comenzando 🚀}\label{md__r_e_a_d_m_e_autotoc_md2}
+Para obtener una copia local del proyecto en funcionamiento para propósitos de desarrollo y pruebas es necesario descargarse este repositorio e importarlo a un IDE de programación compatible con los requisitos previamente nombrados.
+
+\href{https://github.com/kevin31000/pscHotel.git}{\texttt{ https\+://github.\+com/kevin31000/psc\+Hotel.\+git}}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{🔧 Instalación y ejecución 🔧}\label{md__r_e_a_d_m_e_autotoc_md3}
+El primer paso será abrir nuesta herramienta de base de datos como \char`\"{}\+XAMPP\char`\"{} o \char`\"{}\+My\+SQL Workbench\char`\"{} y ejecutar el archivo que aparece en la carpeta src/main/sql con un usuario root. De esta manera, crearemos el esqueleto de la base de datos del proyecto.
+
+Para la ejecución del proyecto es necesario abrir dos instancias del \char`\"{}cmd\char`\"{}(Símbolo del sistema) y ejecutar los siguientes comandos sin cerrar en ningún momento ambas instancias\+:
+
+Para ejecutar el servidor\+:
+
+
+\begin{DoxyItemize}
+\item \char`\"{}mvn clean\char`\"{}
+\item \char`\"{}mvn compile\char`\"{}
+\item \char`\"{}mvn datanucleus\+:enhance\char`\"{} (Este comando solo es necesario realizarlo la primera vez que se realiza este proceso)
+\item \char`\"{}mvn datanucleus\+:schema-\/create\char`\"{} (Este comando solo es necesario realizarlo la primera vez que se realiza este proceso, sirve para crear las tablas en la BD)
+\item \char`\"{}mvn exec\+:java -\/\+PServer\char`\"{}
+\end{DoxyItemize}
+
+Para ejecutar el cliente, en la otra instancia del cmd\+:
+
+
+\begin{DoxyItemize}
+\item \char`\"{}mvn exec\+:java -\/\+PClient\char`\"{}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{🔧 Test y documentación 🔧}\label{md__r_e_a_d_m_e_autotoc_md4}
+En caso de querer construir el proyecto y comprobar los tests unitarios el comando a utilizar desde la consola será\+:
+
+
+\begin{DoxyItemize}
+\item \char`\"{}mvn test\char`\"{} (antes de ejecutar el comando es importante haber ejecutado primero el servidor en otra consola para que las pruebas unitarias se lancen correctamente)
+\end{DoxyItemize}
+
+Por otro lado, en caso de querer obtener la documentación y análisis del proyecto, se deberá ejecutar el siguiente comando\+:
+
+
+\begin{DoxyItemize}
+\item \char`\"{}mvn site\char`\"{} (antes de ejecutar el comando es importante haber ejecutado primero el servidor en otra consola para que las pruebas unitarias se lancen correctamente)
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{📦 Datos de prueba 📦}\label{md__r_e_a_d_m_e_autotoc_md5}
+Para poder probar el proyecto existen clientes, habitaciones y reservas de prueba las cuales al arrancar el servidor ya aparecen en la base de datos.
+
+Existen un total de 16 habitaciones ya creadas, 2 reservas y 2 usuarios de prueba; un usuario cliente, y otro de administrador.
+
+Estas son las cuentas de prueba en caso de querer iniciar sesion como cliente o como administrador\+:
+
+Cliente -\/-\/$>$ email\+: \href{mailto:test@test.es}{\texttt{ test@test.\+es}} password\+: test
+
+Administrador -\/-\/$>$ email\+: \href{mailto:admin@admin.es}{\texttt{ admin@admin.\+es}} password\+: admin
+
+Por otro lado, en caso de querer crear otra cuenta de cliente desde el cliente ya es posible mediante el registro.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{🛠️ Construido con 🛠️}\label{md__r_e_a_d_m_e_autotoc_md6}
+A continuación se detallan las herramientas utilizadas para crear el proyecto\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://www.eclipse.org/}{\texttt{ Eclipse}} -\/ Entorno de desarrollo de software
+\item \href{https://maven.apache.org/}{\texttt{ Apache Maven}} -\/ Manejador de dependencias
+\item \href{http://logging.apache.org/log4j/1.2/}{\texttt{ Log4j}} -\/ Logger
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{✒️ Autores ✒️}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/kevin31000/pscHotel}{\texttt{ Kevin Arnaiz}}
+\item \href{https://github.com/QuimiJ}{\texttt{ Jaime Amann}}
+\item \href{https://github.com/MikelCastroNieva}{\texttt{ Mikel Castro}}
+\item \href{https://github.com/Sergiolo99}{\texttt{ Sergio López}}
+\item \href{https://github.com/JonSoler}{\texttt{ Jon Soler}}
+\end{DoxyItemize}
+
+También puedes consultar la lista de todos los contribuyentes en Git\+Hub\+: \href{https://github.com/kevin31000/pscHotel}{\texttt{ https\+://github.\+com/kevin31000/psc\+Hotel}}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{ℹ️ Versión ℹ️}\label{md__r_e_a_d_m_e_autotoc_md8}
+PSC Hotel© ver. 2.\+0 -\/ 2021-\/04-\/29 

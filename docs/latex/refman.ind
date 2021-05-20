@@ -1,771 +1,739 @@
 \begin{theindex}
 
   \item {actualizarDatosCliente}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{25}
+    \subitem {es.deusto.spq.server.DBManager}, 25
   \item {anadirCliente}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{18}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{65}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{25}
+    \subitem {es.deusto.spq.client.Controller}, 18
+    \subitem {es.deusto.spq.client.ServiceLocator}, 65
+    \subitem {es.deusto.spq.server.DBManager}, 25
   \item {anadirEvento}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{18}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{65}
+    \subitem {es.deusto.spq.client.Controller}, 18
+    \subitem {es.deusto.spq.client.ServiceLocator}, 65
   \item {anadirHabitaciones}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{25}
+    \subitem {es.deusto.spq.server.DBManager}, 25
   \item {anadirReserva}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{19}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{66}
+    \subitem {es.deusto.spq.client.Controller}, 19
+    \subitem {es.deusto.spq.client.ServiceLocator}, 66
 
   \indexspace
 
   \item {borrarCliente}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{19}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{66}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{25}
+    \subitem {es.deusto.spq.client.Controller}, 19
+    \subitem {es.deusto.spq.client.ServiceLocator}, 66
+    \subitem {es.deusto.spq.server.DBManager}, 25
   \item {borrarEvento}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{19}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{66}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{26}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{52}
+    \subitem {es.deusto.spq.client.Controller}, 19
+    \subitem {es.deusto.spq.client.ServiceLocator}, 66
+    \subitem {es.deusto.spq.server.DBManager}, 26
+    \subitem {es.deusto.spq.server.RemoteFacade}, 52
   \item {borrarReserva}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{19}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{67}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{26}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{45}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{52}
+    \subitem {es.deusto.spq.client.Controller}, 19
+    \subitem {es.deusto.spq.client.ServiceLocator}, 67
+    \subitem {es.deusto.spq.server.DBManager}, 26
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 45
+    \subitem {es.deusto.spq.server.RemoteFacade}, 52
   \item {borrarUsuario}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{52}
+    \subitem {es.deusto.spq.server.RemoteFacade}, 52
 
   \indexspace
 
   \item {cargarEmailUsuario}
-    \subitem {es.deusto.spq.client.gui.VentanaInicioSesion}, 
-		\hyperpage{74}
+    \subitem {es.deusto.spq.client.gui.VentanaInicioSesion}, 74
   \item {Cliente}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{12}
+    \subitem {es.deusto.spq.client.Cliente}, 12
   \item {cogerUrl}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{67}
+    \subitem {es.deusto.spq.client.ServiceLocator}, 67
   \item {Controller}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{17}
+    \subitem {es.deusto.spq.client.Controller}, 17
   \item {crearFicheroLog}
-    \subitem {es.deusto.spq.server.Main}, \hyperpage{49}
+    \subitem {es.deusto.spq.server.Main}, 49
 
   \indexspace
 
   \item {delete}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{26, 27}
+    \subitem {es.deusto.spq.server.DBManager}, 26, 27
   \item {deleteClientes}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{27}
+    \subitem {es.deusto.spq.server.DBManager}, 27
   \item {deleteData}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{27}
+    \subitem {es.deusto.spq.server.DBManager}, 27
   \item {deletehabitaciones}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{27}
+    \subitem {es.deusto.spq.server.DBManager}, 27
   \item {deleteObjectFromDB}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{27}
+    \subitem {es.deusto.spq.server.DBManager}, 27
   \item {deleteReservas}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{27}
+    \subitem {es.deusto.spq.server.DBManager}, 27
 
   \indexspace
 
   \item {editarUsuario}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{20}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{67}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{45}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{53}
+    \subitem {es.deusto.spq.client.Controller}, 20
+    \subitem {es.deusto.spq.client.ServiceLocator}, 67
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 45
+    \subitem {es.deusto.spq.server.RemoteFacade}, 53
   \item {encontrarCliente}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{46}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{53}
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 46
+    \subitem {es.deusto.spq.server.RemoteFacade}, 53
   \item {encontrarClientes}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{46}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{53}
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 46
+    \subitem {es.deusto.spq.server.RemoteFacade}, 53
   \item {encontrarClientesTest}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{56}
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 56
   \item {encontrarClienteTest}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{56}
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 56
   \item {encontrarEvento}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{53}
+    \subitem {es.deusto.spq.server.RemoteFacade}, 53
   \item {encontrarEventos}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{53}
+    \subitem {es.deusto.spq.server.RemoteFacade}, 53
   \item {encontrarEventosTest}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{56}
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 56
   \item {encontrarEventoTest}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{56}
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 56
   \item {encontrarHabitacion}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{46}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{54}
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 46
+    \subitem {es.deusto.spq.server.RemoteFacade}, 54
   \item {encontrarHabitaciones}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{46}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{54}
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 46
+    \subitem {es.deusto.spq.server.RemoteFacade}, 54
   \item {encontrarHabitacionesTest}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{57}
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 57
   \item {encontrarHabitacionTest}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{57}
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 57
   \item {encontrarReserva}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{46}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{54}
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 46
+    \subitem {es.deusto.spq.server.RemoteFacade}, 54
   \item {encontrarReservas}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{46}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{54}
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 46
+    \subitem {es.deusto.spq.server.RemoteFacade}, 54
   \item {encontrarReservasTest}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{57}
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 57
   \item {encontrarReservaTest}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{57}
-  \item {es.deusto.spq.client}, \hyperpage{9}
-  \item {es.deusto.spq.client.Cliente}, \hyperpage{11}
-    \subitem {Cliente}, \hyperpage{12}
-    \subitem {getApellido}, \hyperpage{12}
-    \subitem {getContrasenya}, \hyperpage{12}
-    \subitem {getDNI}, \hyperpage{13}
-    \subitem {getEmail}, \hyperpage{13}
-    \subitem {getNombre}, \hyperpage{13}
-    \subitem {isEsAdmin}, \hyperpage{13}
-    \subitem {main}, \hyperpage{13}
-    \subitem {setApellido}, \hyperpage{13}
-    \subitem {setContrasenya}, \hyperpage{14}
-    \subitem {setDNI}, \hyperpage{14}
-    \subitem {setEmail}, \hyperpage{14}
-    \subitem {setEsAdmin}, \hyperpage{14}
-    \subitem {setNombre}, \hyperpage{14}
-    \subitem {toString}, \hyperpage{14}
-  \item {es.deusto.spq.client.ClienteTest}, \hyperpage{15}
-    \subitem {getApellidoTest}, \hyperpage{15}
-    \subitem {getContrasenyaTest}, \hyperpage{15}
-    \subitem {getDNITest}, \hyperpage{15}
-    \subitem {getEmailTest}, \hyperpage{16}
-    \subitem {getEsAdminTest}, \hyperpage{16}
-    \subitem {getNombreTest}, \hyperpage{16}
-    \subitem {setUp}, \hyperpage{16}
-  \item {es.deusto.spq.client.Controller}, \hyperpage{17}
-    \subitem {anadirCliente}, \hyperpage{18}
-    \subitem {anadirEvento}, \hyperpage{18}
-    \subitem {anadirReserva}, \hyperpage{19}
-    \subitem {borrarCliente}, \hyperpage{19}
-    \subitem {borrarEvento}, \hyperpage{19}
-    \subitem {borrarReserva}, \hyperpage{19}
-    \subitem {Controller}, \hyperpage{17}
-    \subitem {editarUsuario}, \hyperpage{20}
-    \subitem {getEvento}, \hyperpage{20}
-    \subitem {getEventos}, \hyperpage{20}
-    \subitem {getHabitacion}, \hyperpage{20}
-    \subitem {getReserva}, \hyperpage{21}
-    \subitem {getUsuario}, \hyperpage{21}
-    \subitem {iniciarSesion}, \hyperpage{21}
-    \subitem {obtenerClientes}, \hyperpage{21}
-    \subitem {obtenerHabitaciones}, \hyperpage{22}
-    \subitem {obtenerReservas}, \hyperpage{22}
-    \subitem {serviceLocator}, \hyperpage{22}
-  \item {es.deusto.spq.client.ControllerTest}, \hyperpage{22}
-    \subitem {i}, \hyperpage{24}
-    \subitem {iniciarSesionTest}, \hyperpage{23}
-    \subitem {obtenerClientesTest}, \hyperpage{23}
-    \subitem {obtenerHabitacionesTest}, \hyperpage{23}
-    \subitem {obtenerReservasTest}, \hyperpage{23}
-    \subitem {registrarUsuarioTest}, \hyperpage{23}
-  \item {es.deusto.spq.client.EstadisticaFeedback}, \hyperpage{31}
-    \subitem {mediaPuntuacion}, \hyperpage{31}
-    \subitem {ReadAndLoad}, \hyperpage{32}
-    \subitem {siNo}, \hyperpage{32}
-  \item {es.deusto.spq.client.Evento}, \hyperpage{33}
-    \subitem {Evento}, \hyperpage{33, 34}
-    \subitem {getAnyo}, \hyperpage{34}
-    \subitem {getCodigo}, \hyperpage{34}
-    \subitem {getDescripcion}, \hyperpage{34}
-    \subitem {getDia}, \hyperpage{34}
-    \subitem {getHora}, \hyperpage{35}
-    \subitem {getMes}, \hyperpage{35}
-    \subitem {getNombre}, \hyperpage{35}
-    \subitem {getNumMaxPersonas}, \hyperpage{35}
-    \subitem {setAnyo}, \hyperpage{35}
-    \subitem {setCodigo}, \hyperpage{35}
-    \subitem {setDescripcion}, \hyperpage{36}
-    \subitem {setDia}, \hyperpage{36}
-    \subitem {setHora}, \hyperpage{36}
-    \subitem {setMes}, \hyperpage{36}
-    \subitem {setNombre}, \hyperpage{36}
-    \subitem {setNumMaxPersonas}, \hyperpage{36}
-    \subitem {toString}, \hyperpage{37}
-  \item {es.deusto.spq.client.Feedback}, \hyperpage{37}
-    \subitem {Feedback}, \hyperpage{37, 38}
-    \subitem {getEmail}, \hyperpage{38}
-    \subitem {getRecomendacion}, \hyperpage{38}
-    \subitem {getValoracion}, \hyperpage{38}
-    \subitem {setEmail}, \hyperpage{38}
-    \subitem {setRecomendacion}, \hyperpage{39}
-    \subitem {setValoracion}, \hyperpage{39}
-    \subitem {toString}, \hyperpage{39}
-  \item {es.deusto.spq.client.Feedback.Recomendacion}, \hyperpage{50}
-    \subitem {no}, \hyperpage{51}
-    \subitem {si}, \hyperpage{51}
-  \item {es.deusto.spq.client.GetProperties}, \hyperpage{39}
-    \subitem {getURL}, \hyperpage{40}
-  \item {es.deusto.spq.client.gui}, \hyperpage{9}
-  \item {es.deusto.spq.client.gui.VentanaAdmin}, \hyperpage{69}
-    \subitem {VentanaAdmin}, \hyperpage{69}
-  \item {es.deusto.spq.client.gui.VentanaCrearEvento}, \hyperpage{70}
-    \subitem {VentanaCrearEvento}, \hyperpage{70}
-  \item {es.deusto.spq.client.gui.VentanaDatosCliente}, \hyperpage{71}
-    \subitem {VentanaDatosCliente}, \hyperpage{71}
-  \item {es.deusto.spq.client.gui.VentanaEstadisticas}, \hyperpage{71}
-    \subitem {VentanaEstadisticas}, \hyperpage{72}
-  \item {es.deusto.spq.client.gui.VentanaEventos}, \hyperpage{72}
-    \subitem {VentanaEventos}, \hyperpage{72}
-  \item {es.deusto.spq.client.gui.VentanaFeedback}, \hyperpage{73}
-    \subitem {VentanaFeedback}, \hyperpage{73}
-  \item {es.deusto.spq.client.gui.VentanaInicioSesion}, \hyperpage{74}
-    \subitem {cargarEmailUsuario}, \hyperpage{74}
-    \subitem {VentanaInicioSesion}, \hyperpage{74}
-  \item {es.deusto.spq.client.gui.VentanaMenu}, \hyperpage{75}
-    \subitem {VentanaMenu}, \hyperpage{75}
-  \item {es.deusto.spq.client.gui.VentanaMostrarReservas}, 
-		\hyperpage{75}
-    \subitem {VentanaMostrarReservas}, \hyperpage{76}
-  \item {es.deusto.spq.client.gui.VentanaRegistro}, \hyperpage{76}
-    \subitem {VentanaRegistro}, \hyperpage{77}
-  \item {es.deusto.spq.client.gui.VentanaRegistro.JNumberTextField}, 
-		\hyperpage{47}
-  \item {es.deusto.spq.client.gui.VentanaReservas}, \hyperpage{77}
-    \subitem {existeReserva}, \hyperpage{78}
-    \subitem {hayRebajas}, \hyperpage{78}
-    \subitem {VentanaReservas}, \hyperpage{77}
-  \item {es.deusto.spq.client.gui.VentanaReservasAdmin}, \hyperpage{78}
-    \subitem {VentanaReservasAdmin}, \hyperpage{79}
-  \item {es.deusto.spq.client.gui.VentanaUsuariosAdmin}, \hyperpage{79}
-    \subitem {VentanaUsuariosAdmin}, \hyperpage{79}
-  \item {es.deusto.spq.client.Habitacion}, \hyperpage{41}
-    \subitem {getCodigo}, \hyperpage{42}
-    \subitem {getNumCamas}, \hyperpage{42}
-    \subitem {getPrecio}, \hyperpage{42}
-    \subitem {Habitacion}, \hyperpage{41, 42}
-    \subitem {isOcupada}, \hyperpage{42}
-    \subitem {setCodigo}, \hyperpage{43}
-    \subitem {setNumCamas}, \hyperpage{43}
-    \subitem {setOcupada}, \hyperpage{43}
-    \subitem {setPrecio}, \hyperpage{43}
-    \subitem {toString}, \hyperpage{43}
-  \item {es.deusto.spq.client.HabitacionTest}, \hyperpage{44}
-    \subitem {getCodigoTest}, \hyperpage{44}
-    \subitem {getNumCamasTest}, \hyperpage{44}
-    \subitem {getOcupadaTest}, \hyperpage{44}
-    \subitem {getPrecioTest}, \hyperpage{44}
-    \subitem {setUp}, \hyperpage{44}
-  \item {es.deusto.spq.client.Main}, \hyperpage{48}
-    \subitem {main}, \hyperpage{48}
-  \item {es.deusto.spq.client.Reserva}, \hyperpage{58}
-    \subitem {getAnyo}, \hyperpage{59}
-    \subitem {getCodigoHabitacion}, \hyperpage{59}
-    \subitem {getCodigoReserva}, \hyperpage{59}
-    \subitem {getDia}, \hyperpage{60}
-    \subitem {getEmailUsuario}, \hyperpage{60}
-    \subitem {getMes}, \hyperpage{60}
-    \subitem {Reserva}, \hyperpage{58, 59}
-    \subitem {setAnyo}, \hyperpage{60}
-    \subitem {setCodigoHabitacion}, \hyperpage{60}
-    \subitem {setCodigoReserva}, \hyperpage{60}
-    \subitem {setDia}, \hyperpage{61}
-    \subitem {setEmailUsuario}, \hyperpage{61}
-    \subitem {setMes}, \hyperpage{61}
-    \subitem {toString}, \hyperpage{61}
-  \item {es.deusto.spq.client.ReservaTest}, \hyperpage{62}
-    \subitem {getAnyoTest}, \hyperpage{62}
-    \subitem {getCodigoHabitacionTest}, \hyperpage{62}
-    \subitem {getCodigoReservaTest}, \hyperpage{62}
-    \subitem {getDiaTest}, \hyperpage{62}
-    \subitem {getMesTest}, \hyperpage{63}
-    \subitem {setUp}, \hyperpage{63}
-  \item {es.deusto.spq.client.RWException}, \hyperpage{63}
-    \subitem {RWException}, \hyperpage{63}
-  \item {es.deusto.spq.client.ServiceLocator}, \hyperpage{64}
-    \subitem {anadirCliente}, \hyperpage{65}
-    \subitem {anadirEvento}, \hyperpage{65}
-    \subitem {anadirReserva}, \hyperpage{66}
-    \subitem {borrarCliente}, \hyperpage{66}
-    \subitem {borrarEvento}, \hyperpage{66}
-    \subitem {borrarReserva}, \hyperpage{67}
-    \subitem {cogerUrl}, \hyperpage{67}
-    \subitem {editarUsuario}, \hyperpage{67}
-    \subitem {getReserva}, \hyperpage{67}
-    \subitem {getUsuario}, \hyperpage{67}
-    \subitem {iniciarSesion}, \hyperpage{67}
-    \subitem {obtenerClientes}, \hyperpage{68}
-    \subitem {obtenerEvento}, \hyperpage{68}
-    \subitem {obtenerEventos}, \hyperpage{68}
-    \subitem {obtenerHabitacion}, \hyperpage{68}
-    \subitem {obtenerHabitaciones}, \hyperpage{68}
-    \subitem {obtenerReservas}, \hyperpage{69}
-    \subitem {ServiceLocator}, \hyperpage{65}
-  \item {es.deusto.spq.server}, \hyperpage{10}
-  \item {es.deusto.spq.server.DBManager}, \hyperpage{24}
-    \subitem {actualizarDatosCliente}, \hyperpage{25}
-    \subitem {anadirCliente}, \hyperpage{25}
-    \subitem {anadirHabitaciones}, \hyperpage{25}
-    \subitem {borrarCliente}, \hyperpage{25}
-    \subitem {borrarEvento}, \hyperpage{26}
-    \subitem {borrarReserva}, \hyperpage{26}
-    \subitem {delete}, \hyperpage{26, 27}
-    \subitem {deleteClientes}, \hyperpage{27}
-    \subitem {deleteData}, \hyperpage{27}
-    \subitem {deletehabitaciones}, \hyperpage{27}
-    \subitem {deleteObjectFromDB}, \hyperpage{27}
-    \subitem {deleteReservas}, \hyperpage{27}
-    \subitem {getClientes}, \hyperpage{28}
-    \subitem {getEvento}, \hyperpage{28}
-    \subitem {getEventos}, \hyperpage{28}
-    \subitem {getHabitacion}, \hyperpage{28}
-    \subitem {getHabitaciones}, \hyperpage{28}
-    \subitem {getInstance}, \hyperpage{28}
-    \subitem {getReserva}, \hyperpage{29}
-    \subitem {getReservas}, \hyperpage{29}
-    \subitem {getUsuario}, \hyperpage{29}
-    \subitem {initializeData}, \hyperpage{29}
-    \subitem {seleccionaUsuarioBD}, \hyperpage{29}
-    \subitem {store}, \hyperpage{30}
-    \subitem {storeObjectInDB}, \hyperpage{30}
-    \subitem {update}, \hyperpage{31}
-  \item {es.deusto.spq.server.GetProperties}, \hyperpage{40}
-    \subitem {getURL}, \hyperpage{40}
-  \item {es.deusto.spq.server.IRemoteFacade}, \hyperpage{45}
-    \subitem {borrarReserva}, \hyperpage{45}
-    \subitem {editarUsuario}, \hyperpage{45}
-    \subitem {encontrarCliente}, \hyperpage{46}
-    \subitem {encontrarClientes}, \hyperpage{46}
-    \subitem {encontrarHabitacion}, \hyperpage{46}
-    \subitem {encontrarHabitaciones}, \hyperpage{46}
-    \subitem {encontrarReserva}, \hyperpage{46}
-    \subitem {encontrarReservas}, \hyperpage{46}
-    \subitem {iniciarSesion}, \hyperpage{47}
-    \subitem {registrarCliente}, \hyperpage{47}
-    \subitem {registrarReserva}, \hyperpage{47}
-  \item {es.deusto.spq.server.Main}, \hyperpage{48}
-    \subitem {crearFicheroLog}, \hyperpage{49}
-    \subitem {getURL}, \hyperpage{49}
-    \subitem {logFeedback}, \hyperpage{50}
-    \subitem {loggerGeneral}, \hyperpage{50}
-    \subitem {main}, \hyperpage{49}
-    \subitem {startServer}, \hyperpage{50}
-  \item {es.deusto.spq.server.RemoteFacade}, \hyperpage{51}
-    \subitem {borrarEvento}, \hyperpage{52}
-    \subitem {borrarReserva}, \hyperpage{52}
-    \subitem {borrarUsuario}, \hyperpage{52}
-    \subitem {editarUsuario}, \hyperpage{53}
-    \subitem {encontrarCliente}, \hyperpage{53}
-    \subitem {encontrarClientes}, \hyperpage{53}
-    \subitem {encontrarEvento}, \hyperpage{53}
-    \subitem {encontrarEventos}, \hyperpage{53}
-    \subitem {encontrarHabitacion}, \hyperpage{54}
-    \subitem {encontrarHabitaciones}, \hyperpage{54}
-    \subitem {encontrarReserva}, \hyperpage{54}
-    \subitem {encontrarReservas}, \hyperpage{54}
-    \subitem {getInstance}, \hyperpage{54}
-    \subitem {iniciarSesion}, \hyperpage{55}
-    \subitem {registrarCliente}, \hyperpage{55}
-    \subitem {registrarReserva}, \hyperpage{55}
-    \subitem {RemoteFacade}, \hyperpage{52}
-  \item {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{56}
-    \subitem {encontrarClientesTest}, \hyperpage{56}
-    \subitem {encontrarClienteTest}, \hyperpage{56}
-    \subitem {encontrarEventosTest}, \hyperpage{56}
-    \subitem {encontrarEventoTest}, \hyperpage{56}
-    \subitem {encontrarHabitacionesTest}, \hyperpage{57}
-    \subitem {encontrarHabitacionTest}, \hyperpage{57}
-    \subitem {encontrarReservasTest}, \hyperpage{57}
-    \subitem {encontrarReservaTest}, \hyperpage{57}
-    \subitem {i}, \hyperpage{58}
-    \subitem {registrarClienteTest}, \hyperpage{57}
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 57
+  \item {es.deusto.spq.client}, 9
+  \item {es.deusto.spq.client.Cliente}, 11
+    \subitem {Cliente}, 12
+    \subitem {getApellido}, 12
+    \subitem {getContrasenya}, 12
+    \subitem {getDNI}, 13
+    \subitem {getEmail}, 13
+    \subitem {getNombre}, 13
+    \subitem {isEsAdmin}, 13
+    \subitem {main}, 13
+    \subitem {setApellido}, 13
+    \subitem {setContrasenya}, 14
+    \subitem {setDNI}, 14
+    \subitem {setEmail}, 14
+    \subitem {setEsAdmin}, 14
+    \subitem {setNombre}, 14
+    \subitem {toString}, 14
+  \item {es.deusto.spq.client.ClienteTest}, 15
+    \subitem {getApellidoTest}, 15
+    \subitem {getContrasenyaTest}, 15
+    \subitem {getDNITest}, 15
+    \subitem {getEmailTest}, 16
+    \subitem {getEsAdminTest}, 16
+    \subitem {getNombreTest}, 16
+    \subitem {setUp}, 16
+  \item {es.deusto.spq.client.Controller}, 17
+    \subitem {anadirCliente}, 18
+    \subitem {anadirEvento}, 18
+    \subitem {anadirReserva}, 19
+    \subitem {borrarCliente}, 19
+    \subitem {borrarEvento}, 19
+    \subitem {borrarReserva}, 19
+    \subitem {Controller}, 17
+    \subitem {editarUsuario}, 20
+    \subitem {getEvento}, 20
+    \subitem {getEventos}, 20
+    \subitem {getHabitacion}, 20
+    \subitem {getReserva}, 21
+    \subitem {getUsuario}, 21
+    \subitem {iniciarSesion}, 21
+    \subitem {obtenerClientes}, 21
+    \subitem {obtenerHabitaciones}, 22
+    \subitem {obtenerReservas}, 22
+    \subitem {serviceLocator}, 22
+  \item {es.deusto.spq.client.ControllerTest}, 22
+    \subitem {i}, 24
+    \subitem {iniciarSesionTest}, 23
+    \subitem {obtenerClientesTest}, 23
+    \subitem {obtenerHabitacionesTest}, 23
+    \subitem {obtenerReservasTest}, 23
+    \subitem {registrarUsuarioTest}, 23
+  \item {es.deusto.spq.client.EstadisticaFeedback}, 31
+    \subitem {mediaPuntuacion}, 31
+    \subitem {ReadAndLoad}, 32
+    \subitem {siNo}, 32
+  \item {es.deusto.spq.client.Evento}, 33
+    \subitem {Evento}, 33, 34
+    \subitem {getAnyo}, 34
+    \subitem {getCodigo}, 34
+    \subitem {getDescripcion}, 34
+    \subitem {getDia}, 34
+    \subitem {getHora}, 35
+    \subitem {getMes}, 35
+    \subitem {getNombre}, 35
+    \subitem {getNumMaxPersonas}, 35
+    \subitem {setAnyo}, 35
+    \subitem {setCodigo}, 35
+    \subitem {setDescripcion}, 36
+    \subitem {setDia}, 36
+    \subitem {setHora}, 36
+    \subitem {setMes}, 36
+    \subitem {setNombre}, 36
+    \subitem {setNumMaxPersonas}, 36
+    \subitem {toString}, 37
+  \item {es.deusto.spq.client.Feedback}, 37
+    \subitem {Feedback}, 37, 38
+    \subitem {getEmail}, 38
+    \subitem {getRecomendacion}, 38
+    \subitem {getValoracion}, 38
+    \subitem {setEmail}, 38
+    \subitem {setRecomendacion}, 39
+    \subitem {setValoracion}, 39
+    \subitem {toString}, 39
+  \item {es.deusto.spq.client.Feedback.Recomendacion}, 50
+    \subitem {no}, 51
+    \subitem {si}, 51
+  \item {es.deusto.spq.client.GetProperties}, 39
+    \subitem {getURL}, 40
+  \item {es.deusto.spq.client.gui}, 9
+  \item {es.deusto.spq.client.gui.VentanaAdmin}, 69
+    \subitem {VentanaAdmin}, 69
+  \item {es.deusto.spq.client.gui.VentanaCrearEvento}, 70
+    \subitem {VentanaCrearEvento}, 70
+  \item {es.deusto.spq.client.gui.VentanaDatosCliente}, 71
+    \subitem {VentanaDatosCliente}, 71
+  \item {es.deusto.spq.client.gui.VentanaEstadisticas}, 71
+    \subitem {VentanaEstadisticas}, 72
+  \item {es.deusto.spq.client.gui.VentanaEventos}, 72
+    \subitem {VentanaEventos}, 72
+  \item {es.deusto.spq.client.gui.VentanaFeedback}, 73
+    \subitem {VentanaFeedback}, 73
+  \item {es.deusto.spq.client.gui.VentanaInicioSesion}, 74
+    \subitem {cargarEmailUsuario}, 74
+    \subitem {VentanaInicioSesion}, 74
+  \item {es.deusto.spq.client.gui.VentanaMenu}, 75
+    \subitem {VentanaMenu}, 75
+  \item {es.deusto.spq.client.gui.VentanaMostrarReservas}, 75
+    \subitem {VentanaMostrarReservas}, 76
+  \item {es.deusto.spq.client.gui.VentanaRegistro}, 76
+    \subitem {VentanaRegistro}, 77
+  \item {es.deusto.spq.client.gui.VentanaRegistro.JNumberTextField}, 47
+  \item {es.deusto.spq.client.gui.VentanaReservas}, 77
+    \subitem {existeReserva}, 78
+    \subitem {hayRebajas}, 78
+    \subitem {VentanaReservas}, 77
+  \item {es.deusto.spq.client.gui.VentanaReservasAdmin}, 78
+    \subitem {VentanaReservasAdmin}, 79
+  \item {es.deusto.spq.client.gui.VentanaUsuariosAdmin}, 79
+    \subitem {VentanaUsuariosAdmin}, 79
+  \item {es.deusto.spq.client.Habitacion}, 41
+    \subitem {getCodigo}, 42
+    \subitem {getNumCamas}, 42
+    \subitem {getPrecio}, 42
+    \subitem {Habitacion}, 41, 42
+    \subitem {isOcupada}, 42
+    \subitem {setCodigo}, 43
+    \subitem {setNumCamas}, 43
+    \subitem {setOcupada}, 43
+    \subitem {setPrecio}, 43
+    \subitem {toString}, 43
+  \item {es.deusto.spq.client.HabitacionTest}, 44
+    \subitem {getCodigoTest}, 44
+    \subitem {getNumCamasTest}, 44
+    \subitem {getOcupadaTest}, 44
+    \subitem {getPrecioTest}, 44
+    \subitem {setUp}, 44
+  \item {es.deusto.spq.client.Main}, 48
+    \subitem {main}, 48
+  \item {es.deusto.spq.client.Reserva}, 58
+    \subitem {getAnyo}, 59
+    \subitem {getCodigoHabitacion}, 59
+    \subitem {getCodigoReserva}, 59
+    \subitem {getDia}, 60
+    \subitem {getEmailUsuario}, 60
+    \subitem {getMes}, 60
+    \subitem {Reserva}, 58, 59
+    \subitem {setAnyo}, 60
+    \subitem {setCodigoHabitacion}, 60
+    \subitem {setCodigoReserva}, 60
+    \subitem {setDia}, 61
+    \subitem {setEmailUsuario}, 61
+    \subitem {setMes}, 61
+    \subitem {toString}, 61
+  \item {es.deusto.spq.client.ReservaTest}, 62
+    \subitem {getAnyoTest}, 62
+    \subitem {getCodigoHabitacionTest}, 62
+    \subitem {getCodigoReservaTest}, 62
+    \subitem {getDiaTest}, 62
+    \subitem {getMesTest}, 63
+    \subitem {setUp}, 63
+  \item {es.deusto.spq.client.RWException}, 63
+    \subitem {RWException}, 63
+  \item {es.deusto.spq.client.ServiceLocator}, 64
+    \subitem {anadirCliente}, 65
+    \subitem {anadirEvento}, 65
+    \subitem {anadirReserva}, 66
+    \subitem {borrarCliente}, 66
+    \subitem {borrarEvento}, 66
+    \subitem {borrarReserva}, 67
+    \subitem {cogerUrl}, 67
+    \subitem {editarUsuario}, 67
+    \subitem {getReserva}, 67
+    \subitem {getUsuario}, 67
+    \subitem {iniciarSesion}, 67
+    \subitem {obtenerClientes}, 68
+    \subitem {obtenerEvento}, 68
+    \subitem {obtenerEventos}, 68
+    \subitem {obtenerHabitacion}, 68
+    \subitem {obtenerHabitaciones}, 68
+    \subitem {obtenerReservas}, 69
+    \subitem {ServiceLocator}, 65
+  \item {es.deusto.spq.server}, 10
+  \item {es.deusto.spq.server.DBManager}, 24
+    \subitem {actualizarDatosCliente}, 25
+    \subitem {anadirCliente}, 25
+    \subitem {anadirHabitaciones}, 25
+    \subitem {borrarCliente}, 25
+    \subitem {borrarEvento}, 26
+    \subitem {borrarReserva}, 26
+    \subitem {delete}, 26, 27
+    \subitem {deleteClientes}, 27
+    \subitem {deleteData}, 27
+    \subitem {deletehabitaciones}, 27
+    \subitem {deleteObjectFromDB}, 27
+    \subitem {deleteReservas}, 27
+    \subitem {getClientes}, 28
+    \subitem {getEvento}, 28
+    \subitem {getEventos}, 28
+    \subitem {getHabitacion}, 28
+    \subitem {getHabitaciones}, 28
+    \subitem {getInstance}, 28
+    \subitem {getReserva}, 29
+    \subitem {getReservas}, 29
+    \subitem {getUsuario}, 29
+    \subitem {initializeData}, 29
+    \subitem {seleccionaUsuarioBD}, 29
+    \subitem {store}, 30
+    \subitem {storeObjectInDB}, 30
+    \subitem {update}, 31
+  \item {es.deusto.spq.server.GetProperties}, 40
+    \subitem {getURL}, 40
+  \item {es.deusto.spq.server.IRemoteFacade}, 45
+    \subitem {borrarReserva}, 45
+    \subitem {editarUsuario}, 45
+    \subitem {encontrarCliente}, 46
+    \subitem {encontrarClientes}, 46
+    \subitem {encontrarHabitacion}, 46
+    \subitem {encontrarHabitaciones}, 46
+    \subitem {encontrarReserva}, 46
+    \subitem {encontrarReservas}, 46
+    \subitem {iniciarSesion}, 47
+    \subitem {registrarCliente}, 47
+    \subitem {registrarReserva}, 47
+  \item {es.deusto.spq.server.Main}, 48
+    \subitem {crearFicheroLog}, 49
+    \subitem {getURL}, 49
+    \subitem {logFeedback}, 50
+    \subitem {loggerGeneral}, 50
+    \subitem {main}, 49
+    \subitem {startServer}, 50
+  \item {es.deusto.spq.server.RemoteFacade}, 51
+    \subitem {borrarEvento}, 52
+    \subitem {borrarReserva}, 52
+    \subitem {borrarUsuario}, 52
+    \subitem {editarUsuario}, 53
+    \subitem {encontrarCliente}, 53
+    \subitem {encontrarClientes}, 53
+    \subitem {encontrarEvento}, 53
+    \subitem {encontrarEventos}, 53
+    \subitem {encontrarHabitacion}, 54
+    \subitem {encontrarHabitaciones}, 54
+    \subitem {encontrarReserva}, 54
+    \subitem {encontrarReservas}, 54
+    \subitem {getInstance}, 54
+    \subitem {iniciarSesion}, 55
+    \subitem {registrarCliente}, 55
+    \subitem {registrarReserva}, 55
+    \subitem {RemoteFacade}, 52
+  \item {es.deusto.spq.server.RemoteFacadeTest}, 56
+    \subitem {encontrarClientesTest}, 56
+    \subitem {encontrarClienteTest}, 56
+    \subitem {encontrarEventosTest}, 56
+    \subitem {encontrarEventoTest}, 56
+    \subitem {encontrarHabitacionesTest}, 57
+    \subitem {encontrarHabitacionTest}, 57
+    \subitem {encontrarReservasTest}, 57
+    \subitem {encontrarReservaTest}, 57
+    \subitem {i}, 58
+    \subitem {registrarClienteTest}, 57
   \item {Evento}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{33, 34}
+    \subitem {es.deusto.spq.client.Evento}, 33, 34
   \item {existeReserva}
-    \subitem {es.deusto.spq.client.gui.VentanaReservas}, \hyperpage{78}
+    \subitem {es.deusto.spq.client.gui.VentanaReservas}, 78
 
   \indexspace
 
   \item {Feedback}
-    \subitem {es.deusto.spq.client.Feedback}, \hyperpage{37, 38}
+    \subitem {es.deusto.spq.client.Feedback}, 37, 38
 
   \indexspace
 
   \item {getAnyo}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{34}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{59}
+    \subitem {es.deusto.spq.client.Evento}, 34
+    \subitem {es.deusto.spq.client.Reserva}, 59
   \item {getAnyoTest}
-    \subitem {es.deusto.spq.client.ReservaTest}, \hyperpage{62}
+    \subitem {es.deusto.spq.client.ReservaTest}, 62
   \item {getApellido}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{12}
+    \subitem {es.deusto.spq.client.Cliente}, 12
   \item {getApellidoTest}
-    \subitem {es.deusto.spq.client.ClienteTest}, \hyperpage{15}
+    \subitem {es.deusto.spq.client.ClienteTest}, 15
   \item {getClientes}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{28}
+    \subitem {es.deusto.spq.server.DBManager}, 28
   \item {getCodigo}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{34}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{42}
+    \subitem {es.deusto.spq.client.Evento}, 34
+    \subitem {es.deusto.spq.client.Habitacion}, 42
   \item {getCodigoHabitacion}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{59}
+    \subitem {es.deusto.spq.client.Reserva}, 59
   \item {getCodigoHabitacionTest}
-    \subitem {es.deusto.spq.client.ReservaTest}, \hyperpage{62}
+    \subitem {es.deusto.spq.client.ReservaTest}, 62
   \item {getCodigoReserva}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{59}
+    \subitem {es.deusto.spq.client.Reserva}, 59
   \item {getCodigoReservaTest}
-    \subitem {es.deusto.spq.client.ReservaTest}, \hyperpage{62}
+    \subitem {es.deusto.spq.client.ReservaTest}, 62
   \item {getCodigoTest}
-    \subitem {es.deusto.spq.client.HabitacionTest}, \hyperpage{44}
+    \subitem {es.deusto.spq.client.HabitacionTest}, 44
   \item {getContrasenya}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{12}
+    \subitem {es.deusto.spq.client.Cliente}, 12
   \item {getContrasenyaTest}
-    \subitem {es.deusto.spq.client.ClienteTest}, \hyperpage{15}
+    \subitem {es.deusto.spq.client.ClienteTest}, 15
   \item {getDescripcion}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{34}
+    \subitem {es.deusto.spq.client.Evento}, 34
   \item {getDia}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{34}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{60}
+    \subitem {es.deusto.spq.client.Evento}, 34
+    \subitem {es.deusto.spq.client.Reserva}, 60
   \item {getDiaTest}
-    \subitem {es.deusto.spq.client.ReservaTest}, \hyperpage{62}
+    \subitem {es.deusto.spq.client.ReservaTest}, 62
   \item {getDNI}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{13}
+    \subitem {es.deusto.spq.client.Cliente}, 13
   \item {getDNITest}
-    \subitem {es.deusto.spq.client.ClienteTest}, \hyperpage{15}
+    \subitem {es.deusto.spq.client.ClienteTest}, 15
   \item {getEmail}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{13}
-    \subitem {es.deusto.spq.client.Feedback}, \hyperpage{38}
+    \subitem {es.deusto.spq.client.Cliente}, 13
+    \subitem {es.deusto.spq.client.Feedback}, 38
   \item {getEmailTest}
-    \subitem {es.deusto.spq.client.ClienteTest}, \hyperpage{16}
+    \subitem {es.deusto.spq.client.ClienteTest}, 16
   \item {getEmailUsuario}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{60}
+    \subitem {es.deusto.spq.client.Reserva}, 60
   \item {getEsAdminTest}
-    \subitem {es.deusto.spq.client.ClienteTest}, \hyperpage{16}
+    \subitem {es.deusto.spq.client.ClienteTest}, 16
   \item {getEvento}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{20}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{28}
+    \subitem {es.deusto.spq.client.Controller}, 20
+    \subitem {es.deusto.spq.server.DBManager}, 28
   \item {getEventos}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{20}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{28}
+    \subitem {es.deusto.spq.client.Controller}, 20
+    \subitem {es.deusto.spq.server.DBManager}, 28
   \item {getHabitacion}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{20}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{28}
+    \subitem {es.deusto.spq.client.Controller}, 20
+    \subitem {es.deusto.spq.server.DBManager}, 28
   \item {getHabitaciones}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{28}
+    \subitem {es.deusto.spq.server.DBManager}, 28
   \item {getHora}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{35}
+    \subitem {es.deusto.spq.client.Evento}, 35
   \item {getInstance}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{28}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{54}
+    \subitem {es.deusto.spq.server.DBManager}, 28
+    \subitem {es.deusto.spq.server.RemoteFacade}, 54
   \item {getMes}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{35}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{60}
+    \subitem {es.deusto.spq.client.Evento}, 35
+    \subitem {es.deusto.spq.client.Reserva}, 60
   \item {getMesTest}
-    \subitem {es.deusto.spq.client.ReservaTest}, \hyperpage{63}
+    \subitem {es.deusto.spq.client.ReservaTest}, 63
   \item {getNombre}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{13}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{35}
+    \subitem {es.deusto.spq.client.Cliente}, 13
+    \subitem {es.deusto.spq.client.Evento}, 35
   \item {getNombreTest}
-    \subitem {es.deusto.spq.client.ClienteTest}, \hyperpage{16}
+    \subitem {es.deusto.spq.client.ClienteTest}, 16
   \item {getNumCamas}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{42}
+    \subitem {es.deusto.spq.client.Habitacion}, 42
   \item {getNumCamasTest}
-    \subitem {es.deusto.spq.client.HabitacionTest}, \hyperpage{44}
+    \subitem {es.deusto.spq.client.HabitacionTest}, 44
   \item {getNumMaxPersonas}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{35}
+    \subitem {es.deusto.spq.client.Evento}, 35
   \item {getOcupadaTest}
-    \subitem {es.deusto.spq.client.HabitacionTest}, \hyperpage{44}
+    \subitem {es.deusto.spq.client.HabitacionTest}, 44
   \item {getPrecio}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{42}
+    \subitem {es.deusto.spq.client.Habitacion}, 42
   \item {getPrecioTest}
-    \subitem {es.deusto.spq.client.HabitacionTest}, \hyperpage{44}
+    \subitem {es.deusto.spq.client.HabitacionTest}, 44
   \item {getRecomendacion}
-    \subitem {es.deusto.spq.client.Feedback}, \hyperpage{38}
+    \subitem {es.deusto.spq.client.Feedback}, 38
   \item {getReserva}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{21}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{67}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{29}
+    \subitem {es.deusto.spq.client.Controller}, 21
+    \subitem {es.deusto.spq.client.ServiceLocator}, 67
+    \subitem {es.deusto.spq.server.DBManager}, 29
   \item {getReservas}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{29}
+    \subitem {es.deusto.spq.server.DBManager}, 29
   \item {getURL}
-    \subitem {es.deusto.spq.client.GetProperties}, \hyperpage{40}
-    \subitem {es.deusto.spq.server.GetProperties}, \hyperpage{40}
-    \subitem {es.deusto.spq.server.Main}, \hyperpage{49}
+    \subitem {es.deusto.spq.client.GetProperties}, 40
+    \subitem {es.deusto.spq.server.GetProperties}, 40
+    \subitem {es.deusto.spq.server.Main}, 49
   \item {getUsuario}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{21}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{67}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{29}
+    \subitem {es.deusto.spq.client.Controller}, 21
+    \subitem {es.deusto.spq.client.ServiceLocator}, 67
+    \subitem {es.deusto.spq.server.DBManager}, 29
   \item {getValoracion}
-    \subitem {es.deusto.spq.client.Feedback}, \hyperpage{38}
+    \subitem {es.deusto.spq.client.Feedback}, 38
 
   \indexspace
 
   \item {Habitacion}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{41, 42}
+    \subitem {es.deusto.spq.client.Habitacion}, 41, 42
   \item {hayRebajas}
-    \subitem {es.deusto.spq.client.gui.VentanaReservas}, \hyperpage{78}
+    \subitem {es.deusto.spq.client.gui.VentanaReservas}, 78
 
   \indexspace
 
   \item {i}
-    \subitem {es.deusto.spq.client.ControllerTest}, \hyperpage{24}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{58}
+    \subitem {es.deusto.spq.client.ControllerTest}, 24
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 58
   \item {iniciarSesion}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{21}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{67}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{47}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{55}
+    \subitem {es.deusto.spq.client.Controller}, 21
+    \subitem {es.deusto.spq.client.ServiceLocator}, 67
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 47
+    \subitem {es.deusto.spq.server.RemoteFacade}, 55
   \item {iniciarSesionTest}
-    \subitem {es.deusto.spq.client.ControllerTest}, \hyperpage{23}
+    \subitem {es.deusto.spq.client.ControllerTest}, 23
   \item {initializeData}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{29}
+    \subitem {es.deusto.spq.server.DBManager}, 29
   \item {isEsAdmin}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{13}
+    \subitem {es.deusto.spq.client.Cliente}, 13
   \item {isOcupada}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{42}
+    \subitem {es.deusto.spq.client.Habitacion}, 42
 
   \indexspace
 
   \item {logFeedback}
-    \subitem {es.deusto.spq.server.Main}, \hyperpage{50}
+    \subitem {es.deusto.spq.server.Main}, 50
   \item {loggerGeneral}
-    \subitem {es.deusto.spq.server.Main}, \hyperpage{50}
+    \subitem {es.deusto.spq.server.Main}, 50
 
   \indexspace
 
   \item {main}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{13}
-    \subitem {es.deusto.spq.client.Main}, \hyperpage{48}
-    \subitem {es.deusto.spq.server.Main}, \hyperpage{49}
+    \subitem {es.deusto.spq.client.Cliente}, 13
+    \subitem {es.deusto.spq.client.Main}, 48
+    \subitem {es.deusto.spq.server.Main}, 49
   \item {mediaPuntuacion}
-    \subitem {es.deusto.spq.client.EstadisticaFeedback}, \hyperpage{31}
+    \subitem {es.deusto.spq.client.EstadisticaFeedback}, 31
 
   \indexspace
 
   \item {no}
-    \subitem {es.deusto.spq.client.Feedback.Recomendacion}, 
-		\hyperpage{51}
+    \subitem {es.deusto.spq.client.Feedback.Recomendacion}, 51
 
   \indexspace
 
   \item {obtenerClientes}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{21}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{68}
+    \subitem {es.deusto.spq.client.Controller}, 21
+    \subitem {es.deusto.spq.client.ServiceLocator}, 68
   \item {obtenerClientesTest}
-    \subitem {es.deusto.spq.client.ControllerTest}, \hyperpage{23}
+    \subitem {es.deusto.spq.client.ControllerTest}, 23
   \item {obtenerEvento}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{68}
+    \subitem {es.deusto.spq.client.ServiceLocator}, 68
   \item {obtenerEventos}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{68}
+    \subitem {es.deusto.spq.client.ServiceLocator}, 68
   \item {obtenerHabitacion}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{68}
+    \subitem {es.deusto.spq.client.ServiceLocator}, 68
   \item {obtenerHabitaciones}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{22}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{68}
+    \subitem {es.deusto.spq.client.Controller}, 22
+    \subitem {es.deusto.spq.client.ServiceLocator}, 68
   \item {obtenerHabitacionesTest}
-    \subitem {es.deusto.spq.client.ControllerTest}, \hyperpage{23}
+    \subitem {es.deusto.spq.client.ControllerTest}, 23
   \item {obtenerReservas}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{22}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{69}
+    \subitem {es.deusto.spq.client.Controller}, 22
+    \subitem {es.deusto.spq.client.ServiceLocator}, 69
   \item {obtenerReservasTest}
-    \subitem {es.deusto.spq.client.ControllerTest}, \hyperpage{23}
+    \subitem {es.deusto.spq.client.ControllerTest}, 23
 
   \indexspace
 
   \item {ReadAndLoad}
-    \subitem {es.deusto.spq.client.EstadisticaFeedback}, \hyperpage{32}
+    \subitem {es.deusto.spq.client.EstadisticaFeedback}, 32
   \item {registrarCliente}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{47}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{55}
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 47
+    \subitem {es.deusto.spq.server.RemoteFacade}, 55
   \item {registrarClienteTest}
-    \subitem {es.deusto.spq.server.RemoteFacadeTest}, \hyperpage{57}
+    \subitem {es.deusto.spq.server.RemoteFacadeTest}, 57
   \item {registrarReserva}
-    \subitem {es.deusto.spq.server.IRemoteFacade}, \hyperpage{47}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{55}
+    \subitem {es.deusto.spq.server.IRemoteFacade}, 47
+    \subitem {es.deusto.spq.server.RemoteFacade}, 55
   \item {registrarUsuarioTest}
-    \subitem {es.deusto.spq.client.ControllerTest}, \hyperpage{23}
+    \subitem {es.deusto.spq.client.ControllerTest}, 23
   \item {RemoteFacade}
-    \subitem {es.deusto.spq.server.RemoteFacade}, \hyperpage{52}
+    \subitem {es.deusto.spq.server.RemoteFacade}, 52
   \item {Reserva}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{58, 59}
+    \subitem {es.deusto.spq.client.Reserva}, 58, 59
   \item {RWException}
-    \subitem {es.deusto.spq.client.RWException}, \hyperpage{63}
+    \subitem {es.deusto.spq.client.RWException}, 63
 
   \indexspace
 
   \item {seleccionaUsuarioBD}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{29}
+    \subitem {es.deusto.spq.server.DBManager}, 29
   \item {ServiceLocator}
-    \subitem {es.deusto.spq.client.ServiceLocator}, \hyperpage{65}
+    \subitem {es.deusto.spq.client.ServiceLocator}, 65
   \item {serviceLocator}
-    \subitem {es.deusto.spq.client.Controller}, \hyperpage{22}
+    \subitem {es.deusto.spq.client.Controller}, 22
   \item {setAnyo}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{35}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{60}
+    \subitem {es.deusto.spq.client.Evento}, 35
+    \subitem {es.deusto.spq.client.Reserva}, 60
   \item {setApellido}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{13}
+    \subitem {es.deusto.spq.client.Cliente}, 13
   \item {setCodigo}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{35}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{43}
+    \subitem {es.deusto.spq.client.Evento}, 35
+    \subitem {es.deusto.spq.client.Habitacion}, 43
   \item {setCodigoHabitacion}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{60}
+    \subitem {es.deusto.spq.client.Reserva}, 60
   \item {setCodigoReserva}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{60}
+    \subitem {es.deusto.spq.client.Reserva}, 60
   \item {setContrasenya}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{14}
+    \subitem {es.deusto.spq.client.Cliente}, 14
   \item {setDescripcion}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{36}
+    \subitem {es.deusto.spq.client.Evento}, 36
   \item {setDia}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{36}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{61}
+    \subitem {es.deusto.spq.client.Evento}, 36
+    \subitem {es.deusto.spq.client.Reserva}, 61
   \item {setDNI}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{14}
+    \subitem {es.deusto.spq.client.Cliente}, 14
   \item {setEmail}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{14}
-    \subitem {es.deusto.spq.client.Feedback}, \hyperpage{38}
+    \subitem {es.deusto.spq.client.Cliente}, 14
+    \subitem {es.deusto.spq.client.Feedback}, 38
   \item {setEmailUsuario}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{61}
+    \subitem {es.deusto.spq.client.Reserva}, 61
   \item {setEsAdmin}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{14}
+    \subitem {es.deusto.spq.client.Cliente}, 14
   \item {setHora}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{36}
+    \subitem {es.deusto.spq.client.Evento}, 36
   \item {setMes}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{36}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{61}
+    \subitem {es.deusto.spq.client.Evento}, 36
+    \subitem {es.deusto.spq.client.Reserva}, 61
   \item {setNombre}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{14}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{36}
+    \subitem {es.deusto.spq.client.Cliente}, 14
+    \subitem {es.deusto.spq.client.Evento}, 36
   \item {setNumCamas}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{43}
+    \subitem {es.deusto.spq.client.Habitacion}, 43
   \item {setNumMaxPersonas}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{36}
+    \subitem {es.deusto.spq.client.Evento}, 36
   \item {setOcupada}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{43}
+    \subitem {es.deusto.spq.client.Habitacion}, 43
   \item {setPrecio}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{43}
+    \subitem {es.deusto.spq.client.Habitacion}, 43
   \item {setRecomendacion}
-    \subitem {es.deusto.spq.client.Feedback}, \hyperpage{39}
+    \subitem {es.deusto.spq.client.Feedback}, 39
   \item {setUp}
-    \subitem {es.deusto.spq.client.ClienteTest}, \hyperpage{16}
-    \subitem {es.deusto.spq.client.HabitacionTest}, \hyperpage{44}
-    \subitem {es.deusto.spq.client.ReservaTest}, \hyperpage{63}
+    \subitem {es.deusto.spq.client.ClienteTest}, 16
+    \subitem {es.deusto.spq.client.HabitacionTest}, 44
+    \subitem {es.deusto.spq.client.ReservaTest}, 63
   \item {setValoracion}
-    \subitem {es.deusto.spq.client.Feedback}, \hyperpage{39}
+    \subitem {es.deusto.spq.client.Feedback}, 39
   \item {si}
-    \subitem {es.deusto.spq.client.Feedback.Recomendacion}, 
-		\hyperpage{51}
+    \subitem {es.deusto.spq.client.Feedback.Recomendacion}, 51
   \item {siNo}
-    \subitem {es.deusto.spq.client.EstadisticaFeedback}, \hyperpage{32}
-  \item {src/main/java/es/deusto/spq/client/Cliente.java}, 
-		\hyperpage{81}
-  \item {src/main/java/es/deusto/spq/client/Controller.java}, 
-		\hyperpage{81}
+    \subitem {es.deusto.spq.client.EstadisticaFeedback}, 32
+  \item {src/main/java/es/deusto/spq/client/Cliente.java}, 81
+  \item {src/main/java/es/deusto/spq/client/Controller.java}, 81
   \item {src/main/java/es/deusto/spq/client/EstadisticaFeedback.java}, 
-		\hyperpage{81}
-  \item {src/main/java/es/deusto/spq/client/Evento.java}, 
-		\hyperpage{82}
-  \item {src/main/java/es/deusto/spq/client/Feedback.java}, 
-		\hyperpage{82}
-  \item {src/main/java/es/deusto/spq/client/GetProperties.java}, 
-		\hyperpage{82}
-  \item {src/main/java/es/deusto/spq/client/gui/VentanaAdmin.java}, 
-		\hyperpage{83}
+		81
+  \item {src/main/java/es/deusto/spq/client/Evento.java}, 82
+  \item {src/main/java/es/deusto/spq/client/Feedback.java}, 82
+  \item {src/main/java/es/deusto/spq/client/GetProperties.java}, 82
+  \item {src/main/java/es/deusto/spq/client/gui/VentanaAdmin.java}, 83
   \item {src/main/java/es/deusto/spq/client/gui/VentanaCrearEvento.java}, 
-		\hyperpage{83}
+		83
   \item {src/main/java/es/deusto/spq/client/gui/VentanaDatosCliente.java}, 
-		\hyperpage{83}
+		83
   \item {src/main/java/es/deusto/spq/client/gui/VentanaEstadisticas.java}, 
-		\hyperpage{83}
+		83
   \item {src/main/java/es/deusto/spq/client/gui/VentanaEventos.java}, 
-		\hyperpage{84}
+		84
   \item {src/main/java/es/deusto/spq/client/gui/VentanaFeedback.java}, 
-		\hyperpage{84}
+		84
   \item {src/main/java/es/deusto/spq/client/gui/VentanaInicioSesion.java}, 
-		\hyperpage{84}
-  \item {src/main/java/es/deusto/spq/client/gui/VentanaMenu.java}, 
-		\hyperpage{84}
+		84
+  \item {src/main/java/es/deusto/spq/client/gui/VentanaMenu.java}, 84
   \item {src/main/java/es/deusto/spq/client/gui/VentanaMostrarReservas.java}, 
-		\hyperpage{85}
+		85
   \item {src/main/java/es/deusto/spq/client/gui/VentanaRegistro.java}, 
-		\hyperpage{85}
+		85
   \item {src/main/java/es/deusto/spq/client/gui/VentanaReservas.java}, 
-		\hyperpage{85}
+		85
   \item {src/main/java/es/deusto/spq/client/gui/VentanaReservasAdmin.java}, 
-		\hyperpage{85}
+		85
   \item {src/main/java/es/deusto/spq/client/gui/VentanaUsuariosAdmin.java}, 
-		\hyperpage{86}
-  \item {src/main/java/es/deusto/spq/client/Habitacion.java}, 
-		\hyperpage{86}
-  \item {src/main/java/es/deusto/spq/client/Main.java}, \hyperpage{86}
-  \item {src/main/java/es/deusto/spq/client/Reserva.java}, 
-		\hyperpage{87}
-  \item {src/main/java/es/deusto/spq/client/RWException.java}, 
-		\hyperpage{87}
-  \item {src/main/java/es/deusto/spq/client/ServiceLocator.java}, 
-		\hyperpage{87}
-  \item {src/main/java/es/deusto/spq/server/DBManager.java}, 
-		\hyperpage{87}
-  \item {src/main/java/es/deusto/spq/server/GetProperties.java}, 
-		\hyperpage{82}
-  \item {src/main/java/es/deusto/spq/server/IRemoteFacade.java}, 
-		\hyperpage{88}
-  \item {src/main/java/es/deusto/spq/server/Main.java}, \hyperpage{86}
-  \item {src/main/java/es/deusto/spq/server/RemoteFacade.java}, 
-		\hyperpage{88}
-  \item {src/test/java/es/deusto/spq/client/ClienteTest.java}, 
-		\hyperpage{88}
-  \item {src/test/java/es/deusto/spq/client/ControllerTest.java}, 
-		\hyperpage{88}
-  \item {src/test/java/es/deusto/spq/client/HabitacionTest.java}, 
-		\hyperpage{89}
-  \item {src/test/java/es/deusto/spq/client/ReservaTest.java}, 
-		\hyperpage{89}
-  \item {src/test/java/es/deusto/spq/server/RemoteFacadeTest.java}, 
-		\hyperpage{89}
+		86
+  \item {src/main/java/es/deusto/spq/client/Habitacion.java}, 86
+  \item {src/main/java/es/deusto/spq/client/Main.java}, 86
+  \item {src/main/java/es/deusto/spq/client/Reserva.java}, 87
+  \item {src/main/java/es/deusto/spq/client/RWException.java}, 87
+  \item {src/main/java/es/deusto/spq/client/ServiceLocator.java}, 87
+  \item {src/main/java/es/deusto/spq/server/DBManager.java}, 87
+  \item {src/main/java/es/deusto/spq/server/GetProperties.java}, 82
+  \item {src/main/java/es/deusto/spq/server/IRemoteFacade.java}, 88
+  \item {src/main/java/es/deusto/spq/server/Main.java}, 86
+  \item {src/main/java/es/deusto/spq/server/RemoteFacade.java}, 88
+  \item {src/test/java/es/deusto/spq/client/ClienteTest.java}, 88
+  \item {src/test/java/es/deusto/spq/client/ControllerTest.java}, 88
+  \item {src/test/java/es/deusto/spq/client/HabitacionTest.java}, 89
+  \item {src/test/java/es/deusto/spq/client/ReservaTest.java}, 89
+  \item {src/test/java/es/deusto/spq/server/RemoteFacadeTest.java}, 89
   \item {startServer}
-    \subitem {es.deusto.spq.server.Main}, \hyperpage{50}
+    \subitem {es.deusto.spq.server.Main}, 50
   \item {store}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{30}
+    \subitem {es.deusto.spq.server.DBManager}, 30
   \item {storeObjectInDB}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{30}
+    \subitem {es.deusto.spq.server.DBManager}, 30
 
   \indexspace
 
   \item {toString}
-    \subitem {es.deusto.spq.client.Cliente}, \hyperpage{14}
-    \subitem {es.deusto.spq.client.Evento}, \hyperpage{37}
-    \subitem {es.deusto.spq.client.Feedback}, \hyperpage{39}
-    \subitem {es.deusto.spq.client.Habitacion}, \hyperpage{43}
-    \subitem {es.deusto.spq.client.Reserva}, \hyperpage{61}
+    \subitem {es.deusto.spq.client.Cliente}, 14
+    \subitem {es.deusto.spq.client.Evento}, 37
+    \subitem {es.deusto.spq.client.Feedback}, 39
+    \subitem {es.deusto.spq.client.Habitacion}, 43
+    \subitem {es.deusto.spq.client.Reserva}, 61
 
   \indexspace
 
   \item {update}
-    \subitem {es.deusto.spq.server.DBManager}, \hyperpage{31}
+    \subitem {es.deusto.spq.server.DBManager}, 31
 
   \indexspace
 
   \item {VentanaAdmin}
-    \subitem {es.deusto.spq.client.gui.VentanaAdmin}, \hyperpage{69}
+    \subitem {es.deusto.spq.client.gui.VentanaAdmin}, 69
   \item {VentanaCrearEvento}
-    \subitem {es.deusto.spq.client.gui.VentanaCrearEvento}, 
-		\hyperpage{70}
+    \subitem {es.deusto.spq.client.gui.VentanaCrearEvento}, 70
   \item {VentanaDatosCliente}
-    \subitem {es.deusto.spq.client.gui.VentanaDatosCliente}, 
-		\hyperpage{71}
+    \subitem {es.deusto.spq.client.gui.VentanaDatosCliente}, 71
   \item {VentanaEstadisticas}
-    \subitem {es.deusto.spq.client.gui.VentanaEstadisticas}, 
-		\hyperpage{72}
+    \subitem {es.deusto.spq.client.gui.VentanaEstadisticas}, 72
   \item {VentanaEventos}
-    \subitem {es.deusto.spq.client.gui.VentanaEventos}, \hyperpage{72}
+    \subitem {es.deusto.spq.client.gui.VentanaEventos}, 72
   \item {VentanaFeedback}
-    \subitem {es.deusto.spq.client.gui.VentanaFeedback}, \hyperpage{73}
+    \subitem {es.deusto.spq.client.gui.VentanaFeedback}, 73
   \item {VentanaInicioSesion}
-    \subitem {es.deusto.spq.client.gui.VentanaInicioSesion}, 
-		\hyperpage{74}
+    \subitem {es.deusto.spq.client.gui.VentanaInicioSesion}, 74
   \item {VentanaMenu}
-    \subitem {es.deusto.spq.client.gui.VentanaMenu}, \hyperpage{75}
+    \subitem {es.deusto.spq.client.gui.VentanaMenu}, 75
   \item {VentanaMostrarReservas}
-    \subitem {es.deusto.spq.client.gui.VentanaMostrarReservas}, 
-		\hyperpage{76}
+    \subitem {es.deusto.spq.client.gui.VentanaMostrarReservas}, 76
   \item {VentanaRegistro}
-    \subitem {es.deusto.spq.client.gui.VentanaRegistro}, \hyperpage{77}
+    \subitem {es.deusto.spq.client.gui.VentanaRegistro}, 77
   \item {VentanaReservas}
-    \subitem {es.deusto.spq.client.gui.VentanaReservas}, \hyperpage{77}
+    \subitem {es.deusto.spq.client.gui.VentanaReservas}, 77
   \item {VentanaReservasAdmin}
-    \subitem {es.deusto.spq.client.gui.VentanaReservasAdmin}, 
-		\hyperpage{79}
+    \subitem {es.deusto.spq.client.gui.VentanaReservasAdmin}, 79
   \item {VentanaUsuariosAdmin}
-    \subitem {es.deusto.spq.client.gui.VentanaUsuariosAdmin}, 
-		\hyperpage{79}
+    \subitem {es.deusto.spq.client.gui.VentanaUsuariosAdmin}, 79
 
 \end{theindex}
