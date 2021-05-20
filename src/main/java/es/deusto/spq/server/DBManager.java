@@ -56,6 +56,8 @@ public class DBManager {
 		deleteClientes();
 		deletehabitaciones();
 		deleteReservas();
+		deleteEventos();
+		deleteReservaEventos();
 		
 	}
 	
@@ -435,6 +437,64 @@ public class DBManager {
 
 			for (Reserva reserva : extent) {
 				pm.deletePersistent(reserva);
+			}
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+	}
+	
+	public void deleteEventos() {
+		List<Evento> eventos = new ArrayList<Evento>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+
+			tx.begin();
+
+			Extent<Evento> extent = pm.getExtent(Evento.class, true);
+
+			for (Evento evento : extent) {
+				pm.deletePersistent(evento);
+			}
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+	}
+	
+	public void deleteReservaEventos() {
+		List<ReservaEvento> eventos = new ArrayList<ReservaEvento>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+
+		try {
+
+			tx.begin();
+
+			Extent<ReservaEvento> extent = pm.getExtent(ReservaEvento.class, true);
+
+			for (ReservaEvento evento : extent) {
+				pm.deletePersistent(evento);
 			}
 
 			tx.commit();
