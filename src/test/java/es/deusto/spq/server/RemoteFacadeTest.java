@@ -55,12 +55,15 @@ public class RemoteFacadeTest {
 	@Test
 	public void encontrarHabitacionTest() {
 		remote = RemoteFacade.getInstance();
+		assertNotNull(remote.encontrarHabitacion("H01"));
 		assertNull(remote.encontrarHabitacion("H99"));
 	}
+	
 	
 	@Test
 	public void encontrarReservaTest() {
 		remote = RemoteFacade.getInstance();
+		assertNotNull(remote.encontrarReserva("R01"));
 		assertNull(remote.encontrarReserva("R25"));
 	}
 	
