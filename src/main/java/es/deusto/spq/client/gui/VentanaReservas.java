@@ -178,7 +178,7 @@ public class VentanaReservas extends JFrame {
 					JOptionPane.showMessageDialog(null, "No se ha podido registrar la reserva.");
 				}
 				if (condicion == true) {
-					condicion = controller.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
+					condicion = controller.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario);
 					JOptionPane.showMessageDialog(null, "Reserva registrada correctamente.");
 				}
 			}

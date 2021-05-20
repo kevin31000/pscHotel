@@ -77,29 +77,6 @@ public class VentanaReservarEventos extends JFrame {
 		bReservar.setText("Reservar");
 		contentpane.add(bReservar);
 
-		comboDisponibilidadDia.setFont(new Font("Arial", Font.BOLD, 16));
-		comboDisponibilidadDia.setBounds(500, 360, 190, 30);
-		comboDisponibilidadDia.addItem("ESCOJA EL DIA");
-		for (int i = 1; i < 32; i++) {
-			comboDisponibilidadDia.addItem(Integer.toString(i));
-		}
-		contentpane.add(comboDisponibilidadDia);
-
-		comboDisponibilidadMes.setFont(new Font("Arial", Font.BOLD, 16));
-		comboDisponibilidadMes.setBounds(500, 260, 190, 30);
-		comboDisponibilidadMes.addItem("ESCOJA EL MES");
-		for (int i = 1; i < 13; i++) {
-			comboDisponibilidadMes.addItem(Integer.toString(i));
-		}
-		contentpane.add(comboDisponibilidadMes);
-
-		comboDisponibilidadAnyo.setFont(new Font("Arial", Font.BOLD, 16));
-		comboDisponibilidadAnyo.setBounds(500, 160, 190, 30);
-		comboDisponibilidadAnyo.addItem("ESCOJA EL ANYO");
-		for (int i = 2021; i < 2031; i++) {
-			comboDisponibilidadAnyo.addItem(Integer.toString(i));
-		}
-		contentpane.add(comboDisponibilidadAnyo);
 		
 		bAtras.addActionListener(new ActionListener() {
 			@Override
@@ -119,9 +96,7 @@ public class VentanaReservarEventos extends JFrame {
 				String codigoReserva = "";
     			String codigoEvento = "";				
 				String emailUsuario = "";
-				int dia = 0;
-				int mes = 0;
-				int anyo = 0;
+				
 			
 				int nReserva = eventos.size() + 1;
 				if (nReserva < 10) {
@@ -141,28 +116,17 @@ public class VentanaReservarEventos extends JFrame {
 				} catch (IOException e2) {
 					e2.printStackTrace();
 				}
-				if (objetoP.getProperty("email") != null) {
-					emailUsuario = objetoP.getProperty("email");
-				}
-				if (comboDisponibilidadDia.getSelectedItem().toString() != "ESCOJA EL DIA") {
-					dia = Integer.parseInt(comboDisponibilidadDia.getSelectedItem().toString());
-				}
-				if (comboDisponibilidadMes.getSelectedItem().toString() != "ESCOJA EL MES") {
-					mes = Integer.parseInt(comboDisponibilidadMes.getSelectedItem().toString());
-				}
-				if (comboDisponibilidadAnyo.getSelectedItem().toString() != "ESCOJA EL ANYO") {
-					anyo = Integer.parseInt(comboDisponibilidadAnyo.getSelectedItem().toString());
-				}
+				
 				
 				boolean condicion = false;
-				if (listEventos.isSelectionEmpty() != true && dia != 0 && mes != 0 && anyo != 0) {
-					condicion = existeReservaEvento(reservasEvento, codigoEvento, dia, mes, anyo);
+				if (listEventos.isSelectionEmpty() != true ) {
+					condicion = existeReservaEvento(reservasEvento, codigoEvento);
 					//condicion = sobrepasaAforoMaximo(reservasEvento, eventos, codigoEvento);
 				} else {
 					JOptionPane.showMessageDialog(null, "No se ha podido registrar la reserva.");
 				}
 				if (condicion == true) {
-					condicion = controller.anadirReserva(codigoReserva, codigoEvento, emailUsuario, dia, mes, anyo);
+					condicion = controller.anadirReserva(codigoReserva, codigoEvento, emailUsuario);
 					JOptionPane.showMessageDialog(null, "Reserva registrada correctamente.");
 				}
 			}
@@ -175,9 +139,9 @@ public class VentanaReservarEventos extends JFrame {
 	}
 
 	public static boolean existeReservaEvento(ArrayList<ReservaEvento> reservasEvento,
-	String codigoEvento,int dia, int mes, int anyo) {
+	String codigoEvento) {
 		for (ReservaEvento reservaEvento : reservasEvento) {
-			if (codigoEvento.equals(reservaEvento.getCodigoEvento()) && dia == reservaEvento.getDia() && mes == reservaEvento.getMes() && anyo == reservaEvento.getAnyo()) {
+			if (codigoEvento.equals(reservaEvento.getCodigoEvento()) ) {
 					JOptionPane.showMessageDialog(null, "Reserva repetida.");
 					return false;
 			}

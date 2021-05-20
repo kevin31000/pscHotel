@@ -97,20 +97,14 @@ public class ServiceLocator {
 	 * @param codigoReserva codigo de la reserva a registrar 
 	 * @param codigoHabitacion codigo de la habitacion que sera reservada
 	 * @param emailUsuario email del usuario que reserva
-	 * @param dia dia de la reserva 
-	 * @param mes mes de la reserva 
-	 * @param anyo anyo de la reserva 
 	 * @return Devuelve un booleano el cual es true si no ha habido ningún error.
 	 */
-	public boolean anadirReserva(String codigoReserva, String codigoHabitacion, String emailUsuario, int dia, int mes, int anyo) {
+	public boolean anadirReserva(String codigoReserva, String codigoHabitacion, String emailUsuario) {
 		WebTarget registerUserWebTarget = webTarget.path("server/registroReserva");
 		Reserva r = new Reserva();
 		r.setCodigoReserva(codigoReserva);
 		r.setCodigoHabitacion(codigoHabitacion);
 		r.setEmailUsuario(emailUsuario);
-		r.setDia(dia);
-		r.setMes(mes);
-		r.setAnyo(anyo);
 		
 		Entity<Reserva> entity = Entity.entity(r, MediaType.APPLICATION_JSON);
 		Response response = registerUserWebTarget.request().post(entity);

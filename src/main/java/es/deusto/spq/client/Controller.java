@@ -72,14 +72,10 @@ public class Controller {
 	 * @param codigoReserva    codigo de la reserva a registrar
 	 * @param codigoHabitacion codigo de la habitacion que sera reservada
 	 * @param emailUsuario     email del usuario que reserva
-	 * @param dia              dia de la reserva
-	 * @param mes              mes de la reserva
-	 * @param anyo             anyo de la reserva
 	 * @return Devuelve un booleano el cual es true si no ha habido ningún error.
 	 */
-	public boolean anadirReserva(String codigoReserva, String codigoHabitacion, String emailUsuario, int dia, int mes,
-			int anyo) {
-		return serviceLocator.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario, dia, mes, anyo);
+	public boolean anadirReserva(String codigoReserva, String codigoHabitacion, String emailUsuario) {
+		return serviceLocator.anadirReserva(codigoReserva, codigoHabitacion, emailUsuario);
 	}
 
 	/**
