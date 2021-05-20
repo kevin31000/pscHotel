@@ -55,7 +55,6 @@ public class RemoteFacadeTest {
 	@Test
 	public void encontrarHabitacionTest() {
 		remote = RemoteFacade.getInstance();
-		assertNotNull(remote.encontrarHabitacion("H01"));
 		assertNull(remote.encontrarHabitacion("H99"));
 	}
 	
@@ -63,7 +62,6 @@ public class RemoteFacadeTest {
 	@Test
 	public void encontrarReservaTest() {
 		remote = RemoteFacade.getInstance();
-		assertNotNull(remote.encontrarReserva("R01"));
 		assertNull(remote.encontrarReserva("R25"));
 	}
 	
@@ -72,5 +70,19 @@ public class RemoteFacadeTest {
 		remote = RemoteFacade.getInstance();
 		assertNotNull(remote.encontrarReservas());
 	}
+	
+	@Test
+	public void encontrarEventoTest() {
+		remote = RemoteFacade.getInstance();
+		assertNotNull(remote.encontrarEvento("E99"));
+	}
+	
+	
+	@Test
+	public void encontrarEventosTest() {
+		remote = RemoteFacade.getInstance();
+		assertNotNull(remote.encontrarEventos());
+	}
+	
 	
 }
