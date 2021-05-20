@@ -209,6 +209,40 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.4.19.v20190610</version>
 			</plugin>
+			
+			<plugin>
+		        	<groupId>com.soebes.maven.plugins</groupId>
+		       		<artifactId>doxygen-maven-plugin</artifactId>
+		        	<version>1.1.0</version>
+		       		<configuration>
+		        		<configurationFile>${doxygen.config.file}</configurationFile>
+		        	</configuration>
+		     	</plugin>
+			
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/docs</outputDirectory>
+								<resources>          
+									<resource>
+									<directory>${basedir}/target/doxygen</directory>
+									<filtering>true</filtering>
+									</resource>
+								</resources>              
+						</configuration>            
+					</execution>
+				</executions>
+			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
@@ -292,5 +326,6 @@
 		<sonar.projectKey>kevin31000_pscHotel</sonar.projectKey>
 		<sonar.organization>kevin31000</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<doxygen.config.file>${basedir}/src/main/resources/Doxyfile</doxygen.config.file>
 	</properties>
 </project>

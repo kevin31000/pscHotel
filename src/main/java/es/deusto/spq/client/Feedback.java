@@ -59,7 +59,7 @@ public class Feedback {
 
 	@Override
 	public String toString() {
-		return "Feedback [Valoracion=" + valoracion + ", recomendacion=" + recomendacion + "]";
+		return "Feedback [email=" + email + ", valoracion=" + valoracion + ", recomendacion=" + recomendacion + "]";
 	}
 	
 	
