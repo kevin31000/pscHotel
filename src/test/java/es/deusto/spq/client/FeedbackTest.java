@@ -7,11 +7,6 @@ import org.junit.Test;
 
 import es.deusto.spq.client.Feedback.Recomendacion;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Before;
-import org.junit.Test;
-
 
 /**
  * Test de la clase Feedback

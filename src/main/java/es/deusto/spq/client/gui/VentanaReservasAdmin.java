@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.client.Reserva;
 import es.deusto.spq.client.ServiceLocator;

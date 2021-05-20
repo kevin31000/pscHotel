@@ -17,7 +17,6 @@ import javax.swing.border.EmptyBorder;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
-import es.deusto.spq.client.Reserva;
 import es.deusto.spq.client.ServiceLocator;
 
 public class VentanaEventos extends JFrame {

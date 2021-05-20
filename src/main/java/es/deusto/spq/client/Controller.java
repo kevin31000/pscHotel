@@ -5,8 +5,6 @@ import java.util.List;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import es.deusto.spq.client.Feedback.Recomendacion;
-
 /**
  * Clase que hace de conexion entre el ServiceLocator y las GUI.
  * 

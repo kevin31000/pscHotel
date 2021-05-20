@@ -1,8 +1,5 @@
 package es.deusto.spq.client.gui;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Toolkit;
 import java.util.logging.Level;
 
 import javax.swing.JFrame;

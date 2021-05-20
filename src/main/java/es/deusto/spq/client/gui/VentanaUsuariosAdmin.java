@@ -1,29 +1,25 @@
 package es.deusto.spq.client.gui;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.ws.rs.core.Response;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
-import es.deusto.spq.client.Habitacion;
 import es.deusto.spq.client.ServiceLocator;
-
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import javax.swing.JSplitPane;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
-import javax.swing.JTextPane;
-import javax.swing.JComboBox;
 
 public class VentanaUsuariosAdmin extends JFrame{
 	

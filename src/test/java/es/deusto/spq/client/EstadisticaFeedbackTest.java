@@ -81,7 +81,7 @@ public class EstadisticaFeedbackTest {
 	@Test
 	public void testReadAndLoad() {
 		try {
-			assertEquals(EstadisticaFeedback.ReadAndLoad().size(), 4);
+			assertEquals(EstadisticaFeedback.ReadAndLoad().size() ,4);
 
 			assertTrue(
 					(EstadisticaFeedback.ReadAndLoad().get(1) > 0) && (EstadisticaFeedback.ReadAndLoad().get(1) < 5));

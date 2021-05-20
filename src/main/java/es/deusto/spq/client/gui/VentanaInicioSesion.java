@@ -28,6 +28,7 @@ import javax.ws.rs.client.ClientBuilder;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.server.GetProperties;
 
+
 public class VentanaInicioSesion extends JFrame {
 
 	/**

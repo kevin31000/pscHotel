@@ -1,7 +1,9 @@
 package es.deusto.spq.server;
 
 import java.util.List;
+
 import javax.ws.rs.core.Response;
+
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Evento;
 import es.deusto.spq.client.Habitacion;

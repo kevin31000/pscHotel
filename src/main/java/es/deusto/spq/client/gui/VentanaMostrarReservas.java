@@ -19,6 +19,7 @@ import es.deusto.spq.client.Cliente;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.client.Reserva;
 
+
 public class VentanaMostrarReservas extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JPanel contentpane;

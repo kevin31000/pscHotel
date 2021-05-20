@@ -8,23 +8,20 @@ import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Properties;
 
 import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.client.Evento;
-import es.deusto.spq.client.Habitacion;
-import es.deusto.spq.client.Reserva;
 import es.deusto.spq.client.ReservaEvento;
 import es.deusto.spq.client.ServiceLocator;
 

@@ -16,8 +16,6 @@ import javax.ws.rs.core.Response.Status;
 
 import org.apache.log4j.Logger;
 
-import es.deusto.spq.client.Feedback.Recomendacion;
-
 
 
 /**Clase para la conexión entre el Controller y el RemoteFacade del servidor
