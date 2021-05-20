@@ -154,7 +154,7 @@ public class VentanaReservas extends JFrame {
 				}
 
 				//CodigoHabitacion sera los caracteres 12 a 14 de la Habitacion seleccionada en listHabitaciones
-				for (int i = 12; i < 15; i++) {
+				for (int i = 11; i < 14; i++) {
 					codigoHabitacion = codigoHabitacion + listHabitaciones.getSelectedValue().toString().charAt(i);
 				}
 				
@@ -178,8 +178,7 @@ public class VentanaReservas extends JFrame {
 				}
 				
 				boolean condicion = false;
-				if (listHabitaciones.isSelectionEmpty() != true && emailUsuario != ""
-				&& dia != 0 && mes != 0 && anyo != 0) {
+				if (listHabitaciones.isSelectionEmpty() != true && dia != 0 && mes != 0 && anyo != 0) {
 					condicion = existeReserva(reservas, codigoHabitacion, dia, mes, anyo);
 				} else {
 					JOptionPane.showMessageDialog(null, "No se ha podido registrar la reserva.");
@@ -198,29 +197,24 @@ public class VentanaReservas extends JFrame {
 	}
 
 	public static boolean existeReserva(ArrayList<Reserva> reservas, String codigoHabitacion, int dia, int mes, int anyo) {
-		boolean bool = true;
-
 		for (Reserva reserva : reservas) {
-			if (codigoHabitacion == reserva.getCodigoHabitacion() && dia == reserva.getDia() && mes == reserva.getMes() && anyo == reserva.getAnyo()) {
-				bool = false;
+			if (codigoHabitacion.equals(reserva.getCodigoHabitacion()) && dia == reserva.getDia() && mes == reserva.getMes() && anyo == reserva.getAnyo()) {
+				JOptionPane.showMessageDialog(null, "Habitacion ocupada.");
+				return false;				
 			}
 		}
-		
-		if (bool == false) {
-			JOptionPane.showMessageDialog(null, "Habitacion ocupada.");
-		}
 
-		return bool;
+		return true;
 	}
 
 	public static boolean hayRebajas() {
-		boolean bool = false;
 		Date fechaActual = new Date(); 
+
 		if (fechaActual.getMonth() == 0 || fechaActual.getMonth() == 4 || fechaActual.getMonth() == 6 || fechaActual.getMonth() == 7 || fechaActual.getMonth() == 8) {
-			bool = true;
+			return true;
 		}
-			
-		return bool;
+
+		return false;
 	}
 
 }
