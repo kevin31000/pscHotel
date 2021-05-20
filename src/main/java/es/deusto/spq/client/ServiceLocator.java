@@ -232,16 +232,14 @@ public class ServiceLocator {
 		return response;
 	}
 	
-	public boolean anadirEvento(String codigo, String nombre, String descripcion, int dia, int mes, int anyo, String hora, int numMaxPersonas) {
+	public boolean anadirEvento(String nombre, String descripcion, int dia, int mes, int anyo, int numMaxPersonas) {
 		WebTarget registerUserWebTarget = webTarget.path("server/registroEvento");
 		Evento e = new Evento();
-		e.setCodigo(codigo);
 		e.setNombre(nombre);
 		e.setDescripcion(descripcion);
 		e.setDia(dia);
 		e.setMes(mes);
 		e.setAnyo(anyo);
-		e.setHora(hora);
 		e.setNumMaxPersonas(numMaxPersonas);
 		
 		Entity<Evento> entity = Entity.entity(e, MediaType.APPLICATION_JSON);

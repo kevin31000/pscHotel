@@ -52,16 +52,6 @@ public class VentanaEventos extends JFrame {
 		listaEventos.setBounds(216, 92, 343, 416);
 		contentpane.add(listaEventos);
 
-		JButton bDatos = new JButton("VER DATOS");
-		bDatos.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		bDatos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-		bDatos.setBounds(608, 193, 142, 33);
-		contentpane.add(bDatos);
 
 		JButton bCrearEvento = new JButton("CREAR EVENTO");
 		bCrearEvento.setBackground(new Color(0, 102, 204));

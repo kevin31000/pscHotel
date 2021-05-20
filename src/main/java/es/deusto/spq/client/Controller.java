@@ -123,9 +123,8 @@ public class Controller {
 		return serviceLocator.borrarReserva(reserva);
 	}
 
-	public boolean anadirEvento(String codigo, String nombre, String descripcion, int dia, int mes, int anyo,
-			String hora, int numMaxPersonas) {
-		return serviceLocator.anadirEvento(codigo, nombre, descripcion, dia, mes, anyo, hora, numMaxPersonas);
+	public boolean anadirEvento( String nombre, String descripcion, int dia, int mes, int anyo,int numMaxPersonas) {
+		return serviceLocator.anadirEvento(nombre, descripcion, dia, mes, anyo, numMaxPersonas);
 	}
 
 	public Response borrarEvento(Evento evento) {

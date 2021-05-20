@@ -73,7 +73,7 @@ public class VentanaCrearEvento extends JFrame {
 
 		cPMax = new JComboBox<String>();
 		cPMax.setBounds(370, 222, 70, 20);
-
+		cPMax.addItem("ESCOJA EL NUM");
 		cPMax.addItem("1");	cPMax.addItem("2");	cPMax.addItem("3");	cPMax.addItem("4");	cPMax.addItem("5");	cPMax.addItem("6");	cPMax.addItem("7");	
 		cPMax.addItem("8");	cPMax.addItem("9");	cPMax.addItem("10"); cPMax.addItem("11"); cPMax.addItem("12"); cPMax.addItem("13"); cPMax.addItem("14"); 
 		cPMax.addItem("15"); cPMax.addItem("16"); cPMax.addItem("17"); cPMax.addItem("18"); cPMax.addItem("19"); cPMax.addItem("20"); cPMax.addItem("21"); 
@@ -93,10 +93,11 @@ public class VentanaCrearEvento extends JFrame {
 
 		lAnyo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lAnyo.setBounds(384, 254, 158, 26);
-
+		
 		cAnyo = new JComboBox<String>();
 		cAnyo.setBounds(370, 282, 70, 20);
 
+		cAnyo.addItem("ESCOJA EL ANYO");
 		cAnyo.addItem("2021"); cAnyo.addItem("2022"); cAnyo.addItem("2023"); cAnyo.addItem("2024"); cAnyo.addItem("2025"); cAnyo.addItem("2026");
 		cAnyo.addItem("2027"); cAnyo.addItem("2028"); cAnyo.addItem("2029");cAnyo.addItem("2030");
 
@@ -110,7 +111,7 @@ public class VentanaCrearEvento extends JFrame {
 
 		cMes = new JComboBox<String>();
 		cMes.setBounds(498, 282, 55, 20);
-
+		cMes.addItem("ESCOJA EL MES");
 		cMes.addItem("1"); cMes.addItem("2"); cMes.addItem("3"); cMes.addItem("4"); cMes.addItem("5"); cMes.addItem("6"); cMes.addItem("7");
 		cMes.addItem("8"); cMes.addItem("9"); cMes.addItem("10"); cMes.addItem("11"); cMes.addItem("12");
 
@@ -122,7 +123,7 @@ public class VentanaCrearEvento extends JFrame {
 
 		cDia = new JComboBox<String>();
 		cDia.setBounds(611, 282, 55, 20);
-
+		cDia.addItem("ESCOJA EL DIA");
 		cDia.addItem("1"); cDia.addItem("2"); cDia.addItem("3"); cDia.addItem("4"); cDia.addItem("5"); cDia.addItem("6"); cDia.addItem("7"); cDia.addItem("8");
 		cDia.addItem("9"); cDia.addItem("10"); cDia.addItem("11"); cDia.addItem("12"); cDia.addItem("13"); cDia.addItem("14"); cDia.addItem("15"); cDia.addItem("16");
 		cDia.addItem("17"); cDia.addItem("18"); cDia.addItem("19"); cDia.addItem("20"); cDia.addItem("21"); cDia.addItem("22"); cDia.addItem("23"); cDia.addItem("24");
@@ -133,7 +134,7 @@ public class VentanaCrearEvento extends JFrame {
 
 		bCancelar.setForeground(SystemColor.text);
 		bCancelar.setBackground(new Color(0, 102, 204));
-		bCancelar.setBounds(778, 349, 142, 33);
+		bCancelar.setBounds(218, 410, 142, 33);
 		bCancelar.setText("CANCELAR");
 		contentpane.add(bCancelar);
 
@@ -148,6 +149,26 @@ public class VentanaCrearEvento extends JFrame {
 		lEventoNuevo.setBounds(127, 23, 300, 26);
 
 		contentpane.add(lEventoNuevo);
+		
+		JButton bAtras = new JButton();
+		bAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaEventos eventos;
+				try {
+					eventos = new VentanaEventos(controller);
+					eventos.setVisible(true);
+					VentanaCrearEvento.this.dispose();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+			}
+		});
+		bAtras.setText("ATRAS");
+		bAtras.setForeground(Color.WHITE);
+		bAtras.setFont(new Font("Tahoma", Font.BOLD, 13));
+		bAtras.setBackground(new Color(0, 102, 204));
+		bAtras.setBounds(778, 349, 142, 33);
+		contentpane.add(bAtras);
 
 		bCancelar.addActionListener(new ActionListener() {
 
@@ -167,11 +188,41 @@ public class VentanaCrearEvento extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				try {
-
-				} catch (Exception e2) {
-					// TODO: handle exception
+				
+				boolean error = false;
+				boolean correcto = false;
+				int num = 0;
+				int anyo = 0;
+				int mes = 0;
+				int dia = 0;
+				
+				
+				if (cAnyo.getSelectedItem().toString() != "ESCOJA EL ANYO") {
+					anyo = Integer.parseInt(cAnyo.getSelectedItem().toString());
+				}
+				if (cPMax.getSelectedItem().toString() != "ESCOJA EL NUM") {
+					num = Integer.parseInt(cPMax.getSelectedItem().toString());
+				}
+				if (cMes.getSelectedItem().toString() != "ESCOJA EL MES") {
+					mes = Integer.parseInt(cMes.getSelectedItem().toString());
+				}
+				if (cDia.getSelectedItem().toString() != "ESCOJA EL DIA") {
+					dia = Integer.parseInt(cDia.getSelectedItem().toString());
+				}
+				
+				if(tNombreEvento.getText().equals("") || tDescripcionEvento.getText().equals("") 
+						|| cPMax.getSelectedItem().toString().isEmpty() || cAnyo.getSelectedItem().toString().isEmpty() || 
+						cMes.getSelectedItem().toString().isEmpty() || cDia.getSelectedItem().toString().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					VentanaCrearEvento.this.repaint();
+					error = true;
+				}else if (!error) {
+					controller.anadirEvento(tNombreEvento.getText(), tDescripcionEvento.getText(), dia, mes, anyo ,num );
+					correcto= true;
+				}
+				
+				if (correcto) {
+					JOptionPane.showMessageDialog(null, "Evento registrado correctamente.");
 				}
 
 			}

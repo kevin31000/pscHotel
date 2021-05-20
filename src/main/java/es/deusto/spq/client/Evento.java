@@ -122,7 +122,7 @@ public class Evento {
 
 	@Override
 	public String toString() {
-		return "Evento " + codigo + " " + nombre + "." + dia + "/" + mes + "/" + anyo + ", " + hora;
+		return "Evento " + codigo + " " + nombre + "." + dia + "/" + mes + "/" + anyo + ", " + hora +", " +numMaxPersonas;
 	}
 	
 	
